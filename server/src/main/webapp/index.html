@@ -32,15 +32,20 @@
 	<div id="inscription">
 		<div>
 			<h1>Inscription :</h1>
-			<input type="text" name="userdb" id="user" placeholder="Nom"
-				class="form-control" /> <input type="text" name="user" id="alias"
-				placeholder="Surnom" class="form-control" /> <input type="text"
+			<input type="text" name="userdb" id="name" placeholder="Nom"
+				class="form-control" /> 
+            <input type="text" name="user" id="firstname"
+				placeholder="prenom" class="form-control" /> 
+            <input type="text"
 				name="email" id="email" placeholder="Email" class="form-control" />
 			<input type="password" name="user" id="passwd"
-				placeholder="Mot de passe" class="form-control" /> <input
+				placeholder="Mot de passe" class="form-control" /> 
+            <input
 				type="radio" id="freelance" name="type" value="freelance" checked>
-			<
-            label for="freelance">Freelance</label> <input type="radio"
+			
+            <label for="freelance">Freelance</label> 
+            
+            <input type="radio"
 				id="entreprise" name="type" value="entreprise"> 
             
             <label for="entreprise">Entreprise</label>
@@ -54,8 +59,10 @@
 		<h1>S'identifier :</h1>
 		<div id="login_form">
 			<input type="text" name="user" id="userlogin" placeholder="Login"
-				class="form-control" /> <input type="password" name="password"
-				id="passwdlogin" placeholder="Password" class="form-control" /> <br />
+				class="form-control" /> 
+            <input type="password" name="password"
+				id="passwdlogin" placeholder="Password" class="form-control" /> 
+            <br />
 			<button id="login" class="btn btn-default">Login</button>
 			<br />
 		</div>
@@ -204,11 +211,12 @@
 					$("#get").click(function() {
 						getUser($('#user').val(), $('#alias').val())
 					});
+                    
 					$("#post").click(
 							function() {
-								postUser($('#user').val(), $('#alias').val(),
-										$('#email').val(), $('#passwd').val())
-							});
+								postUser($('#name').val(), $('#firstname').val(),
+										$('#email').val(), $('#passwd').val(), $('input[name=type]:checked').val())
+							}, console.log("Ok pour le post"));
 					$("#list").click(function() {
 						listUsers()
 					});

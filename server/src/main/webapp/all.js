@@ -41,8 +41,13 @@ function profile() {
      }
  }
 
-function postUser(name, alias, email, pwd) {
-    postUserGeneric(name, alias, email, pwd, 'v1/freelance/')
+function postUser(name, firstname, email, pwd, type) {
+    if(type == "freelance"){
+        postFreelance(name, firstname,email, pwd)
+    }
+    if (type == "entreprise"){
+        postEntreprise(name, firstname,email, pwd)
+    }
 }
 
 function postUserGeneric(name, alias, email, pwd, url) {
