@@ -25,7 +25,9 @@
         </div>
         <div class="actions">
             <p id="inscrire">Inscription</p>
-            <p id ="connexion">Connnexion</p>
+            <p id="connexion">Connexion</p>
+            <p id="freelance">FREELANCE</p>
+            <p id="entreprise">ENTREPRISE</p>
         </div>
 	</nav>
 
@@ -55,7 +57,7 @@
 			<button type="button" id="post" class="btn btn-primary">S'inscrire</button>
 		</div>
 	</div>
-	<div id="login">
+	<div id="identification">
 		<h1>S'identifier :</h1>
 		<div id="login_form">
 			<input type="text" name="user" id="userlogin" placeholder="Login"
@@ -129,7 +131,7 @@
 		</div>
 	</div>
 
-	<div class="kezako">
+	<div class="kesako">
 		<div class="texte_kezako">
 			<h1>KESAKO ?</h1>
 			<p></p>
@@ -192,21 +194,39 @@
 
 
 	<script type="text/javascript">
-		$('#login').hide();
+		$('#identification').hide();
 		$('#inscription').hide();
 
 		$(document).ready(
 				function() {
 
 					$("#inscrire").click(function() {
-                        $('#login').hide()
-						$('#inscription').show()
+                        $('#identification').hide();
+                        $('.entreprise').hide();
+                        $('.entete').hide();
+                        $('.kesako').hide();
+                        $('.inscription_entreprise').hide();
+                        $('.proposition_profil').hide();
+						$('#inscription').show();
 					});
 
 					$("#connexion").click(function() {
                         $('#inscription').hide()
-						$('#login').show()
+						$('#identification').show()
 					});
+                    
+                    
+                    $("#freelance").click(function() {
+                        $('#inscription').hide()
+                        $('.entreprise').hide();
+                        $('#identification').hide()
+                        $('.proposition_profil').hide()
+                        $('.kesako').show()
+                        $('.entete').hide();
+                        $('.inscription_entreprise').show();
+					});
+                    
+                   
 
 					$("#get").click(function() {
 						getUser($('#user').val(), $('#alias').val())
@@ -217,12 +237,15 @@
 								postUser($('#name').val(), $('#firstname').val(),
 										$('#email').val(), $('#passwd').val(), $('input[name=type]:checked').val())
 							}, console.log("Ok pour le post"));
+                    
 					$("#list").click(function() {
 						listUsers()
 					});
+                    
 					$("#login").click(function() {
 						login();
 					});
+                    
 					$("#profile").click(function() {
 						profile()
 					});

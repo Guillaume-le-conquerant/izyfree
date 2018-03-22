@@ -10,7 +10,7 @@ function getUserGeneric(name, url) {
 
 function login() {
 	getWithAuthorizationHeader("v1/login", function(data){
-	    $("#login_form").hide();
+	    $("#connexion").hide();
 	    afficheUser(data);
 	});
 }
@@ -85,8 +85,7 @@ function postFreelance(name, firstname, email, pwd) {
 			"name" : name,
 			"firstname" : firstname,
 			"email" : email,
-			"password" : pwd,
-			"id" : 0
+			"password" : pwd
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
@@ -109,8 +108,7 @@ function postEntreprise(name, firstname, email, pwd) {
 			"name" : name,
 			"firstname" : firstname,
 			"email" : email,
-			"password" : pwd,
-			"id" : 0
+			"password" : pwd
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
@@ -133,8 +131,7 @@ function postStaff(name, alias, email, pwd, url) {
 			"name" : name,
 			"alias" : alias,
 			"email" : email,
-			"password" : pwd,
-			"id" : 0
+			"password" : pwd
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
