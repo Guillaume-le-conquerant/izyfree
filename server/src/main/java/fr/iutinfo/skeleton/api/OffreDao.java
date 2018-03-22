@@ -7,7 +7,7 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 import java.util.List;
 
 public interface OffreDao {
-    @SqlUpdate("create table offres (id integer primary key autoincrement, intitule varchar(100),dateDeb date, dateFin date, listeMots varchar(100), idEntreprise integer foreign key (idEntreprise) references Entreprise(id)")
+    @SqlUpdate("create table offres (id integer primary key autoincrement, intitule varchar(100),dateDeb date, dateFin date, listeMots varchar(100), idEntreprise integer, foreign key (idEntreprise) references entreprise(id))")
     void createOffreTable();
 
     @SqlUpdate("insert into offres (intitule,dateDeb,dateFin, listeMots, idEntreprise) values (:intitule, :dateDeb, :dateFin, :listeMots, :idEntreprise)")
