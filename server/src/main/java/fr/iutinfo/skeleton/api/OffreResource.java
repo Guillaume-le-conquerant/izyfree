@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 import fr.iutinfo.skeleton.common.dto.OffreDto;
 import fr.iutinfo.skeleton.common.dto.UserDto;
 
-@Path("/user")
+@Path("/offre")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class OffreResource {
@@ -51,7 +51,7 @@ public class OffreResource {
     }
 
     @GET
-    @Path("/{intitule}")
+    @Path("{intitule}")
     public OffreDto getOffre(@PathParam("intitule") String intitule) {
     	Offre offre = dao.findByIntitule(intitule);
         if (offre == null) {
@@ -73,7 +73,7 @@ public class OffreResource {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("{id}")
     public void deleteOffre(@PathParam("id") int id) {
         dao.delete(id);
     }
