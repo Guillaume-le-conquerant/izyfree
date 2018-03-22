@@ -6,65 +6,66 @@
 <!-- jQuery -->
 <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 
+<!-- Boostrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
 <!-- Code local -->
 <script src="all.js"></script>
-    
+
 <!-- Fichier de style -->
-    <link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<nav class="nav">
-        <div class="logo">
-            <img src="resources/IZYFREE%20RVB%20HORIZONTAL.png" alt="Logo IZYFREE"/>
-        </div>
-        <div class="rubriques">
-            <div><h3>NOS OFFRES</h3></div>
-            <div><h3>KESAKO</h3></div>
-            <div><h3>NOTRE MOTIVATION</h3></div>
-            <div><h3>CONTACT</h3></div>
-        </div>
-        <div class="actions">
-            <p id="inscrire">Inscription</p>
-            <p id="connexion">Connexion</p>
-            <p id="freelance">FREELANCE</p>
-            <p id="entreprise">ENTREPRISE</p>
-        </div>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<img src="resources/IZYFREE%20RVB%20HORIZONTAL.png" alt="Logo IZYFREE"
+			width=40% height=100px style="margin-top: 50px;" />
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="#nos_offres">NOS
+					OFFRES</a></li>
+			<li class="nav-item"><a class="nav-link" href="#kezako">KEZAKO</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="#notre_motivation">NOTRE MOTIVATION</a></li>
+			<li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
+		</ul>
+		<ul class="navbar-nav">
+			<li class="nav-item"><p id="inscrire" style="color: white">Inscription</p></li>
+			<li class="nav-item"><p id="connexion" style="color: white">Connexion</p></li>
+		</ul>
+		<ul class="navbar-nav">
+			<li class="nav-item"><input type="button" name="isfreelance"
+				id="isfreelance" value="FREELANCE"></li>
+			<li class="nav-item"><input type="button" name="isentreprise"
+				id="isentreprise" value="ENTREPRISE"></li>
+		</ul>
+		</ul>
 	</nav>
 
 	<div id="inscription">
 		<div>
 			<h1>Inscription :</h1>
 			<input type="text" name="userdb" id="name" placeholder="Nom"
-				class="form-control" /> 
-            <input type="text" name="user" id="firstname"
-				placeholder="prenom" class="form-control" /> 
-            <input type="text"
-				name="email" id="email" placeholder="Email" class="form-control" />
-			<input type="password" name="user" id="passwd"
-				placeholder="Mot de passe" class="form-control" /> 
-            <input
+				class="form-control" /> <input type="text" name="user"
+				id="firstname" placeholder="prenom" class="form-control" /> <input
+				type="text" name="email" id="email" placeholder="Email"
+				class="form-control" /> <input type="password" name="user"
+				id="passwd" placeholder="Mot de passe" class="form-control" /> <input
 				type="radio" id="freelance" name="type" value="freelance" checked>
-			
-            <label for="freelance">Freelance</label> 
-            
-            <input type="radio"
-				id="entreprise" name="type" value="entreprise"> 
-            
-            <label for="entreprise">Entreprise</label>
+
+			<label for="freelance">Freelance</label> <input type="radio"
+				id="entreprise" name="type" value="entreprise"> <label
+				for="entreprise">Entreprise</label>
 
 		</div>
 		<div>
 			<button type="button" id="post" class="btn btn-primary">S'inscrire</button>
 		</div>
 	</div>
-	<div id="identification">
+	<div id="login">
 		<h1>S'identifier :</h1>
 		<div id="login_form">
 			<input type="text" name="user" id="userlogin" placeholder="Login"
-				class="form-control" /> 
-            <input type="password" name="password"
-				id="passwdlogin" placeholder="Password" class="form-control" /> 
-            <br />
+				class="form-control" /> <input type="password" name="password"
+				id="passwdlogin" placeholder="Password" class="form-control" /> <br />
 			<button id="login" class="btn btn-default">Login</button>
 			<br />
 		</div>
@@ -72,66 +73,80 @@
 	</div>
 
 	<div class="entete">
-		<img src="resources/IZYFREE%20N&B.png" alt="en tete"
-			width="100%" height="500px" />
+		<img src="resources/accueil.png" alt="en tete" width="100%"
+			height="750px" />
 	</div>
 
-	<div class="inscription_entreprise">
-        <div class="texte_mission">
-            <p>ENTREPRISES,</p>
-            <p>A LA RECHERCHE DE TALENTS ?</p>
-        </div>
+	<div id="inscription_entreprise" style="background-color: lightblue;">
+		<div class="texte_mission">
+			<p>ENTREPRISES,</p>
+			<p>A LA RECHERCHE DE TALENTS ?</p>
+		</div>
 		<div class="form_mission">
 			<div class="form_gauche">
 				<input type="text" name="nom" id="nom" placeholder="NOM*" required>
-				 <input type="email" name="mail" id="mail"
-					placeholder="EMAIL*" required> <input type="text"
-					name="societe" id="societe" placeholder="SOCIETE*" required>
-				<input type="text" name="fonction" id="fonction"
-					placeholder="VOTRE FONCTION*" required> <input type="text"
-					name="profil" id="profil" placeholder="PROFIL RECHERCHE*" required>
-				<input type="text" name="ville" id="ville" placeholder="VILLE*"
-					required> <input type="tel" name="tel" id="tel"
-					placeholder="TELEPHONE*" required> 
-                <p>* CHAMPS OBLIGATOIRES</p>
-            </div>
-                
-                
-            <div class="form_droite">
-                <input type="text" name="prenom" id="prenom" placeholder="PRENOM*"
+				<input type="email" name="mail" id="mail" placeholder="EMAIL*"
+					required> <input type="text" name="societe" id="societe"
+					placeholder="SOCIETE*" required> <input type="text"
+					name="fonction" id="fonction" placeholder="VOTRE FONCTION*"
+					required> <input type="text" name="profil" id="profil"
+					placeholder="PROFIL RECHERCHE*" required> <input
+					type="text" name="ville" id="ville" placeholder="VILLE*" required>
+				<input type="tel" name="tel" id="tel" placeholder="TELEPHONE*"
 					required>
-                <input type="textarea"
-					name="champ_libre" id="libre"
+				<p>* CHAMPS OBLIGATOIRES</p>
+			</div>
+
+
+			<div class="form_droite">
+				<input type="text" name="prenom" id="prenom" placeholder="PRENOM*"
+					required> <input type="textarea" name="champ_libre"
+					id="libre"
 					placeholder="D'AUTRES INDICES POUR FAIRE APPARAITRE LE GENIE ?">
-                <div class="boutons_missions">
-                    <div class="descriptif_mission">
-                        <p>JE JOINS MON DESCRIPTIF DE MISSION</p>
-                    </div>
+				<div class="boutons_missions">
+					<div class="descriptif_mission">
+						<p>JE JOINS MON DESCRIPTIF DE MISSION</p>
+					</div>
 
-                    <div class="envoyer">
-                        <p>ENVOYER</p>
-                    </div>
-			   </div>
-		    </div>
-	    </div>
-    </div>
-
-	<div class="proposition_profil">
-		<div>4 images à la suite</div>
-		<input type="button" name="proposition" id="proposition"
-			value="JE PROPOSE MON PROFIL" />
-	</div>
-
-	<div class="entreprise">
-		<div class="texte_entrerprise"></div>
-		<div class="depot_mission">
-			<div>4 images à la suite</div>
-			<input type="button" name="proposition" id="proposition"
-				value="JE DEPOSE MON PROFIL" />
+					<div class="envoyer">
+						<p>ENVOYER</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div class="kesako">
+	<div id="nos_offres">
+		<div class="proposition_profil" style="background-color: lightyellow;">
+			<div>4 images à la suite</div>
+			<input type="button" name="proposition" id="proposition"
+				value="JE PROPOSE MON PROFIL" />
+		</div>
+
+		<div class="entreprise" style="background-color: lightblue;" )>
+			<div class="texte_entrerprise">
+				<h1>ENTREPRISES</h1>
+				<p>
+				<center>Dans un marché pénurique, IZYFREE prend en charge
+					le sourcing</center>
+				</p>
+				<p>
+				<center>de ceux qui vous aideront à faire avancer vos
+					projets,</center>
+				</p>
+				<p>
+				<center>et vous propose des profils qualifiés, motivés et
+					investis</center>
+				</p>
+			</div>
+			<div class="depot_mission">
+				<div>4 images à la suite</div>
+				<input type="button" name="proposition" id="proposition"
+					value="JE DEPOSE UNE MISSION" />
+			</div>
+		</div>
+	</div>
+	<div id="kezako">
 		<div class="texte_kezako">
 			<h1>KESAKO ?</h1>
 			<p></p>
@@ -181,6 +196,19 @@
 		</div>
 	</div>
 
+	<div id="notre_motivation">
+		<img src="resources/motivation.png" alt="en tete" width="100%"
+			height="800px" />
+	</div>
+
+	<div class="simplificateur"></div>
+
+	<div class="nos_missions" style="background-color: lightyellow;">
+		<h1>NOS MISSIONS</h1>
+		<h2>Découvrez nos dernières missions proposées</h2>
+		<div class="derniere_mission"></div>
+	</div>
+
 	<div class="contact">
 		<div>
 			<div class="benjamin_petit"></div>
@@ -194,61 +222,67 @@
 
 
 	<script type="text/javascript">
-		$('#identification').hide();
+		$('#login').hide();
 		$('#inscription').hide();
-
+		$('#inscription_entreprise').hide();
+		$('.entreprise').hide();
+		$('.depot_mission').hide();
+		$('.proposition_profil').hide();
+		$('.nos_missions').hide();
+		$('.nos_offres').hide();
+		
 		$(document).ready(
 				function() {
 
 					$("#inscrire").click(function() {
-                        $('#identification').hide();
-                        $('.entreprise').hide();
-                        $('.entete').hide();
-                        $('.kesako').hide();
-                        $('.inscription_entreprise').hide();
-                        $('.proposition_profil').hide();
-						$('#inscription').show();
+						$('#login').hide()
+						$('#inscription').show()
 					});
 
 					$("#connexion").click(function() {
-                        $('#inscription').hide()
-						$('#identification').show()
+						$('#inscription').hide()
+						$('#login').show()
 					});
-                    
-                    
-                    $("#freelance").click(function() {
-                        $('#inscription').hide()
-                        $('.entreprise').hide();
-                        $('#identification').hide()
-                        $('.proposition_profil').hide()
-                        $('.kesako').show()
-                        $('.entete').hide();
-                        $('.inscription_entreprise').show();
-					});
-                    
-                   
 
 					$("#get").click(function() {
 						getUser($('#user').val(), $('#alias').val())
 					});
-                    
+
 					$("#post").click(
 							function() {
-								postUser($('#name').val(), $('#firstname').val(),
-										$('#email').val(), $('#passwd').val(), $('input[name=type]:checked').val())
+								postUser($('#name').val(), $('#firstname')
+										.val(), $('#email').val(), $('#passwd')
+										.val(), $('input[name=type]:checked')
+										.val())
 							}, console.log("Ok pour le post"));
-                    
+
 					$("#list").click(function() {
 						listUsers()
 					});
-                    
+
 					$("#login").click(function() {
 						login();
 					});
-                    
+
 					$("#profile").click(function() {
 						profile()
 					});
+					$("#isentreprise").click(function() {
+						$('.proposition_profil').hide();
+						$('.nos_missions').hide();
+						$('#inscription_entreprise').show();
+						$('.entreprise').show();
+						$('.depot_mission').show();
+						$('.nos_offres').show();
+					})
+					$("#isfreelance").click(function() {
+						$('#inscription_entreprise').hide();
+						$('.entreprise').hide();
+						$('.depot_mission').hide();
+						$('.proposition_profil').show();
+						$('.nos_missions').show();
+						$('.nos_offres').show();
+					})
 				});
 	</script>
 </body>
