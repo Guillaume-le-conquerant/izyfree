@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface EntrepriseDAO {
     @SqlUpdate("create table entreprise (id integer primary key autoincrement, name varchar(100), nomContact varchar(100), prenomContact varchar(100), tel varchar(10), email varchar(100), passwdHash varchar(64), salt varchar(64), search varchar(1024))")
-    void createUserTable();
+    void createEntrepriseTable();
 
     @SqlUpdate("insert into entreprise (name,nomContact, prenomContact, tel,email, passwdHash, salt, search) values (:name, :nomContact, : prenomContact, :tel, :email, :passwdHash, :salt, :search)")
     @GetGeneratedKeys
@@ -23,7 +23,7 @@ public interface EntrepriseDAO {
     List<Entreprise> search(@Bind("name") String name);
 
     @SqlUpdate("drop table if exists entreprise")
-    void dropUserTable();
+    void dropEntrepriseTable();
 
     @SqlUpdate("delete from entreprise where id = :id")
     void delete(@Bind("id") int id);

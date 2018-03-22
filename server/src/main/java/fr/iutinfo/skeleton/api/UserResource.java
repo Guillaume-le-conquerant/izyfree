@@ -39,7 +39,7 @@ public class UserResource {
     }
 
     @GET
-    @Path("/{name}")
+    @Path("{name}")
     public UserDto getUser(@PathParam("name") String name) {
         User user = dao.findByName(name);
         if (user == null) {
@@ -61,7 +61,7 @@ public class UserResource {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("{id}")
     public void deleteUser(@PathParam("id") int id) {
         dao.delete(id);
     }

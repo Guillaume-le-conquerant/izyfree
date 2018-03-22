@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 import static fr.iutinfo.skeleton.api.BDDFactory.getDbi;
 import static fr.iutinfo.skeleton.api.BDDFactory.tableExist;
 
-@Path("/user")
+@Path("/entreprise")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class EntrepriseRessource {
@@ -24,7 +24,7 @@ public class EntrepriseRessource {
     public EntrepriseRessource() throws SQLException {
         if (!tableExist("users")) {
             logger.debug("Crate table users");
-            dao.createUserTable();
+            dao.createEntrepriseTable();
             dao.insert(new Entreprise(0, "Izyfree", "Benjamin"));
         }
     }
@@ -40,7 +40,7 @@ public class EntrepriseRessource {
     }
 
     @GET
-    @Path("/{name}")
+    @Path("{name}")
     public EntrepriseDTO getEntreprise(@PathParam("name") String name) {
         Entreprise entre = dao.findByName(name);
         if (entre == null) {
@@ -62,7 +62,7 @@ public class EntrepriseRessource {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("{id}")
     public void deleteEntreprise(@PathParam("id") int id) {
         dao.delete(id);
     }
