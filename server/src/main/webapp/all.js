@@ -29,7 +29,7 @@ function profile() {
        beforeSend : function(req) {
         req.setRequestHeader("Authorization", "Basic " + btoa($("#userlogin").val() + ":" + $("#passwdlogin").val()));
        },
-       success: $('.subscribe').hide(),
+       success: $('#inscription').hide(),
        error : function(jqXHR, textStatus, errorThrown) {
        			alert('error: ' + textStatus);
        		}
@@ -61,7 +61,7 @@ function postUserGeneric(name, alias, email, pwd, url) {
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
-			$('.container').hide();
+			$('#inscription').hide();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			console.log('postUser error: ' + textStatus);
