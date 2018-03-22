@@ -42,7 +42,7 @@ function profile() {
  }
 
 function postUser(name, alias, email, pwd) {
-    postUserGeneric(name, alias, email, pwd, 'v1/user/')
+    postUserGeneric(name, alias, email, pwd, 'v1/freelance/')
 }
 
 function postUserGeneric(name, alias, email, pwd, url) {
@@ -51,6 +51,78 @@ function postUserGeneric(name, alias, email, pwd, url) {
 		type : 'POST',
 		contentType : 'application/json',
 		url : url,
+		dataType : "json",
+		data : JSON.stringify({
+			"name" : name,
+			"alias" : alias,
+			"email" : email,
+			"password" : pwd,
+			"id" : 0
+		}),
+		success : function(data, textStatus, jqXHR) {
+			afficheUser(data);
+			$('#inscription').hide();
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			console.log('postUser error: ' + textStatus);
+		}
+	});
+}
+
+function postFreelance(name, firstname, email, pwd) {
+	console.log("postUserGeneric " + 'v1/freelance')
+	$.ajax({
+		type : 'POST',
+		contentType : 'application/json',
+		url : 'v1/freelance/',
+		dataType : "json",
+		data : JSON.stringify({
+			"name" : name,
+			"firstname" : firstname,
+			"email" : email,
+			"password" : pwd,
+			"id" : 0
+		}),
+		success : function(data, textStatus, jqXHR) {
+			afficheUser(data);
+			$('#inscription').hide();
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			console.log('postUser error: ' + textStatus);
+		}
+	});
+}
+
+function postEntreprise(name, firstname, email, pwd) {
+	console.log("postUserGeneric " + 'v1/entreprise')
+	$.ajax({
+		type : 'POST',
+		contentType : 'application/json',
+		url : 'v1/entreprise/',
+		dataType : "json",
+		data : JSON.stringify({
+			"name" : name,
+			"firstname" : firstname,
+			"email" : email,
+			"password" : pwd,
+			"id" : 0
+		}),
+		success : function(data, textStatus, jqXHR) {
+			afficheUser(data);
+			$('#inscription').hide();
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			console.log('postUser error: ' + textStatus);
+		}
+	});
+}
+
+function postStaff(name, alias, email, pwd, url) {
+	console.log("postUserGeneric " + 'v1/staff')
+	$.ajax({
+		type : 'POST',
+		contentType : 'application/json',
+		url : 'v1/staff',
 		dataType : "json",
 		data : JSON.stringify({
 			"name" : name,
@@ -99,8 +171,4 @@ function afficheListUsers(data) {
 
 function userStringify(user) {
     return user.id + ". " + user.name + " &lt;" + user.email + "&gt;" + " (" + user.alias + ")";
-}
-
-function afficher(){
-	$('.subscribe').show();
 }
