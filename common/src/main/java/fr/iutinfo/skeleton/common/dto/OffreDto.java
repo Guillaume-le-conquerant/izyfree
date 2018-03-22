@@ -13,6 +13,7 @@ public class OffreDto {
     private Date dateDeb;
     private Date dateFin;
     private List<String> listeMots;
+    private int idEntreprise;
 
     public int getId() {
         return id;
@@ -53,5 +54,13 @@ public class OffreDto {
     public void setListeMots(List<String> listeMots) {
         this.listeMots = listeMots;
     }
+
+	public int getIdEntreprise() {
+		return idEntreprise;
+	}
+
+	public void setIdEntreprise(int idEntreprise) {
+		this.idEntreprise = idEntreprise;
+	}
 
 }

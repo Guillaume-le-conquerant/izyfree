@@ -1,7 +1,6 @@
 package fr.iutinfo.skeleton.api;
 
 import java.security.Principal;
-import java.security.SecureRandom;
 import java.util.Date;
 import java.util.List;
 
@@ -13,32 +12,41 @@ import com.google.common.hash.Hasher;
 import com.google.common.hash.Hashing;
 
 import fr.iutinfo.skeleton.common.dto.OffreDto;
-import fr.iutinfo.skeleton.common.dto.UserDto;
 
-public class Offre implements Principal {
-    final static Logger logger = LoggerFactory.getLogger(OffreDto.class);
+public class Offre {
+    final static Logger logger = LoggerFactory.getLogger(Offre.class);
     private int id=0;
     private String intitule;
     private Date dateDeb;
     private Date dateFin;
     private List<String> listeMots;
+    private int idEntreprise;
 
     public Offre(int id, String intitule) {
         this.id = id;
         this.intitule = intitule;
     }
 
-    public Offre(int id, String intitule, Date dateDeb, Date dateFin, List<String> listeMots) {
+    public Offre(int id, String intitule, Date dateDeb, Date dateFin, List<String> listeMots, int idEntreprise) {
         this.id = id;
         this.intitule = intitule;
         this.dateDeb = dateDeb;
         this.dateFin = dateFin;
         this.listeMots=listeMots;
+        this.idEntreprise = idEntreprise;
     }
 
     public Offre() {
     }
 
+    public int getIdEntreprise() {
+    	return idEntreprise;
+    }
+    
+    public void setIdEntreprise(int idEntrepise) {
+    	this.idEntreprise=idEntrepise;
+    }
+    
     public int getId() {
         return id;
     }
@@ -79,19 +87,13 @@ public class Offre implements Principal {
         this.listeMots = listeMots;
     }
 
-    private String buildHash(String password, String s) {
-        Hasher hasher = Hashing.sha256().newHasher();
-        hasher.putString(password + s, Charsets.UTF_8);
-        return hasher.hash().toString();
-    }
-
 
     @Override
     public boolean equals(Object arg) {
         if (getClass() != arg.getClass())
             return false;
         Offre offre = (Offre) arg;
-        return intitule.equals(offre.intitule) && dateDeb.equals(offre.dateDeb) && dateFin.equals(offre.dateFin) && listeMots.equals(offre.listeMots);
+        return intitule.equals(offre.intitule) && dateDeb.equals(offre.dateDeb) && dateFin.equals(offre.dateFin) && listeMots.equals(offre.listeMots) && idEntreprise==offre.idEntreprise;
     }
 
     @Override
@@ -109,6 +111,7 @@ public class Offre implements Principal {
         this.setId(dto.getId());
         this.setDateFin(dto.getDateFin());
         this.setListeMots(dto.getListeMots());
+        this.setIdEntreprise(dto.getIdEntreprise());
     }
 
     public OffreDto convertToDto() {
@@ -118,12 +121,8 @@ public class Offre implements Principal {
         this.setId(dto.getId());
         this.setDateFin(dto.getDateFin());
         this.setListeMots(dto.getListeMots());
+        this.setIdEntreprise(dto.getIdEntreprise());
         return dto;
     }
 
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

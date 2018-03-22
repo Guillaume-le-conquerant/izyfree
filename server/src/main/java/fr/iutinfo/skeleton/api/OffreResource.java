@@ -24,7 +24,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import fr.iutinfo.skeleton.common.dto.OffreDto;
-import fr.iutinfo.skeleton.common.dto.UserDto;
 
 @Path("/offre")
 @Produces(MediaType.APPLICATION_JSON)
@@ -37,7 +36,7 @@ public class OffreResource {
         if (!tableExist("offres")) {
             logger.debug("Create table offres");
             dao.createOffreTable();
-            dao.insert(new Offre(0, "Margaret Thatcher", new Date(2018,03,21), new Date(2018,06,21), new ArrayList<String>() ));
+            dao.insert(new Offre(0, "Margaret Thatcher", new Date(2018,03,21), new Date(2018,06,21), new ArrayList<String>(), new Entreprise().getId() ));
         }
     }
 
@@ -66,7 +65,7 @@ public class OffreResource {
         if (query == null) {
           offres = dao.all();
         } else {
-            logger.debug("Search users with query: " + query);
+            logger.debug("Search offres with query: " + query);
             offres = dao.search("%" + query + "%");
         }
         return offres.stream().map(Offre::convertToDto).collect(Collectors.toList());
