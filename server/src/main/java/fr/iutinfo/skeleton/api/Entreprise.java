@@ -69,6 +69,14 @@ public class Entreprise implements Principal {
         this.email = email;
     }
 
+    public void setName(String nom) {
+		this.name = nom;
+	}
+
+	public String getName() {
+        return name;
+    }
+    
     public int getId() {
         return id;
     }
@@ -138,13 +146,6 @@ public class Entreprise implements Principal {
 		this.lienPhoto = lienPhoto;
 	}
 
-	public void setName(String nom) {
-		this.name = nom;
-	}
-
-	public String getName() {
-        return name;
-    }
 
     public String getSalt() {
         if (salt == null) {

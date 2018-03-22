@@ -22,8 +22,8 @@ public class EntrepriseRessource {
     private static EntrepriseDAO dao = getDbi().open(EntrepriseDAO.class);
 
     public EntrepriseRessource() throws SQLException {
-        if (!tableExist("users")) {
-            logger.debug("Crate table users");
+        if (!tableExist("entreprise")) {
+            logger.debug("Create table entreprise");
             dao.createEntrepriseTable();
             dao.insert(new Entreprise(0, "Izyfree", "Benjamin"));
         }
@@ -51,14 +51,14 @@ public class EntrepriseRessource {
 
     @GET
     public List<EntrepriseDTO> getAllEntreprise(@QueryParam("q") String query) {
-        List<Entreprise> users;
+        List<Entreprise> entreprise;
         if (query == null) {
-            users = dao.all();
+            entreprise = dao.all();
         } else {
             logger.debug("Search entreprise with query: " + query);
-            users = dao.search("%" + query + "%");
+            entreprise = dao.search("%" + query + "%");
         }
-        return users.stream().map(Entreprise::convertToDto).collect(Collectors.toList());
+        return entreprise.stream().map(Entreprise::convertToDto).collect(Collectors.toList());
     }
 
     @DELETE

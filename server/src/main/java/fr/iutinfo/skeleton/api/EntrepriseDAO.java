@@ -10,7 +10,7 @@ public interface EntrepriseDAO {
     @SqlUpdate("create table entreprise (id integer primary key autoincrement, name varchar(100), nomContact varchar(100), prenomContact varchar(100), tel varchar(10), email varchar(100), passwdHash varchar(64), salt varchar(64), search varchar(1024))")
     void createEntrepriseTable();
 
-    @SqlUpdate("insert into entreprise (name,nomContact, prenomContact, tel,email, passwdHash, salt, search) values (:name, :nomContact, : prenomContact, :tel, :email, :passwdHash, :salt, :search)")
+    @SqlUpdate("insert into entreprise (name,nomContact, prenomContact, tel,email, passwdHash, salt, search) values (:name, :nomContact, :prenomContact, :tel, :email, :passwdHash, :salt, :search)")
     @GetGeneratedKeys
     int insert(@BindBean() Entreprise user);
 
