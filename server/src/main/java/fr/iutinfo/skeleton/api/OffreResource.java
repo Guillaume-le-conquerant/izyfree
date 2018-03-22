@@ -74,7 +74,7 @@ public class OffreResource {
 
     @DELETE
     @Path("/{id}")
-    public void deleteUser(@PathParam("id") int id) {
+    public void deleteOffre(@PathParam("id") int id) {
         dao.delete(id);
     }
 
