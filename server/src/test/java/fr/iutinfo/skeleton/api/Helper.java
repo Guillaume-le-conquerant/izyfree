@@ -17,6 +17,7 @@ public class Helper {
         dao.dropUserTable();
         dao.createUserTable();
     }
+    
 
     static User createUserWithName(String name) {
         User user = new User(0, name);
@@ -47,6 +48,7 @@ public class Helper {
         user.setId(id);
         return user;
     }
+    
 
 
     private static User createFullUSer(String name, String alias, String email, String paswword) {
@@ -58,6 +60,7 @@ public class Helper {
         user.setId(id);
         return user;
     }
+    
 
     static void createRms() {
         createFullUSer("Richard Stallman", "RMS", "rms@fsf.org", "gnuPaswword");

@@ -1,15 +1,10 @@
 package fr.iutinfo.skeleton.api;
 
-import java.security.Principal;
 import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.google.common.base.Charsets;
-import com.google.common.hash.Hasher;
-import com.google.common.hash.Hashing;
 
 import fr.iutinfo.skeleton.common.dto.OffreDto;
 

@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 public class EntrepriseDTO {
 	
-	final static Logger logger = LoggerFactory.getLogger(UserDto.class);
+	final static Logger logger = LoggerFactory.getLogger(EntrepriseDTO.class);
 	private String name;
 	private String nomContact;// RH, responsable recrutement
 	private String prenomContact;
@@ -15,6 +15,13 @@ public class EntrepriseDTO {
 	private int id;
 	private String photo; // Lien vers la photo
 	
+	
+	public EntrepriseDTO() {}
+	
+	public EntrepriseDTO(int id, String name) {
+		this.name = name;
+		this.id = id;
+	}
 	
 	public String getPassword() {
 		return password;
