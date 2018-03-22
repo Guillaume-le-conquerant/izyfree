@@ -23,7 +23,7 @@ public class FreelanceResource {
     public FreelanceResource() throws SQLException {
         if (!tableExist("freelance")) {
             logger.debug("Create table freelance");
-            dao.createUserTable();
+            dao.createFreelanceTable();
             dao.insert(new Freelance(0, "Petit", "Benjamin"));
         }
     }

@@ -18,6 +18,15 @@ public class FreelanceDto {
     private String cv;
     private List<String> mots;
 
+    public FreelanceDto(int id, String name) {
+    	this.id=id;
+    	this.name=name;
+    }
+    
+    public FreelanceDto() {
+    	
+    }
+    
     public String getEmail() {
         return email;
     }

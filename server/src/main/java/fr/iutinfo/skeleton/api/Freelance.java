@@ -230,4 +230,12 @@ public class Freelance implements Principal {
 	public void setMots(List<String> mots) {
 		this.mots = mots;
 	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
 }
