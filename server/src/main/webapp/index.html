@@ -217,17 +217,11 @@
 			<h1 style="color:#4169E1">KESAKO ?</h1>
 			<p>IZYFREE est une <b>filiale de COOPTALIS</b>, facilitateur de la mobilité internationale</p>
 			<p>depuis 2012 principalement sur les métiers de l'informatique et du médical</p>
-<<<<<<< HEAD
+
 			<h3 style="color:#4169E1; font-size:16px;">IZYFREE INTERVIENT SUR L'ENSEMBLE DES DOMAINES STRATEGIQUES DE L'ENTREPRISE</h3>
 		</div>
 		<div class="d-flex align-content-start flex-wrap" style="color:white; text-align:center;">
 			<div style="background-color:#66CDAA; width:50%">
-=======
-			<h3 style="color:#4169E1">IZYFREE INTERVIENT SUR L'ENSEMBLE DES DOMAINES STRATEGIQUES DE L'ENTREPRISE</h3>
-		</div>
-		<div class="d-flex align-content-start flex-wrap" style="color:white; text-align:center;">
-			<div style="background-color:#66CDAA">
->>>>>>> 598ab43c17505c8217ed219c14610dd9ec1bd76d
 				<h1>INFRA</h1>
 				<ul>
 					<p>Réseaux</p>
@@ -354,6 +348,7 @@
 		$('#login').hide();
 		$('#inscription').hide();
         $('#formulaire_entreprise').hide();
+        $('#formulaire_freelance').hide();
 
 		$(document).ready(
 				function() {
@@ -444,9 +439,12 @@
 						$('.proposition_profil').hide();
                         $('.entete').hide();
 						$('#formulaire_entreprise').show();
+                        $('#formulaire_freelance').hide();
+                        $('#freelance').hide();
 						$('#inscription_entreprise').show();
 						$('.entreprise').show();
                         $('#dernieres_offres').hide();
+                        $('#login').hide();
 						$('.depot_mission').show();
 						$('.nos_offres').show();
 						$('#offre').show();
@@ -456,6 +454,7 @@
 						$('#inscription_entreprise').hide();
 						$('#formulaire_entreprise').hide();
                         $('.entete').hide();
+                        $('#login').hide();
                         $('.entreprise').hide();
 						$('.depot_mission').hide();
 						$('.proposition_profil').show();
