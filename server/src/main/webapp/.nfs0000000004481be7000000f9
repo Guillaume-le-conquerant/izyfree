@@ -64,7 +64,7 @@ nav img{
     margin: 5px;
 }
 
-.form_mission .form_gauche {
+.form_gauche {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -126,13 +126,8 @@ nav img{
     text-align: center;
 }
 
-.form_moncompte .form_gauche{
-	margin: auto;
-	width:50%;
-}
-
-.form_moncompte .form_gauche input{
-	width:50%;
+#formulaire_freelance {
+    
 }
 
 

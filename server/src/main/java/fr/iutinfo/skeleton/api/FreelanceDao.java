@@ -39,6 +39,10 @@ public interface FreelanceDao {
     @SqlQuery("select * from freelance where id = :id")
     @RegisterMapperFactory(BeanMapperFactory.class)
     Freelance findById(@Bind("id") int id);
+    
+    @SqlUpdate("update offres set firstname = :firstname, name = :name, email = :email, phone = :phone, job = :job, photo = :photo, cv = :cv, mots = :mots, champLibre = :champLibre, tarif = :tarif, localisation = :localisation, conditions = :conditions, passwdHash = :passwdHash, salt = :salt, search = :search where id = :id")
+    @GetGeneratedKeys
+    int update(@BindBean() Freelance freelance);
 
     void close();
 }
