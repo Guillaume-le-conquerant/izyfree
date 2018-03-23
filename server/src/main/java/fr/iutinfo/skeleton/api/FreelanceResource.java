@@ -77,7 +77,7 @@ public class FreelanceResource {
 	@Path("id/{id}")
 	public FreelanceDto modifyOffre(@PathParam("id") int id, FreelanceDto freelanceDto) {
 		FreelanceDto freeDto = dao.findById(freelanceDto.getId()).convertToDto();
-		if (!(freeDto.getId() == freelanceDto.getId())) {
+		if (freeDto==null) {
 			throw new WebApplicationException(404);
 		} else {
 			Freelance free = new Freelance();
