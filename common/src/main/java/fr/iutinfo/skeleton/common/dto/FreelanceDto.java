@@ -1,7 +1,5 @@
 package fr.iutinfo.skeleton.common.dto;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +15,7 @@ public class FreelanceDto {
     private String photo;
     private String cv;
     private String mots;
+    private String champLibre;
 
     public FreelanceDto(int id, String name) {
     	this.id=id;
@@ -105,6 +104,14 @@ public class FreelanceDto {
 
 	public void setMots(String mots) {
 		this.mots = mots;
+	}
+
+	public String getChampLibre() {
+		return champLibre;
+	}
+
+	public void setChampLibre(String champLibre) {
+		this.champLibre = champLibre;
 	}
 
 }

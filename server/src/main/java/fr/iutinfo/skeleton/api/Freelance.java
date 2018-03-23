@@ -37,7 +37,7 @@ public class Freelance implements Principal {
     public Freelance(int id, String name, String firstname) {
         this.id = id;
         this.name = name;
-        this.setFirstName(firstname);
+        this.firstname = firstname;
     }
 
     public Freelance() {
