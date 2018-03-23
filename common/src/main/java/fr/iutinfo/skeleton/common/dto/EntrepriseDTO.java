@@ -9,13 +9,15 @@ public class EntrepriseDTO {
 	private String name;
 	private String nomContact;// RH, responsable recrutement
 	private String prenomContact;
-	private String password;
 	private String tel;
 	private String email;
 	private int id;
-	private String photo; // Lien vers la photo
+	private String fonctionsContact;
+    private String profilRecherche;
+    private String ville;
+    private String champLibre;
 	
-	
+
 	public EntrepriseDTO() {}
 	
 	public EntrepriseDTO(int id, String name) {
@@ -23,12 +25,6 @@ public class EntrepriseDTO {
 		this.id = id;
 	}
 	
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	public String getNom() {
 		return name;
 	}
@@ -65,11 +61,45 @@ public class EntrepriseDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getPhoto() {
-		return photo;
+
+	public String getName() {
+		return name;
 	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getFonctionsContact() {
+		return fonctionsContact;
+	}
+
+	public void setFonctionsContact(String fonctionsContact) {
+		this.fonctionsContact = fonctionsContact;
+	}
+
+	public String getProfilRecherche() {
+		return profilRecherche;
+	}
+
+	public void setProfilRecherche(String profilRecherche) {
+		this.profilRecherche = profilRecherche;
+	}
+
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
+	public String getChampLibre() {
+		return champLibre;
+	}
+
+	public void setChampLibre(String champLibre) {
+		this.champLibre = champLibre;
 	}
 	
 	

@@ -36,14 +36,6 @@ public class HelperEntreprise {
         entre.setEmail(email);
         return createEntreprise(entre);
     }
-
-    public static Entreprise createUserWithPassword(String name, String passwd, String salt) {
-        Entreprise entreprise = new Entreprise(0, name);
-        entreprise.setSalt(salt);
-        entreprise.setPassword(passwd);
-        logger.debug("createUserWithPassword Hash : " + entreprise.getPasswdHash());
-        return createEntreprise(entreprise);
-    }
     
     private static Entreprise createEntreprise(Entreprise entreprise) {
     	int id = dao.insert(entreprise);
@@ -51,14 +43,16 @@ public class HelperEntreprise {
     	return entreprise;
     }
     
-    private static Entreprise createFullEntreprise(String name, String nomContact, String prenomContact, String tel, String email, String lienPhoto, String password) {
+    private static Entreprise createFullEntreprise(String name, String nomContact, String prenomContact, String tel, String email, String fonctionsContact, String profilRecherche, String ville, String champLibre) {
     	Entreprise entreprise = new Entreprise(0, name);
     	entreprise.setNomContact(nomContact);
     	entreprise.setPrenomContact(prenomContact);
     	entreprise.setTel(tel);
     	entreprise.setEmail(email);
-    	entreprise.setLienPhoto(lienPhoto);
-    	entreprise.setPassword(password);
+    	entreprise.setFonctionsContact(fonctionsContact);
+    	entreprise.setProfilRecherche(profilRecherche);
+    	entreprise.setVille(ville);
+    	entreprise.setChampLibre(champLibre);
     	int id = dao.insert(entreprise);
     	return entreprise;
     }
@@ -68,15 +62,15 @@ public class HelperEntreprise {
     // Creation d'entreprise pour les test
     
     static void createCGI() {
-    	createFullEntreprise("CGI", "Toto", "Tata", "06 85 74 65 41", "toto@cgi.com", "photo.jpg", "password");
+    	createFullEntreprise("CGI", "Toto", "Tata", "06 85 74 65 41", "toto@cgi.com", "developpeur", "java","Lille", "php");
     }
     
     static void createIut() {
-    	createFullEntreprise("IUT", "Titi", "tutu", "07 87 65 74 83", "titi@iut.com", "photo.jpg", "password");
+    	createFullEntreprise("IUT", "Titi", "tutu", "07 87 65 74 83", "titi@iut.com", "developpeur", "java","Lille", "php");
     }
     
     static void createToto() {
-    	createFullEntreprise("TOTO Companie", "toto", "tata", "07 04 54 34 74","toto@iut.com", "photo.jpg", "password");
+    	createFullEntreprise("TOTO Companie", "toto", "tata", "07 04 54 34 74","toto@iut.com", "developpeur", "java","Lille", "php");
     }
 
 }

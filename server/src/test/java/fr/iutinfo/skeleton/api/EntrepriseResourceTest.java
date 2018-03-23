@@ -53,27 +53,13 @@ public class EntrepriseResourceTest extends JerseyTest {
         assertEquals("titi@iut.com", entreprise.getEmail());
     }
 
-    @Test
-    public void read_entreprise_should_read_entreprise_with_same_salt() {
-        String expectedSalt = "graindesel";
-        createUserWithPassword("CGI", "motdepasse", expectedSalt);
-        Entreprise entreprise = dao.findByName("CGI");
-        assertEquals(expectedSalt, entreprise.getSalt());
-    }
-
-    @Test
-    public void read_user_should_return_hashed_password() throws NoSuchAlgorithmException {
-        createUserWithPassword("IUT", "motdepasse", "grain de sable");
-        Entreprise entreprise = dao.findByName("IUT");
-        assertEquals("dfeb21109fe5eab1b1db7369844921c44b87b44669b0742f3f73bd166b474779", entreprise.getPasswdHash());
-    }
 
     @Test
     public void create_should_return_the_entreprise_with_valid_id() {
     	EntrepriseDTO entreprise = new EntrepriseDTO(0, "CGI");
         Entity<EntrepriseDTO> entrepriseEntity = Entity.entity(entreprise, MediaType.APPLICATION_JSON);
         String json = target(PATH).request().post(entrepriseEntity).readEntity(String.class);
-        assertEquals("{\"id\":1,\"nom\":\"CGI\"}", json.substring(0, 20));
+        assertEquals("{\"id\":1,\"name\":\"CGI\"", json.substring(0, 20));
     }
 
     @Test

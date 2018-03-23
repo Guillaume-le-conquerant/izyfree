@@ -217,17 +217,10 @@
 			<h1 style="color:#4169E1">KESAKO ?</h1>
 			<p>IZYFREE est une <b>filiale de COOPTALIS</b>, facilitateur de la mobilité internationale</p>
 			<p>depuis 2012 principalement sur les métiers de l'informatique et du médical</p>
-<<<<<<< HEAD
 			<h3 style="color:#4169E1; font-size:16px;">IZYFREE INTERVIENT SUR L'ENSEMBLE DES DOMAINES STRATEGIQUES DE L'ENTREPRISE</h3>
 		</div>
 		<div class="d-flex align-content-start flex-wrap" style="color:white; text-align:center;">
 			<div style="background-color:#66CDAA; width:50%">
-=======
-			<h3 style="color:#4169E1">IZYFREE INTERVIENT SUR L'ENSEMBLE DES DOMAINES STRATEGIQUES DE L'ENTREPRISE</h3>
-		</div>
-		<div class="d-flex align-content-start flex-wrap" style="color:white; text-align:center;">
-			<div style="background-color:#66CDAA">
->>>>>>> 598ab43c17505c8217ed219c14610dd9ec1bd76d
 				<h1>INFRA</h1>
 				<ul>
 					<p>Réseaux</p>
@@ -238,7 +231,6 @@
 				</ul>
 			</div>
 			<div style="background-color:#DAA520; width:50%">
-
 				<h1>ETUDES</h1>
 				<ul>
 					<p>Ingénieur d'études et de développpement</p>
@@ -250,7 +242,7 @@
 			</div>
 		</div>
 		<div class="d-flex align-content-start flex-wrap 2" style="color:white; text-align:center;">
-            <div style="background-color:#4682B4">
+			<div style="background-color:#4682B4; width:50%">
 				<h1>MOA</h1>
 				<ul>
 					<p>Chef de projet</p>
@@ -260,7 +252,6 @@
 					<p>...</p>
 				</ul>
 			</div>
-
 			<div style="background-color:#66CDAA; vertical-align:middle; width:50%">
 				<h1>METIERS</h1>
 				<div style="float:left" >

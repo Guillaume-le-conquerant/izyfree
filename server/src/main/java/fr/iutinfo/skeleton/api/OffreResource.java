@@ -64,7 +64,7 @@ public class OffreResource {
 	}
 	
 	@GET
-	@Path("id/{intitule}")
+	@Path("id/{id}")
 	public OffreDto getOffreId(@PathParam("id") int id) {
 		Offre offre = dao.findById(id);
 		if (offre == null) {
