@@ -47,8 +47,7 @@ public class FreelanceResource {
         }
         return free.convertToDto();
     }
-    
-    
+      
 
     @GET
     public List<FreelanceDto> getAllFreelance(@QueryParam("q") String query) {
