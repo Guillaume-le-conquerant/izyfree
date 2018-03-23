@@ -101,7 +101,7 @@ function postFreelance(name, firstname, email, pwd) {
 	});
 }
 
-function postFreelance(name, firstname, email, job, mots, localisation, phone, ref, champLibre) {
+function postFreelanceForm(name, firstname, email, job, mots, localisation, phone, ref, champLibre, conditions, prix) {
 	console.log("postUserGeneric " + 'v1/freelance')
 	$.ajax({
 		type : 'POST',
@@ -117,7 +117,9 @@ function postFreelance(name, firstname, email, job, mots, localisation, phone, r
             "localisation" : localisation,
             "phone" : phone,
             "ref" : ref,
-            "champLibre" : champLibre
+            "champLibre" : champLibre,
+            "conditions" : conditions,
+            "prix": prix
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);

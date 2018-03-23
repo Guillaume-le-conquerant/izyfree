@@ -168,7 +168,11 @@
 
 			<div class="form_droite">
 				<input type="text" name="prenom" id="prenom_freelance" placeholder="PRENOM*"
-					required> 
+					required>
+                <input type="text" name="condition" id="condition_freelance" placeholder="CONDITION*"
+					required>
+                <input type="number" name="prix" id="prix_freelance" placeholder="PRIX*"
+					required>
                 <input type="textarea" name="champ_libre"
 					id="libre_freelance"
 					placeholder="D'AUTRES INDICES POUR FAIRE APPARAITRE LE GENIE ?">
@@ -419,7 +423,7 @@
                     
                     $("#envoyer_freelance").click(
 							function() {
-								postFreelance($('#name_freelance').val(), $('#firstname_freelance')
+								postFreelanceForm($('#name_freelance').val(), $('#firstname_freelance')
 										.val(), 
                                               $('#email_freelance').val(), 
                                               $('#metier_freelance').val(), 
@@ -432,6 +436,8 @@
                                               $('#ref_freelance')
 										.val(), 
                                               $('#libre_freelance')
+										.val(),$('#condition_freelance')
+										.val(),$('#prix_freelance')
 										.val())
 							});
                     
