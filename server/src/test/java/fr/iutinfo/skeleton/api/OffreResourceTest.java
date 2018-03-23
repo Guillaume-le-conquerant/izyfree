@@ -39,28 +39,28 @@ public class OffreResourceTest extends JerseyTest {
     @Test
     public void read_should_return_an_offre_as_object() {
         createOffreWithIntitule("foo");
-        OffreDto offre = target(PATH + "/foo").request().get(OffreDto.class);
+        OffreDto offre = target(PATH + "/intitule/foo").request().get(OffreDto.class);
         assertEquals("foo", offre.getIntitule());
     }
 
     @Test
     public void read_offre_should_return_good_dateDeb() {
         Offre offre = createOffre1();
-        OffreDto offredto = target(PATH + "/Offre_1").request().get(OffreDto.class);
+        OffreDto offredto = target(PATH + "/intitule/Offre_1").request().get(OffreDto.class);
         assertEquals("2018-03-22", offredto.getDateDeb());
     }
 
     @Test
     public void read_offre_should_return_good_dateFin() {
         createOffre2();
-        OffreDto offre = target(PATH + "/Offre_2").request().get(OffreDto.class);
+        OffreDto offre = target(PATH + "/intitule/Offre_2").request().get(OffreDto.class);
         assertEquals("2018-11-22", offre.getDateFin());
     }
     
     @Test
     public void read_offre_should_return_good_listeMots() {
         createOffre3();
-        OffreDto offre = target(PATH + "/Offre_3").request().get(OffreDto.class);
+        OffreDto offre = target(PATH + "/intitule/Offre_3").request().get(OffreDto.class);
         String[] mots = offre.getListeMots().split("\\?");
         assertEquals("Mot1", mots[0]);
         assertEquals("Mot2", mots[1]);
@@ -69,7 +69,7 @@ public class OffreResourceTest extends JerseyTest {
     @Test
     public void read_offre_should_return_good_idEntreprise() {
         createOffre4();
-        OffreDto offre = target(PATH + "/Offre_4").request().get(OffreDto.class);
+        OffreDto offre = target(PATH + "/intitule/Offre_4").request().get(OffreDto.class);
         assertEquals(new Entreprise().getId(), offre.getIdEntreprise());
     }
 

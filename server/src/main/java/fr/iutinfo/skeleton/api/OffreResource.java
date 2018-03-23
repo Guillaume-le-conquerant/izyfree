@@ -53,9 +53,20 @@ public class OffreResource {
 	}
 
 	@GET
-	@Path("{intitule}")
+	@Path("intitule/{intitule}")
 	public OffreDto getOffre(@PathParam("intitule") String intitule) {
 		Offre offre = dao.findByIntitule(intitule);
+		if (offre == null) {
+			throw new WebApplicationException(404);
+		}
+		System.out.println("OFFRE: "+ offre);
+		return offre.convertToDto();
+	}
+	
+	@GET
+	@Path("id/{intitule}")
+	public OffreDto getOffreId(@PathParam("id") int id) {
+		Offre offre = dao.findById(id);
 		if (offre == null) {
 			throw new WebApplicationException(404);
 		}
