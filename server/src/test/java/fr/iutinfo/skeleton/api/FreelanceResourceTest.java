@@ -33,7 +33,7 @@ public class FreelanceResourceTest extends JerseyTest {
     @Test
     public void read_should_return_a_freelance_as_object() {
         createFreelanceWithName("foo");
-        FreelanceDto freelance = target(PATH + "/foo").request().get(FreelanceDto.class);
+        FreelanceDto freelance = target(PATH + "/name/foo").request().get(FreelanceDto.class);
         assertEquals("foo", freelance.getName());
     }
 
@@ -41,7 +41,7 @@ public class FreelanceResourceTest extends JerseyTest {
     @Test
     public void read_freelance_should_return_good_email() {
         createIan();
-        FreelanceDto free = target(PATH + "/Ian Murdock").request().get(FreelanceDto.class);
+        FreelanceDto free = target(PATH + "/name/Ian Murdock").request().get(FreelanceDto.class);
         assertEquals("ian@debian.org", free.getEmail());
     }
 
