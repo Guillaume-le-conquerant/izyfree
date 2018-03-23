@@ -47,18 +47,39 @@
 	<div id="inscription">
 		<div>
 			<h1>Inscription :</h1>
-			<input type="text" name="userdb" id="name" placeholder="Nom"
-				class="form-control" /> <input type="text" name="user"
-				id="firstname" placeholder="prenom" class="form-control" /> <input
-				type="text" name="email" id="email" placeholder="Email"
-				class="form-control" /> <input type="password" name="user"
-				id="passwd" placeholder="Mot de passe" class="form-control" /> <input
+            <input
 				type="radio" id="freelance" name="type" value="freelance" checked>
 
-			<label for="freelance">Freelance</label> <input type="radio"
-				id="entreprise" name="type" value="entreprise"> <label
+			<label for="freelance">Freelance</label> 
+            <input type="radio"
+				id="entreprise" name="type" value="entreprise"> 
+            <label
 				for="entreprise">Entreprise</label>
-
+            
+            <input type="text" name="userdb" id="nom_contact" placeholder="Nom"
+                    class="form-control" />
+            
+            <div id="inscription_freelance">
+                <input type="text" name="user"
+                    id="firstname" placeholder="prenom" class="form-control" /> 
+                 
+            </div>
+            
+            <div id="inscription_entreprise">
+                <input type="text" name="user"
+                    id="prenom_contact" placeholder="Prénom de contact" class="form-control" />
+                <input type="text" name="user"
+                    id="nom_contact" placeholder="Nom de contact" class="form-control" />
+                <input type="tel" name="user"
+                    id="telephone" placeholder="Téléphone" class="form-control" />
+            </div>
+            
+            <input type="text" name="email" id="email" placeholder="Email"
+                    class="form-control" />
+            
+            <input type="password" name="user"
+                    id="passwd" placeholder="Mot de passe" class="form-control" />
+            
 		</div>
 		<div>
 			<button type="button" id="post" class="btn btn-primary">S'inscrire</button>
@@ -81,7 +102,7 @@
 			height="750px" />
 	</div>
 
-	<div id="inscription_entreprise" style="background-color: lightblue;">
+	<div id="formulaire_entreprise" style="background-color: lightblue;">
 		<div class="texte_mission">
 			<p>ENTREPRISES,</p>
 			<p>A LA RECHERCHE DE TALENTS ?</p>
@@ -150,8 +171,8 @@
 			</div>
 		</div>
 	</div>
-	<div id="kezako">
-		<div class="texte_kezako">
+	<div id="kesako">
+		<div class="texte_kesako">
 			<h1>KESAKO ?</h1>
 			<p></p>
 			<h3></h3>
@@ -238,9 +259,25 @@
 
 		$(document).ready(
 				function() {
+                    
+                    $('#freelance').click(function() {
+						$('#inscription_entreprise').hide()
+						$('#inscription_freelance').show()
+					});
+                    
+                    $('#entreprise').click(function() {
+						$('#inscription_freelance').hide()
+						$('#inscription_entreprise').show()
+					});
 
 					$("#inscrire").click(function() {
 						$('#login').hide()
+                        $('.entete').hide()
+                        $('#kesako').hide()
+                        $('#nos_offres').hide()
+                        $('.entreprise').hide()
+                        $('#notre_motivation').hide()
+                        $('#formulaire_entreprise').hide()
 						$('#inscription').show()
 					});
 
@@ -257,7 +294,9 @@
 							function() {
 								postUser($('#name').val(), $('#firstname')
 										.val(), $('#email').val(), $('#passwd')
-										.val(), $('input[name=type]:checked')
+										.val(), $('#nom_contact')
+										.val(),$('#prenom_contact')
+										.val(),$('#telephone')
 										.val())
 							}, console.log("Ok pour le post"));
 

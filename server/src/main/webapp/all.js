@@ -43,10 +43,10 @@ function profile() {
 
 function postUser(name, firstname, email, pwd, type) {
     if(type == "freelance"){
-        postFreelance(name, firstname,email, pwd)
+        postFreelance(firstname.toLowerCase(), name.toLowerCase(),email.toLowerCase(), pwd)
     }
     if (type == "entreprise"){
-        postEntreprise(name, firstname,email, pwd)
+        postEntreprise(name.toLowerCase(), firstname.toLowerCase(),email.toLowerCase(), pwd)
     }
 }
 
@@ -82,8 +82,8 @@ function postFreelance(name, firstname, email, pwd) {
 		url : 'v1/freelance/',
 		dataType : "json",
 		data : JSON.stringify({
+            "firstname" : firstname,
 			"name" : name,
-			"firstname" : firstname,
 			"email" : email,
 			"password" : pwd
 		}),
