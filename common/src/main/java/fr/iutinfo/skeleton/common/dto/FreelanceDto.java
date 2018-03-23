@@ -20,7 +20,15 @@ public class FreelanceDto {
     private String localisation;
     private String conditions;
 
-    public FreelanceDto(int id, String name) {
+    @Override
+	public String toString() {
+		return "FreelanceDto [firstname=" + firstname + ", name=" + name + ", id=" + id + ", email=" + email
+				+ ", password=" + password + ", phone=" + phone + ", job=" + job + ", photo=" + photo + ", cv=" + cv
+				+ ", mots=" + mots + ", champLibre=" + champLibre + ", tarif=" + tarif + ", localisation="
+				+ localisation + ", conditions=" + conditions + "]";
+	}
+
+	public FreelanceDto(int id, String name) {
     	this.id=id;
     	this.name=name;
     }
