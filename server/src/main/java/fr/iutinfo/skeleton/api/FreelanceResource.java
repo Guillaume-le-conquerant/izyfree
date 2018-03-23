@@ -1,6 +1,8 @@
 package fr.iutinfo.skeleton.api;
 
 import fr.iutinfo.skeleton.common.dto.FreelanceDto;
+import fr.iutinfo.skeleton.common.dto.OffreDto;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,17 +73,19 @@ public class FreelanceResource {
         return freelance.stream().map(Freelance::convertToDto).collect(Collectors.toList());
     }
     
-    /*
-    
-    @PUT
-    @Path("/id/{id}")
-    public FreelanceDto getFreelanceId(@PathParam("id") int id) {
-        Freelance free = dao.findById(id);
-        if (free == null) {
-            throw new WebApplicationException(404);
-        }
-        return free.convertToDto();
-    } */
+	@PUT
+	@Path("id/{id}")
+	public FreelanceDto modifyOffre(@PathParam("id") int id, FreelanceDto freelanceDto) {
+		FreelanceDto freeDto = dao.findById(freelanceDto.getId()).convertToDto();
+		if (!(freeDto.getId() == freelanceDto.getId())) {
+			throw new WebApplicationException(404);
+		} else {
+			Freelance free = new Freelance();
+			free.initFromDto(freelanceDto);
+			dao.update(free);
+			return freelanceDto;
+		}
+	}
 
     @DELETE
     @Path("{id}")
