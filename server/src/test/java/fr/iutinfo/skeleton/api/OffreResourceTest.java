@@ -8,9 +8,7 @@ import static fr.iutinfo.skeleton.api.HelperOffre.createOffreWithIntitule;
 import static fr.iutinfo.skeleton.api.HelperOffre.listOffreResponseType;
 import static org.junit.Assert.assertEquals;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.client.Entity;
@@ -41,44 +39,47 @@ public class OffreResourceTest extends JerseyTest {
     @Test
     public void read_should_return_an_offre_as_object() {
         createOffreWithIntitule("foo");
-        OffreDto offre = target(PATH + "/foo").request().get(OffreDto.class);
+        OffreDto offre = target(PATH + "/intitule/foo").request().get(OffreDto.class);
         assertEquals("foo", offre.getIntitule());
     }
 
     @Test
     public void read_offre_should_return_good_dateDeb() {
-        createOffre1();
-        OffreDto offre = target(PATH + "/Offre 1").request().get(OffreDto.class);
-        assertEquals(new Date(2018,03,22), offre.getDateDeb());
+        Offre offre = createOffre1();
+        OffreDto offredto = target(PATH + "/intitule/Offre_1").request().get(OffreDto.class);
+        assertEquals("2018-03-22", offredto.getDateDeb());
     }
 
     @Test
     public void read_offre_should_return_good_dateFin() {
         createOffre2();
-        OffreDto offre = target(PATH + "/Offre 2").request().get(OffreDto.class);
-        assertEquals(new Date(2018,11,22), offre.getDateFin());
+        OffreDto offre = target(PATH + "/intitule/Offre_2").request().get(OffreDto.class);
+        assertEquals("2018-11-22", offre.getDateFin());
     }
     
     @Test
     public void read_offre_should_return_good_listeMots() {
         createOffre3();
-        OffreDto offre = target(PATH + "/Offre 3").request().get(OffreDto.class);
-        assertEquals(new ArrayList<String>(), offre.getListeMots());
+        OffreDto offre = target(PATH + "/intitule/Offre_3").request().get(OffreDto.class);
+        String[] mots = offre.getListeMots().split("\\?");
+        assertEquals("Mot1", mots[0]);
+        assertEquals("Mot2", mots[1]);
     }
     
     @Test
     public void read_offre_should_return_good_idEntreprise() {
         createOffre4();
-        OffreDto offre = target(PATH + "/Offre 4").request().get(OffreDto.class);
+        OffreDto offre = target(PATH + "/intitule/Offre_4").request().get(OffreDto.class);
         assertEquals(new Entreprise().getId(), offre.getIdEntreprise());
     }
 
     @Test
     public void create_should_return_the_offre_with_valid_id() {
-        Offre offre = new Offre(0, "thomas");
-        Entity<Offre> offreEntity = Entity.entity(offre, MediaType.APPLICATION_JSON);
+        OffreDto offre = new OffreDto();
+        offre.setIntitule("thomas");
+        Entity<OffreDto> offreEntity = Entity.entity(offre, MediaType.APPLICATION_JSON);
         String json = target(PATH).request().post(offreEntity).readEntity(String.class);
-        assertEquals("{\"id\":1,\"name\":\"thomas\"", json.substring(0, 100));
+        assertEquals("{\"id\":1,\"idEntreprise\":0,\"intitule\":\"thomas\"}", json.substring(0, json.length()));
     }
 
     @Test
@@ -125,25 +126,5 @@ public class OffreResourceTest extends JerseyTest {
 
         List<OffreDto> offres = target(PATH + "/").queryParam("q", "ba").request().get(listOffreResponseType);
         assertEquals("bar", offres.get(0).getIntitule());
-    }
-
-    @Test
-    public void list_should_search_in_dateDeb_field() {
-        createOffre1();
-        createOffre2();
-        createOffre3();
-
-        List<OffreDto> offres = target(PATH + "/").queryParam("q", new Date(2018,03,22)).request().get(listOffreResponseType);
-        assertEquals("Offre 1", offres.get(0).getIntitule());
-    }
-
-    @Test
-    public void list_should_search_in_dateFin_field() {
-        createOffre1();
-        createOffre2();
-        createOffre3();
-
-        List<OffreDto> offres = target(PATH + "/").queryParam("q", new Date(2018,05,22)).request().get(listOffreResponseType);
-        assertEquals("Offre 3", offres.get(0).getIntitule());
     }
 }

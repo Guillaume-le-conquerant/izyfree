@@ -33,7 +33,7 @@ public class FreelanceResourceTest extends JerseyTest {
     @Test
     public void read_should_return_a_freelance_as_object() {
         createFreelanceWithName("foo");
-        FreelanceDto freelance = target(PATH + "/foo").request().get(FreelanceDto.class);
+        FreelanceDto freelance = target(PATH + "/name/foo").request().get(FreelanceDto.class);
         assertEquals("foo", freelance.getName());
     }
 
@@ -41,7 +41,7 @@ public class FreelanceResourceTest extends JerseyTest {
     @Test
     public void read_freelance_should_return_good_email() {
         createIan();
-        FreelanceDto free = target(PATH + "/Ian Murdock").request().get(FreelanceDto.class);
+        FreelanceDto free = target(PATH + "/name/Ian Murdock").request().get(FreelanceDto.class);
         assertEquals("ian@debian.org", free.getEmail());
     }
 
@@ -58,6 +58,14 @@ public class FreelanceResourceTest extends JerseyTest {
         createFreelanceWithPassword("Loïc Dachary", "motdepasse", "grain de sable");
         Freelance free = dao.findByName("Loïc Dachary");
         assertEquals("dfeb21109fe5eab1b1db7369844921c44b87b44669b0742f3f73bd166b474779", free.getPasswdHash());
+    }
+    
+    @Test
+    public void read_freelance_should_return_good_mots() {
+    	createFreelanceWithMots("papa?maman");
+    	Freelance free = dao.findByName("Jean");
+    	System.out.println(free.toString());
+    	assertEquals("papa?maman", free.getMots());
     }
 
     @Test

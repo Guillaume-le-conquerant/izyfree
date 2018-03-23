@@ -39,7 +39,7 @@ public class FreelanceResource {
     }
 
     @GET
-    @Path("{name}")
+    @Path("/name/{name}")
     public FreelanceDto getFreelance(@PathParam("name") String name) {
         Freelance free = dao.findByName(name);
         if (free == null) {
@@ -47,6 +47,17 @@ public class FreelanceResource {
         }
         return free.convertToDto();
     }
+    
+    @GET
+    @Path("/id/{id}")
+    public FreelanceDto getFreelanceId(@PathParam("id") int id) {
+        Freelance free = dao.findById(id);
+        if (free == null) {
+            throw new WebApplicationException(404);
+        }
+        return free.convertToDto();
+    }
+      
 
     @GET
     public List<FreelanceDto> getAllFreelance(@QueryParam("q") String query) {

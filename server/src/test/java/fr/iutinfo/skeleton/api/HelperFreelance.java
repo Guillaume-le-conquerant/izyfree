@@ -69,4 +69,14 @@ public class HelperFreelance {
     static Freelance createIan() {
         return createFullFreelance("Ian Murdock", "ian@debian.org", "mot de passe");
     }
+    
+    static Freelance createFreelanceWithMots(String mots) {
+    	Freelance free = new Freelance(0, "Jean");
+        free.setEmail("jean@pierre.com");
+        free.setPassword("mdpdejean");
+        free.setMots("papa?maman");
+        int id = dao.insert(free);
+        free.setId(id);
+        return free;
+    }
 }

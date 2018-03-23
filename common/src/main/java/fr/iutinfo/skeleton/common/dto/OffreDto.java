@@ -1,6 +1,6 @@
 package fr.iutinfo.skeleton.common.dto;
 
-import java.util.Date;
+import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -10,9 +10,9 @@ public class OffreDto {
     final static Logger logger = LoggerFactory.getLogger(OffreDto.class);
     private int id=0;
     private String intitule;
-    private Date dateDeb;
-    private Date dateFin;
-    private List<String> listeMots;
+    private String dateDeb;
+    private String dateFin;
+    private String listeMots;
     private int idEntreprise;
 
     public int getId() {
@@ -31,28 +31,28 @@ public class OffreDto {
         this.intitule = intitule;
     }
 
-    public Date getDateDeb() {
+    public String getDateDeb() {
         return dateDeb;
     }
 
-    public void setDateDeb(Date dateDeb) {
+    public void setDateDeb(String dateDeb) {
         this.dateDeb = dateDeb;
     }
 
-    public Date getDateFin() {
+    public String getDateFin() {
         return this.dateFin;
     }
 
-    public void setDateFin(Date dateFin) {
+    public void setDateFin(String dateFin) {
         this.dateFin = dateFin;
     }
 
-    public List<String> getListeMots() {
+    public String getListeMots() {
         return listeMots;
     }
 
-    public void setListeMots(List<String> listeMots) {
-        this.listeMots = listeMots;
+    public void setListeMots(String mots) {
+       this.listeMots = mots;
     }
 
 	public int getIdEntreprise() {
@@ -62,5 +62,12 @@ public class OffreDto {
 	public void setIdEntreprise(int idEntreprise) {
 		this.idEntreprise = idEntreprise;
 	}
+
+	@Override
+	public String toString() {
+		return "OffreDto [id=" + id + ", intitule=" + intitule + ", dateDeb=" + dateDeb + ", dateFin=" + dateFin
+				+ ", listeMots=" + listeMots + ", idEntreprise=" + idEntreprise + "]";
+	}
+	
 
 }
