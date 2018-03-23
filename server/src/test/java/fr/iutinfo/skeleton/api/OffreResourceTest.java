@@ -56,7 +56,7 @@ public class OffreResourceTest extends JerseyTest {
         OffreDto offredto = target(PATH + "/intitule/Offre_1").request().get(OffreDto.class);
         assertEquals("2018-03-22", offredto.getDateDeb());
     }
-
+    
     @Test
     public void read_offre_should_return_good_dateFin() {
         createOffre2();

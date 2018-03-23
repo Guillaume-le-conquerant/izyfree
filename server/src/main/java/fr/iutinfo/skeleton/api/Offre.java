@@ -103,6 +103,7 @@ public class Offre {
 		this.setDateDeb(dto.getDateDeb());
 		this.setId(dto.getId());
 		this.setDateFin(dto.getDateFin());
+		this.setListeMots(dto.getListeMots());
 		this.setIdEntreprise(dto.getIdEntreprise());
 	}
 

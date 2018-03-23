@@ -24,6 +24,9 @@ public class Freelance implements Principal {
     private String cv;
     private String mots;
     private String champLibre;
+    private String tarif;
+    private String localisation;
+    private String conditions;
 	private String passwdHash;
     private String salt;
     private String search;
@@ -175,6 +178,10 @@ public class Freelance implements Principal {
         this.setPhoto(dto.getPhoto());
         this.setCv(dto.getCv());
         this.setMots(dto.getMots());
+        this.setChampLibre(dto.getChampLibre());
+        this.setTarif(dto.getTarif());
+        this.setLocalisation(dto.getLocalisation());
+        this.setConditions(dto.getConditions());
     }
 
     public FreelanceDto convertToDto() {
@@ -189,6 +196,10 @@ public class Freelance implements Principal {
         dto.setPhoto(this.getPhoto());
         dto.setCv(this.getCv());
         dto.setMots(this.getMots());
+        dto.setChampLibre(this.getChampLibre());
+        dto.setTarif(this.getTarif());
+        dto.setLocalisation(this.getLocalisation());
+        dto.setConditions(this.getConditions());
         return dto;
     }
 
@@ -238,5 +249,29 @@ public class Freelance implements Principal {
 
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
+	}
+
+	public String getTarif() {
+		return tarif;
+	}
+
+	public void setTarif(String tarif) {
+		this.tarif = tarif;
+	}
+
+	public String getConditions() {
+		return conditions;
+	}
+
+	public void setConditions(String conditions) {
+		this.conditions = conditions;
+	}
+
+	public String getLocalisation() {
+		return localisation;
+	}
+
+	public void setLocalisation(String localisation) {
+		this.localisation = localisation;
 	}
 }
