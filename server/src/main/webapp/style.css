@@ -103,5 +103,30 @@ nav img{
     height: 150px;
 }
 
+.texte_kesako{
+	text-align:center;
+}
+.texte_kesako h1{
+	color:#4169E1
+}
+.texte_kesako h3{
+	color:#4169E1; 
+	font-size:16px;
+}
 
-
+#simplificateur h1{
+	color:white; background-color:#66CDAA; text-align:center;
+}
+#simplificateur p{
+	margin:1px;
+}
+.contact h1{
+	color:#4169E1; 
+	text-align:center;
+}
+.texte_entrerprise p {
+	text-align:center;
+}
+.entreprise{
+	background-color: lightblue;
+}
