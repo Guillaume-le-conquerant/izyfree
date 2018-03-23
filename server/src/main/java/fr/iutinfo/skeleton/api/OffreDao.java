@@ -36,7 +36,9 @@ public interface OffreDao {
     @RegisterMapperFactory(BeanMapperFactory.class)
     Offre findById(@Bind("id") int id);
     
-//    @SqlUpdate("alter table offres modify :nom_colonne")
-
+    @SqlUpdate("update offres set intitule = :intitule, dateDeb = :dateDeb, dateFin = :dateFin, listeMots = :listeMots where id = :id and idEntreprise = :idEntreprise")
+    @GetGeneratedKeys
+    int update(@BindBean() Offre offre);
+    
     void close();
 }
