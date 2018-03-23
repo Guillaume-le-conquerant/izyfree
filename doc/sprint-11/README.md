@@ -3,12 +3,12 @@
 Nom du scrum master du sprint : Guillaume Renaud
 
 ## Ce que nous avons fait durant ce sprint
-Réalisation du debut du CSS et avancement dans l'HTML du site WEB, tentative de connection l'application mobile et réalisation de tests pour les bases de données. 
+Poster un profil sur le site web, debug du mdp sur l'application mobile et modification et arrangement des bdd.
 ## Ce que nous allons faire durant le prochain sprint
-Réalisation du reste des tests sur les bases de données, avancer sur le CSS et l'HTML du site WEB. Connection l'application android au serveur. 
+Modification des bases de données, avancement dans le css, 
 ## PDCA 
 ### Qu'avons nous testé durant ce sprint ? 
-X
+Application mobile et debut du site WEB ainsi que la réalisation des tests. 
 ### Qu'avons nous observé ? 
 X
 ### Quelle décision prenons nous suite à cette expérience ? 

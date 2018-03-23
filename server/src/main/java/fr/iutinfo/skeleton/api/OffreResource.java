@@ -98,18 +98,6 @@ public class OffreResource {
 		}
 	}
 
-	// @PUT
-	// @Path("update/{intitule}-{}")
-	// public OffreDto updateOffre(@PathParam("id") int id) {
-	// Offre offre = dao.findById(id);
-	// Offre offre2 = dao.update(offre);
-	//
-	// if (offre2 == null) {
-	// throw new WebApplicationException(404);
-	// }
-	// return offre2.convertToDto();
-	// }
-
 	@DELETE
 	@Path("{id}")
 	public void deleteOffre(@PathParam("id") int id) {

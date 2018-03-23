@@ -43,6 +43,9 @@
 			</ul>
 		</div>
 	</nav>
+	
+	<input type="button" id="list" value="LISTER LES FREELANCE">
+	<div id="reponse"></div>
 
 	<div id="inscription">
 		<div>
@@ -144,36 +147,41 @@
 		</div>
 		<div class="form_mission">
 			<div class="form_gauche">
-				<input type="text" name="nom" id="nom" placeholder="NOM*" required>
-				<input type="email" name="mail" id="mail" placeholder="EMAIL*"
+				<input type="text" name="nom" id="nom_freelance" placeholder="NOM*" required>
+				<input type="email" name="mail" id="mail_freelance" placeholder="EMAIL*"
 					required> 
-                <input type="text" name="metier" id="metier"
+                <input type="text" name="metier" id="metier_freelance"
 					placeholder="VOTRE METIER*" required>
                 <input type="text"
-					name="skills" id="skills" placeholder="COMPETENCES*"
+					name="skills" id="skills_freelance" placeholder="COMPETENCES*"
 					required> 
-                <input type="text" name="ville" id="ville"
+                <input type="text" name="ville" id="ville_freelance"
 					placeholder="VILLE*" required> 
-				<input type="tel" name="tel" id="tel" placeholder="TELEPHONE*"
+				<input type="tel" name="tel" id="tel_freelance" placeholder="TELEPHONE*"
 					required>
                 <input
-					type="text" name="ref" id="ref" placeholder="REFERENCE ANNONCE*" required>
+					type="text" name="ref" id="ref_freelance" placeholder="REFERENCE ANNONCE*" required>
                 
 				<p>* CHAMPS OBLIGATOIRES</p>
 			</div>
 
 
 			<div class="form_droite">
-				<input type="text" name="prenom" id="prenom" placeholder="PRENOM*"
-					required> <input type="textarea" name="champ_libre"
-					id="libre"
+				<input type="text" name="prenom" id="prenom_freelance" placeholder="PRENOM*"
+					required>
+                <input type="text" name="condition" id="condition_freelance" placeholder="CONDITION*"
+					required>
+                <input type="number" name="prix" id="prix_freelance" placeholder="PRIX*"
+					required>
+                <input type="textarea" name="champ_libre"
+					id="libre_freelance"
 					placeholder="D'AUTRES INDICES POUR FAIRE APPARAITRE LE GENIE ?">
 				<div class="boutons_missions">
 					<div class="descriptif_mission">
 						<p>JE JOINS MON CV</p>
 					</div>
 
-					<div class="envoyer">
+					<div id="envoyer_freelance">
 						<p>ENVOYER</p>
 					</div>
 				</div>
@@ -217,10 +225,12 @@
 			<h1 style="color:#4169E1">KESAKO ?</h1>
 			<p>IZYFREE est une <b>filiale de COOPTALIS</b>, facilitateur de la mobilité internationale</p>
 			<p>depuis 2012 principalement sur les métiers de l'informatique et du médical</p>
+
 			<h3 style="color:#4169E1; font-size:16px;">IZYFREE INTERVIENT SUR L'ENSEMBLE DES DOMAINES STRATEGIQUES DE L'ENTREPRISE</h3>
 		</div>
 		<div class="d-flex align-content-start flex-wrap" style="color:white; text-align:center;">
 			<div style="background-color:#66CDAA; width:50%">
+
 				<h1>INFRA</h1>
 				<ul>
 					<p>Réseaux</p>
@@ -231,6 +241,7 @@
 				</ul>
 			</div>
 			<div style="background-color:#DAA520; width:50%">
+
 				<h1>ETUDES</h1>
 				<ul>
 					<p>Ingénieur d'études et de développpement</p>
@@ -242,7 +253,7 @@
 			</div>
 		</div>
 		<div class="d-flex align-content-start flex-wrap 2" style="color:white; text-align:center;">
-			<div style="background-color:#4682B4; width:50%">
+            <div style="background-color:#4682B4">
 				<h1>MOA</h1>
 				<ul>
 					<p>Chef de projet</p>
@@ -252,6 +263,7 @@
 					<p>...</p>
 				</ul>
 			</div>
+
 			<div style="background-color:#66CDAA; vertical-align:middle; width:50%">
 				<h1>METIERS</h1>
 				<div style="float:left" >
@@ -345,6 +357,7 @@
 		$('#login').hide();
 		$('#inscription').hide();
         $('#formulaire_entreprise').hide();
+        $('#formulaire_freelance').hide();
 
 		$(document).ready(
 				function() {
@@ -407,6 +420,33 @@
                         $('#formulaire_entreprise').hide()
 						$('#login').show()
 					});
+                    
+                    $("#envoyer_freelance").click(
+							function() {
+								postFreelanceForm($('#name_freelance').val(), $('#firstname_freelance')
+										.val(), 
+                                              $('#email_freelance').val(), 
+                                              $('#metier_freelance').val(), 
+                                              $('#skills_freelance')
+										.val(), 
+                                              $('#ville_freelance')
+										.val(), 
+                                              $('#tel_freelance')
+										.val(), 
+                                              $('#ref_freelance')
+										.val(), 
+                                              $('#libre_freelance')
+										.val(),$('#condition_freelance')
+										.val(),$('#prix_freelance')
+										.val())
+							});
+                    
+                    $("#post").click(
+							function() {
+								postFreelance($('#name').val(), $('#firstname')
+										.val(), $('#email').val(), $('#passwd')
+										.val())
+							});
 
 					$("#get").click(function() {
 						getUser($('#user').val(), $('#alias').val())
@@ -420,7 +460,7 @@
 							}, console.log("Ok pour le post"));
 
 					$("#list").click(function() {
-						listUsers()
+						listFreelance()
 					});
 
 					$("#btn_login").click(function() {
@@ -435,9 +475,12 @@
 						$('.proposition_profil').hide();
                         $('.entete').hide();
 						$('#formulaire_entreprise').show();
+                        $('#formulaire_freelance').hide();
+                        $('#freelance').hide();
 						$('#inscription_entreprise').show();
 						$('.entreprise').show();
                         $('#dernieres_offres').hide();
+                        $('#login').hide();
 						$('.depot_mission').show();
 						$('.nos_offres').show();
 						$('#offre').show();
@@ -446,7 +489,9 @@
 					$("#isfreelance").click(function() {
 						$('#inscription_entreprise').hide();
 						$('#formulaire_entreprise').hide();
+                        $('#formulaire_freelance').show();
                         $('.entete').hide();
+                        $('#login').hide();
                         $('.entreprise').hide();
 						$('.depot_mission').hide();
 						$('.proposition_profil').show();
