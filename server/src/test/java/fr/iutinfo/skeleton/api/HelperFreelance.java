@@ -72,6 +72,7 @@ public class HelperFreelance {
     
     static Freelance createFreelanceWithMots(String mots) {
     	Freelance free = new Freelance(0, "Jean");
+    	free.setFirstname("pierre");
         free.setEmail("jean@pierre.com");
         free.setPassword("mdpdejean");
         free.setMots("papa?maman");
