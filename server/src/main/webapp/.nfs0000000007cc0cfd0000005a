@@ -38,7 +38,7 @@ function profile() {
        beforeSend : function(req) {
         req.setRequestHeader("Authorization", "Basic " + btoa($("#userlogin").val() + ":" + $("#passwdlogin").val()));
        },
-       success: alert("succes"),
+       success: $('#inscription').hide(),
        error : function(jqXHR, textStatus, errorThrown) {
        			alert('error: ' + textStatus);
        		}
@@ -50,9 +50,14 @@ function profile() {
      }
  }*/
 
-/*function postUser(name, firstname, email, pwd) {
+function postUser(name, firstname, email, pwd, type) {
+    if(type == "freelance"){
         postFreelance(firstname.toLowerCase(), name.toLowerCase(),email.toLowerCase(), pwd)
-}*/
+    }
+    if (type == "entreprise"){
+        postEntreprise(name.toLowerCase(), firstname.toLowerCase(),email.toLowerCase(), pwd)
+    }
+}
 
 function postUserGeneric(name, alias, email, pwd, url) {
 	console.log("postUserGeneric " + url)
@@ -86,42 +91,14 @@ function postFreelance(name, firstname, email, pwd) {
 		url : 'v1/freelance/',
 		dataType : "json",
 		data : JSON.stringify({
-            "name" : name,
             "firstname" : firstname,
+			"name" : name,
 			"email" : email,
 			"password" : pwd
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
 			$('#inscription').hide();
-		},
-		error : function(jqXHR, textStatus, errorThrown) {
-			console.log('postUser error: ' + textStatus);
-		}
-	});
-}
-
-function postFreelance(name, firstname, email, job, mots, localisation, phone, ref, champLibre) {
-	console.log("postUserGeneric " + 'v1/freelance')
-	$.ajax({
-		type : 'POST',
-		contentType : 'application/json',
-		url : 'v1/freelance/',
-		dataType : "json",
-		data : JSON.stringify({
-            "name" : name,
-            "firstname" : firstname,
-			"email" : email,
-            "job" : job,
-            "mots" : mots,
-            "localisation" : localisation,
-            "phone" : phone,
-            "ref" : ref,
-            "champLibre" : champLibre
-		}),
-		success : function(data, textStatus, jqXHR) {
-			afficheUser(data);
-			$('#formulaire_freelance').hide();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			console.log('postUser error: ' + textStatus);
