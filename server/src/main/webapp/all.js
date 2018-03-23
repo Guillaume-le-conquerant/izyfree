@@ -10,8 +10,17 @@ function getUserGeneric(name, url) {
 
 function login() {
 	getWithAuthorizationHeader("v1/login", function(data){
-	    $("#connexion").hide();
-	    afficheUser(data);
+        console.log(data.email);
+        console.log($('#userlogin')).val();
+	    if(data.email === ($('#userlogin')).val()){
+            console.log(data.email);
+            nom = data.name;
+            prenom = data.firstname;
+            mail = data.email;
+            $('#login').hide();
+        } else {
+            alert("Mot de passe ou Email incorrecte");
+        }
 	});
 }
 
@@ -29,7 +38,7 @@ function profile() {
        beforeSend : function(req) {
         req.setRequestHeader("Authorization", "Basic " + btoa($("#userlogin").val() + ":" + $("#passwdlogin").val()));
        },
-       success: $('#inscription').hide(),
+       success: alert("succes"),
        error : function(jqXHR, textStatus, errorThrown) {
        			alert('error: ' + textStatus);
        		}
@@ -41,13 +50,8 @@ function profile() {
      }
  }
 
-function postUser(name, firstname, email, pwd, type) {
-    if(type == "freelance"){
+function postUser(name, firstname, email, pwd) {
         postFreelance(firstname.toLowerCase(), name.toLowerCase(),email.toLowerCase(), pwd)
-    }
-    if (type == "entreprise"){
-        postEntreprise(name.toLowerCase(), firstname.toLowerCase(),email.toLowerCase(), pwd)
-    }
 }
 
 function postUserGeneric(name, alias, email, pwd, url) {
@@ -82,8 +86,8 @@ function postFreelance(name, firstname, email, pwd) {
 		url : 'v1/freelance/',
 		dataType : "json",
 		data : JSON.stringify({
+            "name" : name,
             "firstname" : firstname,
-			"name" : name,
 			"email" : email,
 			"password" : pwd
 		}),
