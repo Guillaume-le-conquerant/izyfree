@@ -64,7 +64,7 @@ nav img{
     margin: 5px;
 }
 
-.form_mission .form_gauche {
+.form_gauche {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -103,32 +103,39 @@ nav img{
     height: 150px;
 }
 
-.texte_kesako{
-	text-align:center;
-}
-.texte_kesako h1{
-	color:#4169E1
-}
-.texte_kesako h3{
-	color:#4169E1; 
-	font-size:16px;
+#dernieres_offres{
+    display: flex;
+    justify-content: space-between;
 }
 
-#simplificateur h1{
-	color:white; background-color:#66CDAA; text-align:center;
+.derniers_profils {
+    background-color: dodgerblue;
+    text-align: center;
 }
-#simplificateur p{
-	margin:1px;
+
+.dernieres_missions {
+    background-color:chartreuse;
+    text-align: center;
 }
-.contact h1{
-	color:#4169E1; 
-	text-align:center;
+
+.entreprise {
+    text-align: center;
 }
-.texte_entrerprise p {
-	text-align:center;
+
+#nos_offres {
+    text-align: center;
 }
-.entreprise{
-	background-color: lightblue;
+
+#formulaire_freelance {
+    
+}
+
+
+
+#inscription {
+    display: flex;
+    text-align: center;
+    flex-direction: colum;
 }
 
 #libre_freelance {
