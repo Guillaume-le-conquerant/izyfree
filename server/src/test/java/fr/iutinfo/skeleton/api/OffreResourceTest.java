@@ -37,15 +37,22 @@ public class OffreResourceTest extends JerseyTest {
     }
 
     @Test
-    public void read_should_return_an_offre_as_object() {
+    public void read_should_return_an_offre_as_object_with_intitule() {
         createOffreWithIntitule("foo");
         OffreDto offre = target(PATH + "/intitule/foo").request().get(OffreDto.class);
         assertEquals("foo", offre.getIntitule());
     }
 
     @Test
+    public void read_should_return_an_offre_as_object_with_id() {
+        createOffreWithIntitule("foo");
+        OffreDto offre = target(PATH + "/id/1").request().get(OffreDto.class);
+        assertEquals(1, offre.getId());
+    }
+    
+    @Test
     public void read_offre_should_return_good_dateDeb() {
-        Offre offre = createOffre1();
+        createOffre1();
         OffreDto offredto = target(PATH + "/intitule/Offre_1").request().get(OffreDto.class);
         assertEquals("2018-03-22", offredto.getDateDeb());
     }
