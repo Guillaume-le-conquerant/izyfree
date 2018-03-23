@@ -13,22 +13,32 @@ import java.security.Principal;
 import java.security.SecureRandom;
 
 public class Staff implements Principal {
-    final static Logger logger = LoggerFactory.getLogger(User.class);
+    final static Logger logger = LoggerFactory.getLogger(Staff.class);
     private static Staff anonymous = new Staff("IzyFree");
-    private String pseudo;
-    private String phone;
-    private String mail;
-    private String password;
+    private String name;
+    private String firstname;
+	private String mail;
+    private int id = 0;
+	private String password;
     private String passwdHash;
     private String salt;
     private String search;
 
-    public Staff(String pseudo) {
-        this.setPseudo(pseudo);
+    public Staff(String name) {
+        this.name = name;
     }
     
     public Staff() {
     }
+    
+    public int getId() {
+  		return id;
+  	}
+
+  	public void setId(int id) {
+  		this.id = id;
+  	}
+
 
     public static Staff getAnonymousStaff() {
         return anonymous;
@@ -37,6 +47,19 @@ public class Staff implements Principal {
     public String getMail() {
         return mail;
     }
+    
+    public String getFirstName() {
+		return firstname;
+	}
+
+	public void setFirstName(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 
     public void setMail(String mail) {
         this.mail = mail;
@@ -79,12 +102,12 @@ public class Staff implements Principal {
         if (getClass() != arg.getClass())
             return false;
         Staff staff = (Staff) arg;
-        return pseudo.equals(staff.pseudo) && mail.equals(staff.mail) && phone.equals(staff.phone);
+        return name.equals(staff.name) && firstname.equals(staff.firstname) && mail.equals(staff.mail);
     }
 
     @Override
     public String toString() {
-        return pseudo + ": TEL : " + phone + ", <" + mail + ">";
+        return name + ": <" + mail + ">";
     }
 
 
@@ -113,15 +136,15 @@ public class Staff implements Principal {
     }
 
     public boolean isInStaffGroup() {
-        return !(pseudo == anonymous.getPseudo());
+        return !(name == anonymous.getName());
     }
 
     public boolean isAnonymous() {
-        return this.getPseudo() == getAnonymousStaff().getPseudo();
+        return this.getName() == getAnonymousStaff().getName();
     }
 
     public String getSearch() {
-        search = pseudo + " " + phone + " " + mail;
+        search = name + " " + mail;
         return search;
     }
 
@@ -130,40 +153,32 @@ public class Staff implements Principal {
     }
 
     public void initFromDto(StaffDto dto) {
-        this.setPseudo(dto.getPseudo());
+        this.setName(dto.getName());
+        this.setFirstName(dto.getFirstName());
         this.setMail(dto.getMail());
-        this.setPhone(dto.getPhone());
         this.setPassword(dto.getPassword());
     }
 
     public StaffDto convertToDto() {
         StaffDto dto = new StaffDto();
-        dto.setPseudo(this.getPseudo());
+        dto.setName(this.getName());
+        dto.setFirstName(this.getFirstName());
         dto.setMail(this.getMail());
-        dto.setPhone(this.getPhone());
         dto.setPassword(this.getPassword());
         return dto;
     }
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
-	public String getPseudo() {
-		return pseudo;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
 }

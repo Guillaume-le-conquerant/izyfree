@@ -33,7 +33,6 @@ public class EntrepriseRessource {
     public EntrepriseDTO createEntreprise(EntrepriseDTO dto) {
     	Entreprise entre = new Entreprise();
         entre.initFromDto(dto);
-        entre.resetPasswordHash();
         int id = dao.insert(entre);
         dto.setId(id);
         return dto;

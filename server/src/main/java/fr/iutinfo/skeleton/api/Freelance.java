@@ -24,7 +24,8 @@ public class Freelance implements Principal {
     private String photo;
     private String cv;
     private String mots;
-    private String passwdHash;
+    private String champLibre;
+	private String passwdHash;
     private String salt;
     private String search;
 
@@ -49,6 +50,15 @@ public class Freelance implements Principal {
     public String getEmail() {
         return email;
     }
+    
+    public String getChampLibre() {
+		return champLibre;
+	}
+
+	public void setChampLibre(String champLibre) {
+		this.champLibre = champLibre;
+	}
+
 
     public void setEmail(String email) {
         this.email = email;
