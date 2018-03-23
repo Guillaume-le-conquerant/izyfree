@@ -43,6 +43,9 @@
 			</ul>
 		</div>
 	</nav>
+	
+	<input type="button" id="list" value="LISTER LES FREELANCE">
+	<div id="reponse"></div>
 
 	<div id="inscription">
 		<div>
@@ -303,7 +306,7 @@
 
 					$("#post").click(
 							function() {
-								postUser($('#name').val(), $('#firstname')
+								postFreelance($('#name').val(), $('#firstname')
 										.val(), $('#email').val(), $('#passwd')
 										.val(), $('#nom_contact')
 										.val(),$('#prenom_contact')
@@ -312,7 +315,7 @@
 							}, console.log("Ok pour le post"));
 
 					$("#list").click(function() {
-						listUsers()
+						listFreelance()
 					});
 
 					$("#login").click(function() {

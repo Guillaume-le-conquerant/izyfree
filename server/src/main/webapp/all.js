@@ -9,9 +9,18 @@ function getUserGeneric(name, url) {
 }
 
 function login() {
-	getWithAuthorizationHeader("v1/login", function(data){
+	/*getWithAuthorizationHeader("v1/login", function(data){
 	    $("#connexion").hide();
 	    afficheUser(data);
+	});*/
+	$.getJSON("/v1/freelance", function(data) {
+		for(index=0; index < data.length ; ++index){
+			if(data[index].email == $("#userlogin").val()){
+				alert("connecté");
+				return;
+			}	
+		}
+		alert("non");
 	});
 }
 
@@ -19,7 +28,7 @@ function profile() {
 	getWithAuthorizationHeader("v1/profile", function (data) {afficheUser(data);});
 }
 
- function getWithAuthorizationHeader(url, callback) {
+ /*function getWithAuthorizationHeader(url, callback) {
  if($("#userlogin").val() != "") {
      $.ajax
      ({
@@ -39,7 +48,7 @@ function profile() {
      	    afficheUser(data);
         });
      }
- }
+ }*/
 
 function postUser(name, firstname, email, pwd, type) {
     if(type == "freelance"){
@@ -173,4 +182,31 @@ function afficheListUsers(data) {
 
 function userStringify(user) {
     return user.id + ". " + user.name + " &lt;" + user.email + "&gt;" + " (" + user.alias + ")";
+}
+
+function listFreelance() {
+    listFreelanceGeneric("v1/freelance/");
+}
+
+function listFreelanceGeneric(url) {
+	$.getJSON(url, function(data) {
+		afficheListFreelance(data);
+	});
+}
+
+function afficheListFreelance(data) {
+	var ul = document.createElement('ul');
+	ul.className = "list-group";
+	var index = 0;
+	for (index = 0; index < data.length; ++index) {
+	    var li = document.createElement('li');
+	    li.className = "list-group-item";
+		li.innerHTML = data[index].email;
+		ul.appendChild(li);
+	}
+	$("#reponse").html(ul);
+}
+
+function freelanceStringify(freelance) {
+    return freelance.id + ". " + freelance.name + " &lt;" + freelance.email + "&gt;" + " (" + freelance.alias + ")";
 }
