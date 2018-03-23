@@ -22,6 +22,12 @@ public class FreelanceDto {
     	this.name=name;
     }
     
+    public FreelanceDto(int id, String name, String firstname) {
+    	this.id=id;
+    	this.name=name;
+    	this.firstname=firstname;
+    }
+    
     public FreelanceDto() {
     	
     }
