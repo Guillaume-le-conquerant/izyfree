@@ -24,45 +24,44 @@
 		</div>
 		<div>
 			<ul class="navbar-nav">
-				<li id="offre" class="nav-item"><a class="nav-link" href="#nos_offres">NOS OFFRES</a></li>
+				<li id="offre" class="nav-item"><a class="nav-link"
+					href="#nos_offres">NOS OFFRES</a></li>
 				<li class="nav-item"><a class="nav-link" href="#kesako">KESAKO</a></li>
-				<li class="nav-item"><a class="nav-link" href="#notre_motivation">NOTRE MOTIVATION</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="#notre_motivation">NOTRE MOTIVATION</a></li>
 				<li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
 			</ul>
 		</div>
-		<div style="margin-left:50%">
+		<div style="margin-left: 50%">
 			<ul class="navbar-nav">
-				<li class="nav-item"><p id="inscrire" style="color: white">Inscription</p></li>
-				<li class="nav-item"><p id="connexion" style="color: white">Connexion</p></li>
+				<li class="nav-item" style="margin-right:10px;"><a href="#" id="inscrire" style="color: white">Inscription</a></li>
+				<li class="nav-item" style="margin-right:15px;"><a href="#" id="connexion" style="color: white">Connexion</a></li>
 			</ul>
 			<ul class="navbar-nav">
 				<li class="nav-item"><input type="button" name="isfreelance"
 					id="isfreelance" value="FREELANCE"></li>
 				<li class="nav-item"><input type="button" name="isentreprise"
 					id="isentreprise" value="ENTREPRISE"></li>
+				<li class="nav-item"><input type="button" name="deconnexion"
+					id="deconnexion" value="DECONNEXION"></li>
 			</ul>
 		</div>
 	</nav>
-	
+
 	<input type="button" id="list" value="LISTER LES FREELANCE">
 	<div id="reponse"></div>
 
 	<div id="inscription">
 		<div>
 			<h1>Inscription :</h1>
-            
-            <input type="text" name="userdb" id="name" placeholder="Nom"
-                    class="form-control" />
-            <input type="text" name="user"
-                    id="firstname" placeholder="Prenom" class="form-control" /> 
-                
-            
-            <input type="text" name="email" id="email" placeholder="Email"
-                    class="form-control" />
-            
-            <input type="password" name="user"
-                    id="passwd" placeholder="Mot de passe" class="form-control" />
-            
+
+			<input type="text" name="userdb" id="name" placeholder="Nom"
+				class="form-control" /> <input type="text" name="user"
+				id="firstname" placeholder="Prenom" class="form-control" /> <input
+				type="text" name="email" id="email" placeholder="Email"
+				class="form-control" /> <input type="password" name="user"
+				id="passwd" placeholder="Mot de passe" class="form-control" />
+
 		</div>
 		<div>
 			<button type="button" id="post" class="btn btn-primary">S'inscrire</button>
@@ -84,22 +83,34 @@
 		<img src="resources/accueil.png" alt="en tete" width="100%"
 			height="750px" />
 	</div>
-    
-    <div id="dernieres_offres">
-        <div class="derniers_profils">
-            <h1>Derniers profils publiés</h1>
-            <div><h3>Patrick, Ingénieur Systèmes/Réseaux</h3></div>
-            <div><h3>Paolo, Technicien parc informatique</h3></div>
-            <div><h3>Peter, Développeur JAVA</h3></div>
-        </div>
-        
-        <div class="dernieres_missions">
-            <h1>Dernieres missions publiées</h1>
-            <div><h3>Recherche dev front-end</h3></div>
-            <div><h3>Recherche dev front-end</h3></div>
-            <div><h3>Recherche dev front-end</h3></div>
-        </div>
-    </div>
+
+	<div id="dernieres_offres">
+		<div class="derniers_profils">
+			<h1>Derniers profils publiés</h1>
+			<div>
+				<h3>Patrick, Ingénieur Systèmes/Réseaux</h3>
+			</div>
+			<div>
+				<h3>Paolo, Technicien parc informatique</h3>
+			</div>
+			<div>
+				<h3>Peter, Développeur JAVA</h3>
+			</div>
+		</div>
+
+		<div class="dernieres_missions">
+			<h1>Dernieres missions publiées</h1>
+			<div>
+				<h3>Recherche dev front-end</h3>
+			</div>
+			<div>
+				<h3>Recherche dev front-end</h3>
+			</div>
+			<div>
+				<h3>Recherche dev front-end</h3>
+			</div>
+		</div>
+	</div>
 
 	<div id="formulaire_entreprise" style="background-color: lightblue;">
 		<div class="texte_mission">
@@ -139,8 +150,8 @@
 			</div>
 		</div>
 	</div>
-    
-    <div id="formulaire_freelance" style="background-color: lightblue;">
+
+	<div id="formulaire_freelance" style="background-color: lightblue;">
 		<div class="texte_mission">
 			<p>FREELANCE,</p>
 			<p>A LA RECHERCHE DE MISSIONS ?</p>
@@ -149,19 +160,14 @@
 			<div class="form_gauche">
 				<input type="text" name="nom" id="nom" placeholder="NOM*" required>
 				<input type="email" name="mail" id="mail" placeholder="EMAIL*"
-					required> 
-                <input type="text" name="metier" id="metier"
-					placeholder="VOTRE METIER*" required>
-                <input type="text"
-					name="skills" id="skills" placeholder="COMPETENCES*"
-					required> 
-                <input type="text" name="ville" id="ville"
-					placeholder="VILLE*" required> 
-				<input type="tel" name="tel" id="tel" placeholder="TELEPHONE*"
-					required>
-                <input
-					type="text" name="ref" id="ref" placeholder="REFERENCE ANNONCE*" required>
-                
+					required> <input type="text" name="metier" id="metier"
+					placeholder="VOTRE METIER*" required> <input type="text"
+					name="skills" id="skills" placeholder="COMPETENCES*" required>
+				<input type="text" name="ville" id="ville" placeholder="VILLE*"
+					required> <input type="tel" name="tel" id="tel"
+					placeholder="TELEPHONE*" required> <input type="text"
+					name="ref" id="ref" placeholder="REFERENCE ANNONCE*" required>
+
 				<p>* CHAMPS OBLIGATOIRES</p>
 			</div>
 
@@ -186,7 +192,9 @@
 
 	<div id="nos_offres">
 		<div class="proposition_profil" style="background-color: lightyellow;">
-            <div><h1>PROFILS</h1></div>
+			<div>
+				<h1>PROFILS</h1>
+			</div>
 			<div>4 images à la suite</div>
 			<input type="button" name="proposition" id="proposition"
 				value="JE PROPOSE MON PROFIL" />
@@ -216,14 +224,20 @@
 		</div>
 	</div>
 	<div id="kesako">
-		<div class="texte_kesako" style= "text-align:center;">
-			<h1 style="color:#4169E1">KESAKO ?</h1>
-			<p>IZYFREE est une <b>filiale de COOPTALIS</b>, facilitateur de la mobilité internationale</p>
-			<p>depuis 2012 principalement sur les métiers de l'informatique et du médical</p>
-			<h3 style="color:#4169E1; font-size:16px;">IZYFREE INTERVIENT SUR L'ENSEMBLE DES DOMAINES STRATEGIQUES DE L'ENTREPRISE</h3>
+		<div class="texte_kesako" style="text-align: center;">
+			<h1 style="color: #4169E1">KESAKO ?</h1>
+			<p>
+				IZYFREE est une <b>filiale de COOPTALIS</b>, facilitateur de la
+				mobilité internationale
+			</p>
+			<p>depuis 2012 principalement sur les métiers de l'informatique
+				et du médical</p>
+			<h3 style="color: #4169E1; font-size: 16px;">IZYFREE INTERVIENT
+				SUR L'ENSEMBLE DES DOMAINES STRATEGIQUES DE L'ENTREPRISE</h3>
 		</div>
-		<div class="d-flex align-content-start flex-wrap" style="color:white; text-align:center;">
-			<div style="background-color:#66CDAA; width:50%">
+		<div class="d-flex align-content-start flex-wrap"
+			style="color: white; text-align: center;">
+			<div style="background-color: #66CDAA; width: 50%">
 
 				<h1>INFRA</h1>
 				<ul>
@@ -234,7 +248,7 @@
 					<p>...</p>
 				</ul>
 			</div>
-			<div style="background-color:#DAA520; width:50%">
+			<div style="background-color: #DAA520; width: 50%">
 
 				<h1>ETUDES</h1>
 				<ul>
@@ -246,8 +260,9 @@
 				</ul>
 			</div>
 		</div>
-		<div class="d-flex align-content-start flex-wrap 2" style="color:white; text-align:center;">
-            <div style="background-color:#4682B4">
+		<div class="d-flex align-content-start flex-wrap 2"
+			style="color: white; text-align: center;">
+			<div style="background-color: #4682B4">
 				<h1>MOA</h1>
 				<ul>
 					<p>Chef de projet</p>
@@ -258,37 +273,41 @@
 				</ul>
 			</div>
 
-			<div style="background-color:#66CDAA; vertical-align:middle; width:50%">
+			<div
+				style="background-color: #66CDAA; vertical-align: middle; width: 50%">
 				<h1>METIERS</h1>
-				<div style="float:left" >
-				<ul>
-					<h2 style="font-size:24px;">FONCTIONS TRANSVERSES</h2>
-					<p>Directeur commercial</p>
-					<p>Office manager</p>
-					<p>Contrôleur de gestion</p>
-					<p>Acheteur</p>
-					<p>...</p>
-				</ul>
+				<div style="float: left">
+					<ul>
+						<h2 style="font-size: 24px;">FONCTIONS TRANSVERSES</h2>
+						<p>Directeur commercial</p>
+						<p>Office manager</p>
+						<p>Contrôleur de gestion</p>
+						<p>Acheteur</p>
+						<p>...</p>
+					</ul>
 				</div>
-				<ul>	
-					<h3 style="font-size:24px;">DIGITAL & NUMERIQUE</h3>
+				<ul>
+					<h3 style="font-size: 24px;">DIGITAL & NUMERIQUE</h3>
 					<p>Community Manager</p>
 					<p>UX</p>
 					<p>Réducteur web</p>
 					<p>Web designer</p>
 					<p>...</p>
 				</ul>
-				</div>
 			</div>
 		</div>
-    
-    <div id="simplificateur">
-			<h1 style="color:white; background-color:#66CDAA; text-align:center;">IZYFREE, SIMPLIFICATEUR DU QUOTIDIEN</h1>
-		
+	</div>
+
+	<div id="simplificateur">
+		<h1
+			style="color: white; background-color: #66CDAA; text-align: center;">IZYFREE,
+			SIMPLIFICATEUR DU QUOTIDIEN</h1>
+
 		<div class="d-flex align-content-start flex-wrap">
-			<div style="background-image:url(resources/accueil.png); width:50%;"></div>
-			
-			<div style="width:50%">
+			<div
+				style="background-image: url(resources/accueil.png); width: 50%;"></div>
+
+			<div style="width: 50%">
 				<ul>
 					<p>01,</p>
 					<p>Etre Freelance oui,</p>
@@ -300,7 +319,7 @@
 			</div>
 		</div>
 		<div class="d-flex align-content-start flex-wrap 2">
-			<div style="width:50%">
+			<div style="width: 50%">
 				<ul>
 					<p>02,</p>
 					<p>Un marché vaste avec beaucoup</p>
@@ -310,12 +329,14 @@
 					<p>auprès de nos partenaires</p>
 				</ul>
 			</div>
-			<div style="background-image:url(resources/accueil.png); width:50%;"></div>
+			<div
+				style="background-image: url(resources/accueil.png); width: 50%;"></div>
 		</div>
 		<div class="d-flex align-content-start flex-wrap 3">
-			<div style="background-image:url(resources/accueil.png); width:50%;"></div>
-			
-			<div style="width:50%">
+			<div
+				style="background-image: url(resources/accueil.png); width: 50%;"></div>
+
+			<div style="width: 50%">
 				<ul>
 					<p>01,</p>
 					<p>Etre Freelance oui,</p>
@@ -335,6 +356,27 @@
 
 	<div class="simplificateur"></div>
 
+	<div id="formulaire_moncompte" style="background-color: lightblue;">
+		<div class="texte_mission">
+			<p>MON COMPTE</p>
+		</div>
+		<div class="form_moncompte">
+			<div class="form_gauche">
+				<input type="text" name="nom2" id="nom2" placeholder="NOM*" required>
+				<input type="email" name="mail2" id="mail2" placeholder="EMAIL*"
+					required> <input type="text" name="metier2" id="metier2"
+					placeholder="VOTRE METIER*" required> <input type="text"
+					name="skills2" id="skills2" placeholder="COMPETENCES*" required>
+				<input type="text" name="ville2" id="ville2" placeholder="VILLE*"
+					required> <input type="tel" name="tel2" id="tel2"
+					placeholder="TELEPHONE*" required> <input type="text"
+					name="ref2" id="ref2" placeholder="REFERENCE ANNONCE*" required>
+
+				<p>* CHAMPS OBLIGATOIRES</p>
+			</div>
+		</div>
+	</div>
+
 	<div id="contact">
 		<div>
 			<div class="benjamin_petit"></div>
@@ -350,67 +392,70 @@
 	<script type="text/javascript">
 		$('#login').hide();
 		$('#inscription').hide();
-        $('#formulaire_entreprise').hide();
+		$('#formulaire_entreprise').hide();
+		$('#offre').hide();
+		$('#deconnexion').hide();
+		$('#formulaire_moncompte').hide(); 
 
 		$(document).ready(
 				function() {
-                    
-                    $('#freelance').click(function() {
+
+					$('#freelance').click(function() {
 						$('#inscription_entreprise').hide()
 						$('#inscription_freelance').show()
 					});
-                    
-                    $('#entreprise').click(function() {
+
+					$('#entreprise').click(function() {
 						$('#inscription_freelance').hide()
 						$('#inscription_entreprise').show()
 					});
-                    
-                    $('#accueil_logo').click(function() {
+
+					$('#accueil_logo').click(function() {
 						$('#login').hide()
-                        $('.entete').show()
-                        $('#kesako').show()
-                        $('#nos_offres').show()
-                        $('.entreprise').show()
-                        $('#notre_motivation').show()
-                        $('#formulaire_entreprise').show()
+						$('.entete').show()
+						$('#kesako').show()
+						$('#nos_offres').show()
+						$('.entreprise').show()
+						$('#notre_motivation').show()
+						$('#formulaire_entreprise').show()
 						$('#inscription').hide()
 					});
-                    
-                    $('#proposition').click(function(){
-                        $('#login').hide()
-                        $('.entete').hide()
-                        $('#kesako').hide()
-                        $('#nos_offres').hide()
-                        $('.entreprise').hide()
-                        $('#notre_motivation').hide()
-                        $('#formulaire_entreprise').hide()
-                        $('#dernieres_offres').hide();
-                        $('#formulaire_freelance').show()
-                    });
-                    
+
+					$('#proposition').click(function() {
+						$('#login').hide()
+						$('.entete').hide()
+						$('#kesako').hide()
+						$('#nos_offres').hide()
+						$('.entreprise').hide()
+						$('#notre_motivation').hide()
+						$('#formulaire_entreprise').hide()
+						$('#dernieres_offres').hide();
+						$('#formulaire_freelance').show()
+					});
+
 					$("#inscrire").click(function() {
 						$('#login').hide()
-                        $('.entete').hide()
-                        $('#kesako').hide()
-                        $('#nos_offres').hide()
-                        $('#dernieres_offres').hide()
-                        $('#simplificateur').hide()
-                        $('#formulaire_freelance').hide()
-                        $('.entreprise').hide()
-                        $('#notre_motivation').hide()
-                        $('#formulaire_entreprise').hide()
+						$('.entete').hide()
+						$('#kesako').hide()
+						$('#nos_offres').hide()
+						$('#dernieres_offres').hide()
+						$('#simplificateur').hide()
+						$('#formulaire_freelance').hide()
+						$('.entreprise').hide()
+						$('#notre_motivation').hide()
+						$('#formulaire_entreprise').hide()
 						$('#inscription').show()
 					});
 
 					$("#connexion").click(function() {
 						$('#inscription').hide()
-                        $('#login').hide()
-                        $('.entete').hide()
-                        $('#kesako').hide()
-                        $('#nos_offres').hide()
-                        $('.entreprise').hide()
-                        $('#notre_motivation').hide()
-                        $('#formulaire_entreprise').hide()
+						$('#login').hide()
+						$('.entete').hide()
+						$('#kesako').hide()
+						$('#nos_offres').hide()
+						$('.entreprise').hide()
+						$('#notre_motivation').hide()
+						$('#formulaire_entreprise').hide()
 						$('#login').show()
 					});
 
@@ -436,30 +481,45 @@
 					$("#profile").click(function() {
 						profile()
 					});
-                    
+
 					$("#isentreprise").click(function() {
 						$('.proposition_profil').hide();
-                        $('.entete').hide();
+						$('.entete').hide();
 						$('#formulaire_entreprise').show();
 						$('#inscription_entreprise').show();
 						$('.entreprise').show();
-                        $('#dernieres_offres').hide();
+						$('#dernieres_offres').hide();
 						$('.depot_mission').show();
 						$('.nos_offres').show();
 						$('#offre').show();
+						$('#formulaire_freelance').hide();
 					});
-                    
+
 					$("#isfreelance").click(function() {
 						$('#inscription_entreprise').hide();
 						$('#formulaire_entreprise').hide();
-                        $('.entete').hide();
-                        $('.entreprise').hide();
+						$('.entete').hide();
+						$('.entreprise').hide();
 						$('.depot_mission').hide();
 						$('.proposition_profil').show();
-                        $('#dernieres_offres').hide();
+						$('#dernieres_offres').hide();
 						$('.nos_missions').show();
 						$('.nos_offres').show();
 						$('#offre').show();
+					})
+					$("#deconnexion").click(function() {
+						$('#inscrire').show();
+						$('#connexion').show();
+						$('#isfreelance').show();
+						$('#isentreprise').show();
+						$('.entete').show()
+						$('#kesako').show()
+						$('.entreprise').show()
+						$('#notre_motivation').show();
+						$('#simplificateur').show();
+						$('#nos_offres').show();
+						$("#deconnexion").hide();
+						$('#formulaire_moncompte').hide();
 					})
 				});
 	</script>

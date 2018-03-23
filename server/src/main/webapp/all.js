@@ -17,10 +17,22 @@ function login() {
 		for(index=0; index < data.length ; ++index){
 			if(data[index].email == $("#userlogin").val()){
 				alert("connecté");
+				$('#login').hide();
+				$('#inscription').hide();
+		        $('#formulaire_entreprise').hide();
+		        $('#inscrire').hide();
+		        $('#connexion').hide();
+		        $('#isfreelance').hide();
+		        $('#isentreprise').hide();
+		        $('#simplificateur').hide();
+		        $('#formulaire_freelance').hide();
+		        $('#dernieres_offres').hide();
+		        $('#deconnexion').show();
+		        $('#formulaire_moncompte').show();
 				return;
 			}	
 		}
-		alert("non");
+		alert("identifiant ou mot de passe incorrect");
 	});
 }
 
@@ -196,7 +208,7 @@ function afficheListFreelance(data) {
 	for (index = 0; index < data.length; ++index) {
 	    var li = document.createElement('li');
 	    li.className = "list-group-item";
-		li.innerHTML = data[index].email;
+		li.innerHTML = freelanceStringify(data[index]);
 		ul.appendChild(li);
 	}
 	$("#reponse").html(ul);
