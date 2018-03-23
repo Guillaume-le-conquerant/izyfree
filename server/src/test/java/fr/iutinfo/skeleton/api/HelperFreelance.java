@@ -78,6 +78,9 @@ public class HelperFreelance {
         free.setPassword("mdpdejean");
         free.setMots("papa?maman");
         free.setJob("Developpeur Java");
+        free.setTarif("300€/jour");
+        free.setLocalisation("Lille");
+        free.setConditions("A distance");
         int id = dao.insert(free);
         free.setId(id);
         return free;
