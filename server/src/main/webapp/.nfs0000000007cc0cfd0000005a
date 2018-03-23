@@ -17,22 +17,10 @@ function login() {
 		for(index=0; index < data.length ; ++index){
 			if(data[index].email == $("#userlogin").val()){
 				alert("connecté");
-				$('#login').hide();
-				$('#inscription').hide();
-		        $('#formulaire_entreprise').hide();
-		        $('#inscrire').hide();
-		        $('#connexion').hide();
-		        $('#isfreelance').hide();
-		        $('#isentreprise').hide();
-		        $('#simplificateur').hide();
-		        $('#formulaire_freelance').hide();
-		        $('#dernieres_offres').hide();
-		        $('#deconnexion').show();
-		        $('#formulaire_moncompte').show();
 				return;
 			}	
 		}
-		alert("identifiant ou mot de passe incorrect");
+		alert("non");
 	});
 }
 
@@ -50,7 +38,7 @@ function profile() {
        beforeSend : function(req) {
         req.setRequestHeader("Authorization", "Basic " + btoa($("#userlogin").val() + ":" + $("#passwdlogin").val()));
        },
-       success: alert("succes"),
+       success: $('#inscription').hide(),
        error : function(jqXHR, textStatus, errorThrown) {
        			alert('error: ' + textStatus);
        		}
@@ -62,8 +50,13 @@ function profile() {
      }
  }*/
 
-function postUser(name, firstname, email, pwd) {
+function postUser(name, firstname, email, pwd, type) {
+    if(type == "freelance"){
         postFreelance(firstname.toLowerCase(), name.toLowerCase(),email.toLowerCase(), pwd)
+    }
+    if (type == "entreprise"){
+        postEntreprise(name.toLowerCase(), firstname.toLowerCase(),email.toLowerCase(), pwd)
+    }
 }
 
 function postUserGeneric(name, alias, email, pwd, url) {
@@ -98,8 +91,8 @@ function postFreelance(name, firstname, email, pwd) {
 		url : 'v1/freelance/',
 		dataType : "json",
 		data : JSON.stringify({
-            "name" : name,
             "firstname" : firstname,
+			"name" : name,
 			"email" : email,
 			"password" : pwd
 		}),
@@ -208,7 +201,7 @@ function afficheListFreelance(data) {
 	for (index = 0; index < data.length; ++index) {
 	    var li = document.createElement('li');
 	    li.className = "list-group-item";
-		li.innerHTML = freelanceStringify(data[index]);
+		li.innerHTML = data[index].email;
 		ul.appendChild(li);
 	}
 	$("#reponse").html(ul);

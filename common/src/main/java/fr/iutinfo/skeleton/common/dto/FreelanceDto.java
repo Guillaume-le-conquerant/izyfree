@@ -1,7 +1,5 @@
 package fr.iutinfo.skeleton.common.dto;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,10 +15,20 @@ public class FreelanceDto {
     private String photo;
     private String cv;
     private String mots;
+    private String champLibre;
+    private String tarif;
+    private String localisation;
+    private String conditions;
 
     public FreelanceDto(int id, String name) {
     	this.id=id;
     	this.name=name;
+    }
+    
+    public FreelanceDto(int id, String name, String firstname) {
+    	this.id=id;
+    	this.name=name;
+    	this.firstname=firstname;
     }
     
     public FreelanceDto() {
@@ -59,11 +67,11 @@ public class FreelanceDto {
         this.password = password;
     }
 
-    public String getFirstName() {
+    public String getFirstname() {
         return firstname;
     }
 
-    public void setFirstName(String firstname) {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
@@ -105,6 +113,38 @@ public class FreelanceDto {
 
 	public void setMots(String mots) {
 		this.mots = mots;
+	}
+
+	public String getChampLibre() {
+		return champLibre;
+	}
+
+	public void setChampLibre(String champLibre) {
+		this.champLibre = champLibre;
+	}
+
+	public String getTarif() {
+		return tarif;
+	}
+
+	public void setTarif(String tarif) {
+		this.tarif = tarif;
+	}
+
+	public String getLocalisation() {
+		return localisation;
+	}
+
+	public void setLocalisation(String localisation) {
+		this.localisation = localisation;
+	}
+
+	public String getConditions() {
+		return conditions;
+	}
+
+	public void setConditions(String conditions) {
+		this.conditions = conditions;
 	}
 
 }

@@ -70,6 +70,18 @@ public class FreelanceResource {
         }
         return freelance.stream().map(Freelance::convertToDto).collect(Collectors.toList());
     }
+    
+    /*
+    
+    @PUT
+    @Path("/id/{id}")
+    public FreelanceDto getFreelanceId(@PathParam("id") int id) {
+        Freelance free = dao.findById(id);
+        if (free == null) {
+            throw new WebApplicationException(404);
+        }
+        return free.convertToDto();
+    } */
 
     @DELETE
     @Path("{id}")

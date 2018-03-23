@@ -4,8 +4,6 @@ import static fr.iutinfo.skeleton.api.BDDFactory.getDbi;
 import static fr.iutinfo.skeleton.api.BDDFactory.tableExist;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +11,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -36,8 +35,7 @@ public class OffreResource {
 		if (!tableExist("offres")) {
 			logger.debug("Create table offres");
 			dao.createOffreTable();
-			dao.insert(new Offre(0, "Margaret Thatcher", "2018-03-21", "2018-06-21", "",
-					new Entreprise().getId()));
+			dao.insert(new Offre(0, "Margaret Thatcher", "2018-03-21", "2018-06-21", "", new Entreprise().getId()));
 		}
 	}
 
@@ -59,10 +57,10 @@ public class OffreResource {
 		if (offre == null) {
 			throw new WebApplicationException(404);
 		}
-		System.out.println("OFFRE: "+ offre);
+		System.out.println("OFFRE: " + offre);
 		return offre.convertToDto();
 	}
-	
+
 	@GET
 	@Path("id/{id}")
 	public OffreDto getOffreId(@PathParam("id") int id) {
@@ -70,7 +68,7 @@ public class OffreResource {
 		if (offre == null) {
 			throw new WebApplicationException(404);
 		}
-		System.out.println("OFFRE: "+ offre);
+		System.out.println("OFFRE: " + offre);
 		return offre.convertToDto();
 	}
 
@@ -85,6 +83,32 @@ public class OffreResource {
 		}
 		return offres.stream().map(Offre::convertToDto).collect(Collectors.toList());
 	}
+
+	@PUT
+	@Path("id/{id}")
+	public OffreDto modifyOffre(@PathParam("id") int id, OffreDto offreD) {
+		OffreDto offre = dao.findById(offreD.getId()).convertToDto();
+		if (!(offre.getId() == offreD.getId())) {
+			throw new WebApplicationException(404);
+		} else {
+			Offre off = new Offre();
+			off.initFromDto(offreD);
+			dao.update(off);
+			return offreD;
+		}
+	}
+
+	// @PUT
+	// @Path("update/{intitule}-{}")
+	// public OffreDto updateOffre(@PathParam("id") int id) {
+	// Offre offre = dao.findById(id);
+	// Offre offre2 = dao.update(offre);
+	//
+	// if (offre2 == null) {
+	// throw new WebApplicationException(404);
+	// }
+	// return offre2.convertToDto();
+	// }
 
 	@DELETE
 	@Path("{id}")

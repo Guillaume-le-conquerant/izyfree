@@ -70,7 +70,7 @@ public class FreelanceResourceTest extends JerseyTest {
 
     @Test
     public void create_should_return_the_freelance_with_valid_id() {
-        FreelanceDto free = new FreelanceDto(0, "thomas");
+        FreelanceDto free = new FreelanceDto(1, "thomas");
         Entity<FreelanceDto> freeEntity = Entity.entity(free, MediaType.APPLICATION_JSON);
         String json = target(PATH).request().post(freeEntity).readEntity(String.class);
         System.out.println("PAPAPAAPAPAPAPAPAAP"+ json + " " + json.length());
