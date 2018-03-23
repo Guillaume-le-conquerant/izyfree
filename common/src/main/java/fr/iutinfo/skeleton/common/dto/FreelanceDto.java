@@ -16,7 +16,7 @@ public class FreelanceDto {
     private String job;
     private String photo;
     private String cv;
-    private List<String> mots;
+    private String mots;
 
     public FreelanceDto(int id, String name) {
     	this.id=id;
@@ -99,11 +99,11 @@ public class FreelanceDto {
 		this.cv = cv;
 	}
 
-	public List<String> getMots() {
+	public String getMots() {
 		return mots;
 	}
 
-	public void setMots(List<String> mots) {
+	public void setMots(String mots) {
 		this.mots = mots;
 	}
 

@@ -59,6 +59,14 @@ public class FreelanceResourceTest extends JerseyTest {
         Freelance free = dao.findByName("Loïc Dachary");
         assertEquals("dfeb21109fe5eab1b1db7369844921c44b87b44669b0742f3f73bd166b474779", free.getPasswdHash());
     }
+    
+    @Test
+    public void read_freelance_should_return_good_mots() {
+    	createFreelanceWithMots("papa?maman");
+    	Freelance free = dao.findByName("Jean");
+    	System.out.println(free.toString());
+    	assertEquals("papa?maman", free.getMots());
+    }
 
     @Test
     public void create_should_return_the_freelance_with_valid_id() {

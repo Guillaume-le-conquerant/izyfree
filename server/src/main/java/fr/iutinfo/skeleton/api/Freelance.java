@@ -23,7 +23,7 @@ public class Freelance implements Principal {
     private String job;
     private String photo;
     private String cv;
-    private List<String> mots;
+    private String mots;
     private String passwdHash;
     private String salt;
     private String search;
@@ -111,7 +111,7 @@ public class Freelance implements Principal {
 
     @Override
     public String toString() {
-        return id + ": " + firstname + ", " + name + " <" + email + ">, TEL: " + phone + " / " + job;
+        return id + ": " + firstname + ", " + name + " <" + email + ">, TEL: " + phone + " / " + job + " LISTE MOTS : " + mots;
     }
 
     public String getSalt() {
@@ -223,11 +223,11 @@ public class Freelance implements Principal {
 		this.cv = cv;
 	}
 
-	public List<String> getMots() {
+	public String getMots() {
 		return mots;
 	}
 
-	public void setMots(List<String> mots) {
+	public void setMots(String mots) {
 		this.mots = mots;
 	}
 
