@@ -7,10 +7,10 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 import java.util.List;
 
 public interface FreelanceDao {
-    @SqlUpdate("create table freelance (id integer primary key autoincrement,firstname varchar(100), name varchar(100), email varchar(100), phone varchar(30), job varchar(50), photo varchar(300), cv varchar(300), mots varchar(120), passwdHash varchar(64), salt varchar(64), search varchar(1024))")
+    @SqlUpdate("create table freelance (id integer primary key autoincrement,firstname varchar(100), name varchar(100), email varchar(100), phone varchar(30), job varchar(50), photo varchar(300), cv varchar(300), mots varchar(120), champLibre varchar(250), passwdHash varchar(64), salt varchar(64), search varchar(1024))")
     void createFreelanceTable();
 
-    @SqlUpdate("insert into freelance (firstname, name, email, phone, job, photo, cv, mots, passwdHash, salt, search) values (:firstname, :name, :email, :phone, :job, :photo, :cv, :mots, :passwdHash, :salt, :search)")
+    @SqlUpdate("insert into freelance (firstname, name, email, phone, job, photo, cv, mots, champLibre, passwdHash, salt, search) values (:firstname, :name, :email, :phone, :job, :photo, :cv, :mots, :champLibre, :passwdHash, :salt, :search)")
     @GetGeneratedKeys
     int insert(@BindBean() Freelance freelance);
 

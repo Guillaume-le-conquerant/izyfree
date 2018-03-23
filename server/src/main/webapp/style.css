@@ -103,5 +103,37 @@ nav img{
     height: 150px;
 }
 
+#dernieres_offres{
+    display: flex;
+    justify-content: space-between;
+}
+
+.derniers_profils {
+    background-color: dodgerblue;
+    text-align: center;
+}
+
+.dernieres_missions {
+    background-color:chartreuse;
+    text-align: center;
+}
+
+.entreprise {
+    text-align: center;
+}
+
+#nos_offres {
+    text-align: center;
+}
+
+#formulaire_freelance {
+    
+}
 
 
+
+#inscription {
+    display: flex;
+    text-align: center;
+    flex-direction: colum;
+}

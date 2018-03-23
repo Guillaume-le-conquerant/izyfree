@@ -43,9 +43,6 @@
 			</ul>
 		</div>
 	</nav>
-	
-	<input type="button" id="list" value="LISTER LES FREELANCE">
-	<div id="reponse"></div>
 
 	<div id="inscription">
 		<div>
@@ -224,7 +221,6 @@
 		</div>
 		<div class="d-flex align-content-start flex-wrap" style="color:white; text-align:center;">
 			<div style="background-color:#66CDAA; width:50%">
-
 				<h1>INFRA</h1>
 				<ul>
 					<p>Réseaux</p>
@@ -235,7 +231,6 @@
 				</ul>
 			</div>
 			<div style="background-color:#DAA520; width:50%">
-
 				<h1>ETUDES</h1>
 				<ul>
 					<p>Ingénieur d'études et de développpement</p>
@@ -247,7 +242,7 @@
 			</div>
 		</div>
 		<div class="d-flex align-content-start flex-wrap 2" style="color:white; text-align:center;">
-            <div style="background-color:#4682B4">
+			<div style="background-color:#4682B4; width:50%">
 				<h1>MOA</h1>
 				<ul>
 					<p>Chef de projet</p>
@@ -257,7 +252,6 @@
 					<p>...</p>
 				</ul>
 			</div>
-
 			<div style="background-color:#66CDAA; vertical-align:middle; width:50%">
 				<h1>METIERS</h1>
 				<div style="float:left" >
@@ -426,7 +420,7 @@
 							}, console.log("Ok pour le post"));
 
 					$("#list").click(function() {
-						listFreelance()
+						listUsers()
 					});
 
 					$("#btn_login").click(function() {

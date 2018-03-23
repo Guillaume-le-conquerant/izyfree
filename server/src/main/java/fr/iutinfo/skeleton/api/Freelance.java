@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 
 import java.security.Principal;
 import java.security.SecureRandom;
-import java.util.List;
 
 public class Freelance implements Principal {
     final static Logger logger = LoggerFactory.getLogger(Freelance.class);
@@ -37,7 +36,7 @@ public class Freelance implements Principal {
     public Freelance(int id, String name, String firstname) {
         this.id = id;
         this.name = name;
-        this.setFirstName(firstname);
+        this.firstname = firstname;
     }
 
     public Freelance() {
@@ -170,7 +169,7 @@ public class Freelance implements Principal {
         this.setId(dto.getId());
         this.setName(dto.getName());
         this.setPassword(dto.getPassword());
-        this.setFirstName(dto.getFirstName());
+        this.setFirstname(dto.getFirstname());
         this.setPhone(dto.getPhone());
         this.setJob(dto.getJob());
         this.setPhoto(dto.getPhoto());
@@ -184,7 +183,7 @@ public class Freelance implements Principal {
         dto.setId(this.getId());
         dto.setName(this.getName());
         dto.setPassword(this.getPassword());
-        dto.setFirstName(this.getFirstName());
+        dto.setFirstname(this.getFirstname());
         dto.setPhone(this.getPhone());
         dto.setJob(this.getJob());
         dto.setPhoto(this.getPhoto());
@@ -192,14 +191,6 @@ public class Freelance implements Principal {
         dto.setMots(this.getMots());
         return dto;
     }
-
-	public String getFirstName() {
-		return firstname;
-	}
-
-	public void setFirstName(String firstname) {
-		this.firstname = firstname;
-	}
 
 	public String getPhone() {
 		return phone;
