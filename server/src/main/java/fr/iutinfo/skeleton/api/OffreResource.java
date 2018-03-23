@@ -29,52 +29,56 @@ import fr.iutinfo.skeleton.common.dto.OffreDto;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class OffreResource {
-    final static Logger logger = LoggerFactory.getLogger(OffreResource.class);
-    private static OffreDao dao = getDbi().open(OffreDao.class);
+	final static Logger logger = LoggerFactory.getLogger(OffreResource.class);
+	private static OffreDao dao = getDbi().open(OffreDao.class);
 
-    public OffreResource() throws SQLException {
-        if (!tableExist("offres")) {
-            logger.debug("Create table offres");
-            dao.createOffreTable();
-            dao.insert(new Offre(0, "Margaret Thatcher", new Date(2018,03,21), new Date(2018,06,21), new ArrayList<String>(), new Entreprise().getId() ));
-        }
-    }
+	public OffreResource() throws SQLException {
+		if (!tableExist("offres")) {
+			logger.debug("Create table offres");
+			dao.createOffreTable();
+			dao.insert(new Offre(0, "Margaret Thatcher", "2018-03-21", "2018-06-21", "",
+					new Entreprise().getId()));
+		}
+	}
 
-    @POST
-    public OffreDto createOffre(OffreDto dto) {
-        Offre offre= new Offre();
-        offre.initFromDto(dto);
-        int id = dao.insert(offre);
-        dto.setId(id);
-        return dto;
-    }
+	@POST
+	public OffreDto createOffre(OffreDto dto) {
+		Offre offre = new Offre();
+		logger.debug("dto : " + dto.toString());
+		offre.initFromDto(dto);
+		logger.debug("offre : " + offre.toString());
+		int id = dao.insert(offre);
+		dto.setId(id);
+		return dto;
+	}
 
-    @GET
-    @Path("{intitule}")
-    public OffreDto getOffre(@PathParam("intitule") String intitule) {
-    	Offre offre = dao.findByIntitule(intitule);
-        if (offre == null) {
-            throw new WebApplicationException(404);
-        }
-        return offre.convertToDto();
-    }
+	@GET
+	@Path("{intitule}")
+	public OffreDto getOffre(@PathParam("intitule") String intitule) {
+		Offre offre = dao.findByIntitule(intitule);
+		if (offre == null) {
+			throw new WebApplicationException(404);
+		}
+		System.out.println("OFFRE: "+ offre);
+		return offre.convertToDto();
+	}
 
-    @GET
-    public List<OffreDto> getAllOffres(@QueryParam("q") String query) {
-        List<Offre> offres;
-        if (query == null) {
-          offres = dao.all();
-        } else {
-            logger.debug("Search offres with query: " + query);
-            offres = dao.search("%" + query + "%");
-        }
-        return offres.stream().map(Offre::convertToDto).collect(Collectors.toList());
-    }
+	@GET
+	public List<OffreDto> getAllOffres(@QueryParam("q") String query) {
+		List<Offre> offres;
+		if (query == null) {
+			offres = dao.all();
+		} else {
+			logger.debug("Search offres with query: " + query);
+			offres = dao.search("%" + query + "%");
+		}
+		return offres.stream().map(Offre::convertToDto).collect(Collectors.toList());
+	}
 
-    @DELETE
-    @Path("{id}")
-    public void deleteOffre(@PathParam("id") int id) {
-        dao.delete(id);
-    }
+	@DELETE
+	@Path("{id}")
+	public void deleteOffre(@PathParam("id") int id) {
+		dao.delete(id);
+	}
 
 }

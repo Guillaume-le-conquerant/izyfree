@@ -7,10 +7,10 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 import java.util.List;
 
 public interface OffreDao {
-    @SqlUpdate("create table offres (id integer primary key autoincrement, intitule varchar(100),dateDeb date, dateFin date, listeMots varchar(100), idEntreprise integer, foreign key (idEntreprise) references entreprise(id))")
+    @SqlUpdate("create table offres (id integer primary key autoincrement, intitule varchar(100),dateDeb varchar(15), dateFin varchar(15), listeMots varchar(100), idEntreprise integer, foreign key (idEntreprise) references entreprise(id))")
     void createOffreTable();
 
-    @SqlUpdate("insert into offres (intitule,dateDeb,dateFin, listeMots, idEntreprise) values (:intitule, :dateDeb, :dateFin, :listeMots, :idEntreprise)")
+    @SqlUpdate("insert into offres (intitule, dateDeb, dateFin, listeMots, idEntreprise) values (:intitule, :dateDeb, :dateFin, :listeMots, :idEntreprise)")
     @GetGeneratedKeys
     int insert(@BindBean() Offre offre);
 
@@ -18,14 +18,14 @@ public interface OffreDao {
     @RegisterMapperFactory(BeanMapperFactory.class)
     Offre findByIntitule(@Bind("intitule") String intitule);
 
-    @SqlQuery("select * from offres where search like :intitule")
+    @SqlQuery("select * from offres where intitule like :intitule")
     @RegisterMapperFactory(BeanMapperFactory.class)
     List<Offre> search(@Bind("intitule") String intitule);
 
     @SqlUpdate("drop table if exists offres")
     void dropOffreTable();
 
-    @SqlUpdate("delete from users where id = :id")
+    @SqlUpdate("delete from offres where id = :id")
     void delete(@Bind("id") int id);
 
     @SqlQuery("select * from offres order by id")
