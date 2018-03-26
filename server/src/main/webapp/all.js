@@ -94,29 +94,38 @@ function postUserGeneric(name, alias, email, pwd, url) {
 }
 
 function postFreelance(name, firstname, email, pwd) {
-	console.log("postUserGeneric " + 'v1/freelance')
-	$.ajax({
-		type : 'POST',
-		contentType : 'application/json',
-		url : 'v1/freelance/',
-		dataType : "json",
-		data : JSON.stringify({
-			"name" : name,
-			"firstname" : firstname,
-			"email" : email,
-			"password" : pwd
-		}),
-		success : function(data, textStatus, jqXHR) {
-			afficheUser(data);
-			$('#inscription').hide();
-		},
-		error : function(jqXHR, textStatus, errorThrown) {
-			console.log('postUser error: ' + textStatus);
+	$.getJSON("/v1/freelance", function(data) {
+		for(index=0; index < data.length ; ++index){
+			if(data[index].email == email){
+				alert("EMAIL DEJA UTILISÉ");
+				return;
+			}
 		}
+
+		console.log("postUserGeneric " + 'v1/freelance')
+		$.ajax({
+			type : 'POST',
+			contentType : 'application/json',
+			url : 'v1/freelance/',
+			dataType : "json",
+			data : JSON.stringify({
+				"name" : name,
+				"firstname" : firstname,
+				"email" : email,
+				"password" : pwd
+			}),
+			success : function(data, textStatus, jqXHR) {
+				afficheUser(data);
+				$('#inscription').hide();
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				console.log('postUser error: ' + textStatus);
+			}
+		});
 	});
 }
 
-function postFreelanceForm(name, firstname, email, job, mots, localisation, phone, champLibre, conditions, tarif) {
+function postFreelanceForm(name, firstname, email, job, mots, localisation, phone, ref, champLibre, conditions, prix) {
 	console.log("postUserGeneric " + 'v1/freelance')
 	$.ajax({
 		type : 'POST',
@@ -131,9 +140,10 @@ function postFreelanceForm(name, firstname, email, job, mots, localisation, phon
 			"mots" : mots,
 			"localisation" : localisation,
 			"phone" : phone,
+			"ref" : ref,
 			"champLibre" : champLibre,
 			"conditions" : conditions,
-			"tarif": tarif
+			"prix": prix
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
@@ -343,30 +353,34 @@ function missionsStringify(mission) {
 }
 
 function enregistrer(){
-	console.log("postFreelanceGeneric " + 'v1/freelance')
-	$.ajax({
-		type : 'PUT',
-		contentType : 'application/json',
-		url : 'v1/freelance/id/2',
-		dataType : 'json',
-		data : JSON.stringify({
-			"name" : $("#nom2").val(),
-			"firstname" : $("#prenom2").val(),
-			"email" : $("#mail2").val(),
-			"job" : $("#metier2").val(),
-			"mots" : $("#skills2").val(),
-			"localisation" : $("#ville2").val(),
-			"phone" : $("#tel2").val(),
-			"champLibre" : $("#champlibre2").val(),
-			"conditions" : $("#conditions2").val(),
-			"tarif": $("#prix2").val()
-		}),
-		success : function(data, textStatus, jqXHR) {
-			alert("enregistré");
-		},
-		error : function(jqXHR, textStatus, errorThrown) {
-			console.log('postFreelance error: ' + textStatus);
+	$.getJSON("/v1/freelance", function(data) {
+		for(index=0; index < data.length ; ++index){
+			if(data[index].email == $("#userlogin").val()){
+				$.ajax({
+					type : 'PUT',
+					contentType : 'application/json',
+					url : 'v1/freelance/id/'+data[index].id,
+					dataType : "json",
+					data : JSON.stringify({
+						"name" : $("#nom2").val(),
+						"firstname" : $("#prenom2").val(),
+						"email" : $("#mail2").val(),
+						"job" : $("#metier2").val(),
+						"mots" : $("#skills2").val(),
+						"localisation" : $("#ville2").val(),
+						"phone" : $("#tel2").val(),
+						"champLibre" : $("#champlibre2").val(),
+						"conditions" : $("#conditions2").val(),
+						"tarif": $("#prix2").val()
+					}),
+					success : function(data, textStatus, jqXHR) {
+						alert("enregistré");
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("erreur d'enregistrement");
+					}
+				});
+			}
 		}
 	});
-
 }
