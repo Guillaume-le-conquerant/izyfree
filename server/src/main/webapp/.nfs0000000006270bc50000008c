@@ -136,7 +136,7 @@
 		</div>
 	</div>
 
-	<div id="formulaire_freelance" style="background-color: #4682B4;">
+	<div id="formulaire_freelance" style="background-color: lightblue;">
 		<div class="texte_mission">
 			<p>FREELANCE,</p>
 			<p>A LA RECHERCHE DE MISSIONS ?</p>
@@ -177,7 +177,7 @@
 						<p>JE JOINS MON CV</p>
 					</div>
 
-					<div class="envoyer_freelance">
+					<div id="envoyer_freelance">
 						<p>ENVOYER</p>
 					</div>
 				</div>
@@ -425,38 +425,37 @@
 				<input type="text" name="skills2" id="skills2" placeholder="COMPETENCES*" required>
 				<input type="text" name="ville2" id="ville2" placeholder="VILLE*" required> 
 				<input type="tel" name="tel2" id="tel2" placeholder="TELEPHONE*" required> 
-				<input type="text" name="champlibre2" id="champlibre2" placeholder="CHAMP LIBRE" > 
-				<input type="text" name="conditions2" id="conditions2" placeholder="CONDITIONS*" required> 
-				<input type="text" name="prix2" id="prix2" placeholder="TARIF*" required>
- 				<p>* CHAMPS OBLIGATOIRES</p>
+				<input type="text" name="ref2" id="ref2" placeholder="REFERENCE ANNONCE*" required>
+
+				<p>* CHAMPS OBLIGATOIRES</p>
 			</div>
-			<input type="button" name="modif_perso" id="modif_perso" value="ENREGISTRER">
 		</div>
 	</div>
 	
-	<div class="contact">
+	<div class="nos_missions" style="background-image:url(resources/accueil.png); color:white; text-align:center;">
+		<h1>NOS MISSIONS</h1>
+		<h2>Découvrez nos dernières missions proposées</h2>
+		<div class="derniere_mission"></div>
+	</div>
+	
+	<div id="contact">
 		<h1>NOUS SOMMES LA POUR VOUS</h1>
-		<div class="d-flex align-content-start ">
-			<div>
-				<img src="resources/accueil.png" alt="mission3" width="25%"/>
-				<h5>BUSINESSPLUGGER</h5>
-				<h6>CONVIVIAL | CREATIF | TENNIS PLAYER</h6>
-				<p>Benjamin PETIT</p>
-				<p>06.15.87.40.38</p>
-				<p>benjamin.petit@izyfree.com</p>
+		<div class="d-flex align-content-start flex-wrap 5">
+			<div> 
+				<p>BUSINESSPLUGGER</p>
+				<p>CONVIVIAL | CREATIF | TENNIS PLAYER</p>
 			</div>
 			<div>
-				<img src="resources/accueil.png" alt="mission3" width="25%"/>
-				<h5>BUSINESSPLUGGER</h5>
-				<h6>OPTIMISTE | ENERGIE | FINISHER</h6>
-				<p>Audrey BALLET</p>
-				<p>06.30.20.58.11</p>
-				<p>audrey.ballet@izyfree.com</p>
+				<p>BUSINESSPLUGGER</p>
+				<p>OPTIMISTE | ENERGIE | FINISHER</p>
 			</div>
 		</div>
-			
-			<p>IZYFREE - 34 Avenue de la Marne - 59700 Marcq-en-Baroeul</p>
-
+		
+		<div>
+			<div class="d-flex align-content-start flex-wrap 4">
+				<p>IZYFREE - 34 Avenue de la Marne - 59700 Marcq-en-Baroeul</p>
+			</div>
+		</div>
 	</div>
 
 
@@ -658,9 +657,6 @@
 						$('.nos_missions').show();
 						$('.nos_offres').show();
 						$('#offre').show();
-						
-					$("#modif_perso").click(function() {
-						enregistrer();
 					})
 				});
 	</script>
