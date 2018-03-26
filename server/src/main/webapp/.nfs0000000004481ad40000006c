@@ -92,6 +92,7 @@
 
 		<div class="dernieres_missions">
 			<h1>Dernieres missions publiées</h1>
+			
 		</div>
 	</div>
 
@@ -411,8 +412,9 @@
 		$(document).ready(
 				function() {
 
-					list3lastFreelance();
-					listMissions();
+					$('.derniers_profils').after(listFreelance);
+
+					$('.dernieres_missions').after(listMissions);
 
 					$('#freelance').click(function() {
 						$('#inscription_entreprise').hide()
@@ -563,10 +565,6 @@
 						$('#nos_offres').show();
 						$("#deconnexion").hide();
 						$('#formulaire_moncompte').hide();
-					})
-					
-					$("#list").click(function() {
-						listFreelance();
 					})
 				});
 	</script>
