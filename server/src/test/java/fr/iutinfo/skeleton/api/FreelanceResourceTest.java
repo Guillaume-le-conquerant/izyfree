@@ -1,6 +1,7 @@
 package fr.iutinfo.skeleton.api;
 
 import fr.iutinfo.skeleton.common.dto.FreelanceDto;
+import fr.iutinfo.skeleton.common.dto.OffreDto;
 import fr.iutinfo.skeleton.common.dto.UserDto;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
@@ -73,7 +74,6 @@ public class FreelanceResourceTest extends JerseyTest {
         FreelanceDto free = new FreelanceDto(1, "thomas");
         Entity<FreelanceDto> freeEntity = Entity.entity(free, MediaType.APPLICATION_JSON);
         String json = target(PATH).request().post(freeEntity).readEntity(String.class);
-        System.out.println("PAPAPAAPAPAPAPAPAAP"+ json + " " + json.length());
         assertEquals("{\"id\":1,\"name\":\"thomas\"", json.substring(0, 23));
     }
 
@@ -131,6 +131,20 @@ public class FreelanceResourceTest extends JerseyTest {
 
         List<FreelanceDto> freelance = target(PATH + "/").queryParam("q", "RMS").request().get(listUserResponseType);
         assertEquals("Richard Stallman", freelance.get(0).getName());
+    }
+    
+    @Test
+    public void update_should_return_the_freelance_with_valid_id() {
+    	 FreelanceDto freeDto = new FreelanceDto();
+    	 freeDto.setName("thomas");
+         Entity<FreelanceDto> freeEntity = Entity.entity(freeDto, MediaType.APPLICATION_JSON);
+         String jsonPush = target(PATH).request().post(freeEntity).readEntity(String.class);
+         FreelanceDto freePut = target(PATH + "/id/1").request().get(FreelanceDto.class);
+         freePut.setName("clavier");
+         Entity<FreelanceDto> freeEntityPut = Entity.entity(freePut, MediaType.APPLICATION_JSON);
+         String jsonPut = target(PATH+"/id/1").request().put(freeEntityPut).readEntity(String.class);
+         assertEquals("{\"id\":1,\"name\":\"clavier\"}", jsonPut.substring(0, jsonPut.length()));
+         
     }
 
     @Test

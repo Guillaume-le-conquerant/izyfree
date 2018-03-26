@@ -20,6 +20,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import ch.qos.logback.classic.Logger;
 import fr.iutinfo.skeleton.common.dto.OffreDto;
 
 public class OffreResourceTest extends JerseyTest {
@@ -110,6 +111,19 @@ public class OffreResourceTest extends JerseyTest {
         Offre o = createOffreWithIntitule("toto");
         int status = target(PATH + "/" + o.getId()).request().delete().getStatus();
         assertEquals(204, status);
+    }
+    
+    @Test
+    public void update_should_return_the_offre_with_valid_id() {
+    	OffreDto offre = new OffreDto();
+        offre.setIntitule("thomas");
+        Entity<OffreDto> offreEntity = Entity.entity(offre, MediaType.APPLICATION_JSON);
+        target(PATH).request().post(offreEntity);
+        OffreDto offrePut = target(PATH + "/id/1").request().get(OffreDto.class);
+        offrePut.setIntitule("clavier");
+        Entity<OffreDto> offreEntityPut = Entity.entity(offrePut, MediaType.APPLICATION_JSON);
+        String jsonPut = target(PATH+"/id/1").request().put(offreEntityPut).readEntity(String.class);
+        assertEquals("{\"id\":1,\"idEntreprise\":0,\"intitule\":\"clavier\"}", jsonPut.substring(0, jsonPut.length()));
     }
 
     @Test
