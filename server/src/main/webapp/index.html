@@ -425,10 +425,12 @@
 				<input type="text" name="skills2" id="skills2" placeholder="COMPETENCES*" required>
 				<input type="text" name="ville2" id="ville2" placeholder="VILLE*" required> 
 				<input type="tel" name="tel2" id="tel2" placeholder="TELEPHONE*" required> 
-				<input type="text" name="ref2" id="ref2" placeholder="REFERENCE ANNONCE*" required>
-
-				<p>* CHAMPS OBLIGATOIRES</p>
+				<input type="text" name="champlibre2" id="champlibre2" placeholder="CHAMP LIBRE" > 
+				<input type="text" name="conditions2" id="conditions2" placeholder="CONDITIONS*" required> 
+				<input type="text" name="prix2" id="prix2" placeholder="TARIF*" required>
+ 				<p>* CHAMPS OBLIGATOIRES</p>
 			</div>
+			<input type="button" name="modif_perso" id="modif_perso" value="ENREGISTRER">
 		</div>
 	</div>
 	
@@ -630,6 +632,9 @@
 					})
 					$("#listMission").click(function() {
 						listAllMission();
+					})
+					$("#modif_perso").click(function() {
+						enregistrer();
 					})
 				});
 	</script>

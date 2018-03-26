@@ -28,6 +28,9 @@ function login() {
 				$('#formulaire_freelance').hide();
 				$('#dernieres_offres').hide();
 				$('#deconnexion').show();
+				document.getElementById("nom2").value=data[index].name;
+				document.getElementById("prenom2").value=data[index].firstname;
+				document.getElementById("mail2").value=data[index].email;
 				$('#formulaire_moncompte').show();
 				return;
 			}	
@@ -336,8 +339,35 @@ function afficheAllMission(data) {
 	$("#reponsemission").html(ul);
 }
 
-
-
 function missionsStringify(mission) {
 	return mission.intitule + ". " + mission.idEntreprise + " &lt;" + " (" + mission.id + ")";
+}
+
+function enregistrer(){
+	console.log("postFreelanceGeneric " + 'v1/freelance')
+	$.ajax({
+		type : 'PUT',
+		contentType : 'application/json',
+		url : 'v1/freelance/id/1',
+		dataType : 'json',
+		data : JSON.stringify({
+			"name" : $("#nom2").val(),
+			"firstname" : $("#prenom2").val(),
+			"email" : $("#mail2").val(),
+			"job" : $("#metier2").val(),
+			"mots" : $("#skills2").val(),
+			"localisation" : $("#ville2").val(),
+			"phone" : $("#tel2").val(),
+			"champLibre" : $("#champlibre2").val(),
+			"conditions" : $("#conditions2").val(),
+			"tarif": $("#prix2").val()
+		}),
+		success : function(data, textStatus, jqXHR) {
+			alert("enregistré");
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			console.log('postFreelance error: ' + textStatus);
+		}
+	});
+
 }
