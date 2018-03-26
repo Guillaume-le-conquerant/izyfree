@@ -535,23 +535,18 @@
                     
                     $("#envoyer_freelance").click(
 							function() {
-								postFreelanceForm($('#name_freelance').val(), $('#firstname_freelance')
-										.val(), 
-                                              $('#email_freelance').val(), 
-                                              $('#metier_freelance').val(), 
-                                              $('#skills_freelance')
-										.val(), 
-                                              $('#ville_freelance')
-										.val(), 
-                                              $('#tel_freelance')
-										.val(), 
-                                              $('#ref_freelance')
-										.val(), 
-                                              $('#libre_freelance')
-										.val(),$('#condition_freelance')
-										.val(),$('#prix_freelance')
-										.val())
-							});
+								postFreelanceForm(
+									$('#name_freelance').val(), 
+									$('#firstname_freelance').val(), 
+                                    $('#email_freelance').val(), 
+                                    $('#metier_freelance').val(), 
+                                    $('#skills_freelance').val(), 
+                                    $('#ville_freelance').val(), 
+                                    $('#tel_freelance').val(),
+                                    $('#libre_freelance').val(),
+                                    $('#condition_freelance').val(),
+                                    $('#prix_freelance').val())
+								});
                     
                     $("#post").click(
 							function() {
