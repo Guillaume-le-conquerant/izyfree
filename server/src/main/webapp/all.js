@@ -15,7 +15,7 @@ function login() {
 	});*/
 	$.getJSON("/v1/freelance", function(data) {
 		for(index=0; index < data.length ; ++index){
-			if(data[index].email == $("#userlogin").val()){
+			if(data[index].email == $("#userlogin").val() && data[index].isGoodPassword($("#passwdlogin"))){
 				alert("connecté");
 				$('#login').hide();
 				$('#inscription').hide();
@@ -115,7 +115,7 @@ function postFreelance(name, firstname, email, pwd) {
 				"password" : pwd
 			}),
 			success : function(data, textStatus, jqXHR) {
-				afficheUser(data);
+				alert("Tu es inscris");
 				$('#inscription').hide();
 			},
 			error : function(jqXHR, textStatus, errorThrown) {

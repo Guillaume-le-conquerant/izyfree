@@ -92,6 +92,16 @@
 		</div>
 	</div>
 
+	<div id="dernieres_offres">
+		<div class="derniers_profils">
+			<h1>Derniers profils publiés</h1>
+		</div>
+
+		<div class="dernieres_missions">
+			<h1>Dernieres missions publiées</h1>
+		</div>
+	</div>
+
 	<div id="formulaire_entreprise" style="background-color: lightblue;">
 		<div class="texte_mission">
 			<p>ENTREPRISES,</p>
@@ -252,22 +262,12 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
+	</div>
 	<div id="proposition_mission">
 		<h5>JE PROPOSE UNE MISSION</h5>
 	</div>
 	</div>
-	</div>
-
-	<div id="dernieres_offres">
-		<div class="derniers_profils">
-			<h1>Derniers profils publiés</h1>
-		</div>
-
-		<div class="dernieres_missions">
-			<h1>Dernieres missions publiées</h1>
-		</div>
 	</div>
 
 	<div id="kesako">
@@ -480,6 +480,7 @@
 		$('#login').hide();
 		$('#inscription').hide();
 		$('#formulaire_entreprise').hide();
+		$('#offre').hide();
 		$('#deconnexion').hide();
 		$('#formulaire_moncompte').hide();
 
@@ -506,12 +507,9 @@
 						$('#nos_offres').show()
 						$('.entreprise').show()
 						$('#notre_motivation').show()
-						$('#formulaire_freelance').show()
+						$('#formulaire_freelance').hide()
 						$('#formulaire_entreprise').hide()
 						$('#inscription').hide()
-						$('#proposition_mission').show()
-						$('#proposition_profil').show()
-						
 					});
 
 					$('#proposition').click(function() {
@@ -554,7 +552,7 @@
 						$('#login').show()
 					});
 
-					$(".envoyer_freelance").click(
+					$("#envoyer_freelance").click(
 							function() {
 								postFreelanceForm($('#nom_freelance').val(), $(
 										'#prenom_freelance').val(), $(
@@ -673,9 +671,9 @@
 					});
 
 					$("#modif_perso").click(function() {
-						enregistrer()
-					});
-			});
+						enregistrer();
+					})
+				});
 	</script>
 </body>
 </html>
