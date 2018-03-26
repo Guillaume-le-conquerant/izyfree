@@ -227,14 +227,38 @@ function listFreelance() {
 
 function listFreelanceGeneric(url) {
 	$.getJSON(url, function(data) {
-		afficheListFreelance(data);
+		affichelistFreelance(data);
 	});
 }
 
-function afficheListFreelance(data) {
+function affichelistFreelance(data) {
 	var ul = document.createElement('ul');
 	ul.className = "list-group";
-	
+
+	var index=0;
+	for(index = 0; index<data.length; ++index){
+		var li = document.createElement('li');
+		li.className = "list-group-item";
+		li.innerHTML = freelanceStringify(data[index]);
+		ul.appendChild(li);
+	}
+	$("#reponse").append(ul);
+}
+
+function list3lastFreelance() {
+	list3LastFreelanceGeneric("v1/freelance/");
+}
+
+function list3LastFreelanceGeneric(url) {
+	$.getJSON(url, function(data) {
+		affiche3LastFreelance(data);
+	});
+}
+
+function affiche3LastFreelance(data) {
+	var ul = document.createElement('ul');
+	ul.className = "list-group";
+
 	var index=0;
 	if(data.length > 3){
 		for(index = data.length-3; index<data.length; ++index){
@@ -244,9 +268,9 @@ function afficheListFreelance(data) {
 			ul.appendChild(li);
 		}		
 	}
-	$("#reponse").html(ul);
+	$(".derniers_profils").append(ul);
 }
 
 function freelanceStringify(freelance) {
-	return freelance.id + ". " + freelance.name + " &lt;" + freelance.email + "&gt;" + " (" + freelance.alias + ")";
+	return freelance.id + "." + freelance.name + " &lt;" + freelance.email + "&gt;" + " (" + freelance.alias + ")";
 }

@@ -88,15 +88,7 @@
 	<div id="dernieres_offres">
 		<div class="derniers_profils">
 			<h1>Derniers profils publiés</h1>
-			<div>
-				<h3>Patrick, Ingénieur Systèmes/Réseaux</h3>
-			</div>
-			<div>
-				<h3>Paolo, Technicien parc informatique</h3>
-			</div>
-			<div>
-				<h3>Peter, Développeur JAVA</h3>
-			</div>
+			
 		</div>
 
 		<div class="dernieres_missions">
@@ -429,7 +421,7 @@
 		$(document).ready(
 				function() {
 
-					$('.derniers_profils').after(listFreelance);
+					list3lastFreelance();
 
 					$('#freelance').click(function() {
 						$('#inscription_entreprise').hide()
@@ -580,6 +572,9 @@
 						$('#nos_offres').show();
 						$("#deconnexion").hide();
 						$('#formulaire_moncompte').hide();
+					})
+					$("#list").click(function() {
+						listFreelance();
 					})
 				});
 	</script>
