@@ -17,10 +17,22 @@ function login() {
 		for(index=0; index < data.length ; ++index){
 			if(data[index].email == $("#userlogin").val()){
 				alert("connecté");
+				$('#login').hide();
+				$('#inscription').hide();
+		        $('#formulaire_entreprise').hide();
+		        $('#inscrire').hide();
+		        $('#connexion').hide();
+		        $('#isfreelance').hide();
+		        $('#isentreprise').hide();
+		        $('#simplificateur').hide();
+		        $('#formulaire_freelance').hide();
+		        $('#dernieres_offres').hide();
+		        $('#deconnexion').show();
+		        $('#formulaire_moncompte').show();
 				return;
 			}	
 		}
-		alert("non");
+		alert("identifiant ou mot de passe incorrect");
 	});
 }
 
@@ -38,7 +50,7 @@ function profile() {
        beforeSend : function(req) {
         req.setRequestHeader("Authorization", "Basic " + btoa($("#userlogin").val() + ":" + $("#passwdlogin").val()));
        },
-       success: $('#inscription').hide(),
+       success: alert("succes"),
        error : function(jqXHR, textStatus, errorThrown) {
        			alert('error: ' + textStatus);
        		}
@@ -50,14 +62,9 @@ function profile() {
      }
  }*/
 
-function postUser(name, firstname, email, pwd, type) {
-    if(type == "freelance"){
+/*function postUser(name, firstname, email, pwd) {
         postFreelance(firstname.toLowerCase(), name.toLowerCase(),email.toLowerCase(), pwd)
-    }
-    if (type == "entreprise"){
-        postEntreprise(name.toLowerCase(), firstname.toLowerCase(),email.toLowerCase(), pwd)
-    }
-}
+}*/
 
 function postUserGeneric(name, alias, email, pwd, url) {
 	console.log("postUserGeneric " + url)
@@ -91,14 +98,44 @@ function postFreelance(name, firstname, email, pwd) {
 		url : 'v1/freelance/',
 		dataType : "json",
 		data : JSON.stringify({
+            "name" : name,
             "firstname" : firstname,
-			"name" : name,
 			"email" : email,
 			"password" : pwd
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
 			$('#inscription').hide();
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			console.log('postUser error: ' + textStatus);
+		}
+	});
+}
+
+function postFreelanceForm(name, firstname, email, job, mots, localisation, phone, ref, champLibre, conditions, prix) {
+	console.log("postUserGeneric " + 'v1/freelance')
+	$.ajax({
+		type : 'POST',
+		contentType : 'application/json',
+		url : 'v1/freelance/',
+		dataType : "json",
+		data : JSON.stringify({
+            "name" : name,
+            "firstname" : firstname,
+			"email" : email,
+            "job" : job,
+            "mots" : mots,
+            "localisation" : localisation,
+            "phone" : phone,
+            "ref" : ref,
+            "champLibre" : champLibre,
+            "conditions" : conditions,
+            "prix": prix
+		}),
+		success : function(data, textStatus, jqXHR) {
+			afficheUser(data);
+			$('#formulaire_freelance').hide();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			console.log('postUser error: ' + textStatus);
@@ -197,16 +234,20 @@ function listFreelanceGeneric(url) {
 function afficheListFreelance(data) {
 	var ul = document.createElement('ul');
 	ul.className = "list-group";
-	var index = 0;
-	for (index = 0; index < data.length; ++index) {
+	var index = data.length;
+	for (index = data.length; index <= data.length - 2; --index) {
 	    var li = document.createElement('li');
 	    li.className = "list-group-item";
-		li.innerHTML = data[index].email;
+		li.innerHTML = freelanceStringify(data[index]);
 		ul.appendChild(li);
 	}
-	$("#reponse").html(ul);
+	$('.derniers_profils').append(ul);
 }
 
 function freelanceStringify(freelance) {
-    return freelance.id + ". " + freelance.name + " &lt;" + freelance.email + "&gt;" + " (" + freelance.alias + ")";
+	console.log(freelance.name);
+	console.log(freelance.firstname);
+	console.log(freelance.email);
+	console.log(freelance.id);
+    return freelance.name + "&lt" + freelance.firstname + " &lt;" + freelance.email + "&gt;" + " (" + freelance.id + ")";
 }
