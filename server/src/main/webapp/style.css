@@ -209,3 +209,15 @@ nav img{
 #kesako {
 	border-top: 1px solid black;
 }
+
+#dernieres_offres h1{
+	background-color:lightgrey;
+}
+
+.derniers_profils{
+	text-align:center;
+	
+}
+.dernieres_missions{
+	text-align:center;
+}
