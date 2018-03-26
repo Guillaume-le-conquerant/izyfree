@@ -280,10 +280,6 @@ nav img{
     height:555px;
     border-bottom: 3px solid black;
     display: flex;
-}
-
-#div_entete {
-    display: flex;
     justify-content: space-around;
 }
 
@@ -294,11 +290,20 @@ nav img{
     width: 200px;
     height: 200px;
     text-align: center;
+    vertical-align:middle;
+    margin-top: 200px;
 }
 
 #isfreelance h3{
     text-align: center;
-    justify-content: middle;
+    margin: auto auto;
+    margin-top: 50px;
+}
+
+#isentreprise h3{
+    text-align: center;
+    margin: auto auto;
+    margin-top: 50px;
 }
 
 #isentreprise {
@@ -308,5 +313,35 @@ nav img{
     width: 200px;
     height: 200px;
     text-align: center;
+<<<<<<< HEAD
 }
 
+=======
+    vertical-align:middle;
+    margin-top: 200px;
+}
+
+#isentreprise:hover {
+    background-color: blue;
+    border: 5px solid #4169E1;
+    border-radius: 100px;
+    width: 200px;
+    color: white;
+    height: 200px;
+    text-align: center;
+    vertical-align:middle;
+    margin-top: 200px;
+}
+
+#isfreelance:hover {
+    background-color: orange;
+    border: 5px solid yellow;
+    border-radius: 100px;
+    width: 200px;
+    color: white;
+    height: 200px;
+    text-align: center;
+    vertical-align:middle;
+    margin-top: 200px;
+}
+>>>>>>> bb0e83cfa9b5b3cb2957bfa203b311568637ad94
