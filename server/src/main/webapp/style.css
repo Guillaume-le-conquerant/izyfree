@@ -124,11 +124,24 @@ nav img{
 	color:#4169E1; 
 	text-align:center;
 }
-.texte_entrerprise p {
+.texte_entrerprise {
+	text-align:center;
+	background-color: lightblue;
+}
+
+.depot_mission{
 	text-align:center;
 }
-.entreprise{
-	background-color: lightblue;
+
+.depot_mission h1 {
+	color:#4169E1;
+	font-size: 16px; 
+	line-height:15px;
+}
+
+.depot_mission p {
+	font-size: 10px; 
+	line-height:5px;
 }
 
 #libre_freelance {
@@ -143,3 +156,22 @@ nav img{
     display: flex;
     justify-content: space-around;
 }
+
+.proposition_profil{
+	text-align : center;
+	margin : 15px 0;
+}
+
+.proposition_profil h1 {
+	color:#4169E1;
+	font-size: 16px; 
+	line-height:15px;
+}
+
+#proposition_profil{
+	margin: auto;
+	width: 150px;
+}
+
+
+
