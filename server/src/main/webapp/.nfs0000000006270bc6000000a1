@@ -18,8 +18,7 @@
 <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<nav id="navigation"
-		class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<nav id="navigation" class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<div id="accueil_logo" style="height: 100%; width: 20%;">
 			<img src="resources/IZYFREE%20RVB%20HORIZONTAL.png"
 				alt="Logo IZYFREE" />
@@ -31,8 +30,7 @@
 				<li class="nav-item"><a class="nav-link" href="#kesako">KESAKO</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="#notre_motivation">NOTRE MOTIVATION</a></li>
-				<li id="btn_contact" class="nav-item"><a class="nav-link"
-					href="#zone_contact">CONTACT</a></li>
+				<li id="btn_contact" class="nav-item"><a class="nav-link" href="#zone_contact">CONTACT</a></li>
 			</ul>
 		</div>
 		<div style="margin-left: 50%">
@@ -82,14 +80,8 @@
 	</div>
 
 	<div class="entete">
-		<div id="div_entete">
-			<div id="isfreelance">
-				<h3>JE SUIS FREELANCE</h3>
-			</div>
-			<div id="isentreprise">
-				<h3>JE SUIS UNE ENTREPRISE</h3>
-			</div>
-		</div>
+		<div id="isfreelance"><h3>JE SUIS FREELANCE</h3></div>
+		<div id="isentreprise"><h3>JE SUIS UNE ENTREPRISE</h3></div>
 	</div>
 
 	<div id="dernieres_offres">
@@ -674,9 +666,9 @@
 					});
 
 					$("#modif_perso").click(function() {
-						enregistrer()
-					});
-			});
+						enregistrer();
+					})
+				});
 	</script>
 </body>
 </html>

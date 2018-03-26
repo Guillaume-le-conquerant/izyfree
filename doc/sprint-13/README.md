@@ -5,7 +5,7 @@ Nom du scrum master du sprint : Guillaume Renaud
 ## Ce que nous avons fait durant ce sprint
 Connexion et récuperation des informations des entrerprises et freelance sur l'application mobile, Deploiement du docker, méthode put fonctionnelle sur le site web
 ## Ce que nous allons faire durant le prochain sprint
-Continuer partie entreprise et freelance sur l'application mobile, 
+Continuer partie entreprise et freelance sur l'application mobile, continuer les formulaires sur le site web. 
 ## PDCA 
 ### Qu'avons nous testé durant ce sprint ? 
 Application mobile (les pages crées durant le sprint entreprise et freelance) et site WEB méthode put avec les formulaires fonctionelles
