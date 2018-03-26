@@ -39,9 +39,9 @@ public class StaffResource {
     }
 
     @GET
-    @Path("{pseudo}")
-    public StaffDto getStaff(@PathParam("pseudo") String pseudo) {
-        Staff staff = dao.findByPseudo(pseudo);
+    @Path("{name}")
+    public StaffDto getStaff(@PathParam("name") String name) {
+        Staff staff = dao.findByName(name);
         if (staff == null) {
             throw new WebApplicationException(404);
         }
@@ -61,9 +61,9 @@ public class StaffResource {
     }
 
     @DELETE
-    @Path("{pseudo}")
-    public void deleteUser(@PathParam("pseudo") String pseudo) {
-        dao.delete(pseudo);
+    @Path("{id}")
+    public void deleteUser(@PathParam("id") int id) {
+        dao.delete(id);
     }
 
 }
