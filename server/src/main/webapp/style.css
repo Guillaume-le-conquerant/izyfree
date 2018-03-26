@@ -47,11 +47,15 @@ nav img{
 
 .descriptif_mission {
     
-    background-color: yellow;
+    background-color: #DAA520;
+}
+
+.envoyer_freelance{
+	background-color: #DAA520;
 }
 
 .envoyer {
-    background-color: yellow;
+    background-color: #DAA520;
 }
 
 .form_mission {
@@ -82,10 +86,12 @@ nav img{
 }
 
 .boutons_missions div{
-    margin: 5px;
+    margin: 10px;
     padding: auto;
     width: 150px;
-    height: 80px;
+	text-align: center;
+	color: black;
+	margin: 10px auto;
 }
 
 .boutons_missions p{
