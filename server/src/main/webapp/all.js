@@ -39,6 +39,37 @@ function login() {
 	});
 }
 
+function loginAdmin() {
+	/*getWithAuthorizationHeader("v1/login", function(data){
+	    $("#connexion").hide();
+	    afficheUser(data);
+	});*/
+	$.getJSON("/v1/staff", function(data) {
+		for(index=0; index < data.length ; ++index){
+			if(data[index].email == $("#userlogin").val() && data[index].isGoodPassword($("#passwdlogin"))){
+				alert("connecté en tant qu'administrateur");
+				$('#login').hide();
+				$('#inscription').hide();
+				$('#formulaire_entreprise').hide();
+				$('#inscrire').hide();
+				$('#connexion').hide();
+				$('#isfreelance').hide();
+				$('#isentreprise').hide();
+				$('#simplificateur').hide();
+				$('#formulaire_freelance').hide();
+				$('#dernieres_offres').hide();
+				$('#deconnexion').show();
+				document.getElementById("nom2").value=data[index].name;
+				document.getElementById("prenom2").value=data[index].firstname;
+				document.getElementById("mail2").value=data[index].email;
+				$('#formulaire_moncompte').show();
+				return;
+			}	
+		}
+		alert("identifiant ou mot de passe incorrect");
+	});
+}
+
 function profile() {
 	getWithAuthorizationHeader("v1/profile", function (data) {afficheUser(data);});
 }
