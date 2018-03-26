@@ -18,19 +18,19 @@
 <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<nav id="navigation" class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<div id="accueil_logo" style="height: 100%; width: 20%;">
 			<img src="resources/IZYFREE%20RVB%20HORIZONTAL.png"
 				alt="Logo IZYFREE" />
 		</div>
-		<div id="liste">
+		<div>
 			<ul class="navbar-nav">
 				<li id="offre" class="nav-item"><a class="nav-link"
 					href="#nos_offres">NOS OFFRES</a></li>
 				<li class="nav-item"><a class="nav-link" href="#kesako">KESAKO</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="#notre_motivation">NOTRE MOTIVATION</a></li>
-				<li id="btn_contact" class="nav-item"><a class="nav-link" href="#zone_contact">CONTACT</a></li>
+				<li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
 			</ul>
 		</div>
 		<div style="margin-left: 50%">
@@ -41,6 +41,10 @@
 					id="connexion" style="color: white">Connexion</a></li>
 			</ul>
 			<ul class="navbar-nav">
+				<li class="nav-item"><input type="button" name="isfreelance"
+					id="isfreelance" value="FREELANCE"></li>
+				<li class="nav-item"><input type="button" name="isentreprise"
+					id="isentreprise" value="ENTREPRISE"></li>
 				<li class="nav-item"><input type="button" name="deconnexion"
 					id="deconnexion" value="DECONNEXION"></li>
 			</ul>
@@ -73,15 +77,16 @@
 		<div id="login_form">
 			<input type="text" name="user" id="userlogin" placeholder="Login"
 				class="form-control" /> <input type="password" name="password"
-				id="passwdlogin" placeholder="Password" class="form-control" /> <br />
+				id="passwdlogin" placeholder="Password" class="form-control" /> <br/>
 			<button id="btn_login" class="btn btn-default">Login</button>
 			<br />
 		</div>
+		<button id="profile" class="btn btn-default">Profile</button>
 	</div>
 
 	<div class="entete">
-		<div id="isfreelance"><h3>JE SUIS FREELANCE</h3></div>
-		<div id="isentreprise"><h3>JE SUIS UNE ENTREPRISE</h3></div>
+		<img src="resources/accueil.png" alt="en tete" width="100%"
+			height="750px" />
 	</div>
 
 	<div id="dernieres_offres">
@@ -215,7 +220,7 @@
 	</div>
 
 	<div class="entreprise">
-		<div class="texte_entreprise">
+		<div class="texte_entrerprise">
 			<h1>ENTREPRISES</h1>
 			<p>Dans un marché pénurique, IZYFREE prend en charge le sourcing
 			</p>
@@ -439,8 +444,6 @@
 		</div>
 	</div>
 
-	<div id="zone_contact"></div>
-
 	<div class="contact">
 		<h1>NOUS SOMMES LA POUR VOUS</h1>
 		<div class="d-flex align-content-start ">
@@ -474,7 +477,7 @@
 		$('#formulaire_entreprise').hide();
 		$('#offre').hide();
 		$('#deconnexion').hide();
-		$('#formulaire_moncompte').hide();
+		$('#formulaire_moncompte').hide(); 
 
 		$(document).ready(
 				function() {
@@ -499,8 +502,7 @@
 						$('#nos_offres').show()
 						$('.entreprise').show()
 						$('#notre_motivation').show()
-						$('#formulaire_freelance').hide()
-						$('#formulaire_entreprise').hide()
+						$('#formulaire_entreprise').show()
 						$('#inscription').hide()
 					});
 
@@ -528,8 +530,6 @@
 						$('#notre_motivation').hide()
 						$('#formulaire_entreprise').hide()
 						$('#inscription').show()
-						$('#proposition_profil').hide()
-						$('#proposition_mission').hide()
 					});
 
 					$("#connexion").click(function() {
@@ -543,22 +543,23 @@
 						$('#formulaire_entreprise').hide()
 						$('#login').show()
 					});
-
-					$("#envoyer_freelance").click(
+                    
+                    $("#envoyer_freelance").click(
 							function() {
-								postFreelanceForm($('#nom_freelance').val(), $(
-										'#prenom_freelance').val(), $(
-										'#mail_freelance').val(), $(
-										'#metier_freelance').val(), $(
-										'#skills_freelance').val(), $(
-										'#ville_freelance').val(), $(
-										'#tel_freelance').val(), $(
-										'#libre_freelance').val(), $(
-										'#condition_freelance').val(), $(
-										'#prix_freelance').val())
-							});
-
-					$("#post").click(
+								postFreelanceForm(
+									$('#nom_freelance').val(), 
+									$('#prenom_freelance').val(), 
+                                    $('#mail_freelance').val(), 
+                                    $('#metier_freelance').val(), 
+                                    $('#skills_freelance').val(), 
+                                    $('#ville_freelance').val(), 
+                                    $('#tel_freelance').val(),
+                                    $('#libre_freelance').val(),
+                                    $('#condition_freelance').val(),
+                                    $('#prix_freelance').val())
+								});
+                    
+                    $("#post").click(
 							function() {
 								postFreelance($('#name').val(), $('#firstname')
 										.val(), $('#email').val(), $('#passwd')
@@ -567,20 +568,31 @@
 
 					$("#get").click(function() {
 						getUser($('#user').val(), $('#alias').val())
+					});
 
-					});					
+					$("#post").click(
+							function() {
+								postFreelance($('#name').val(), $('#firstname')
+										.val(), $('#email').val(), $('#passwd')
+										.val())
+							}, console.log("Ok pour le post"));
+
+					
 
 					$("#btn_login").click(function() {
 						login();
 					});
 
+					$("#profile").click(function() {
+						profile()
+					});
+
 					$("#isentreprise").click(function() {
-						$('#inscription').hide()
 						$('.proposition_profil').hide();
 						$('.entete').hide();
 						$('#formulaire_entreprise').show();
-						$('#formulaire_freelance').hide();
-						$('#freelance').hide();
+                        $('#formulaire_freelance').hide();
+                        $('#freelance').hide();
 						$('#inscription_entreprise').show();
 						$('.entreprise').show();
 						$('#dernieres_offres').hide();
@@ -591,21 +603,17 @@
 					});
 
 					$("#isfreelance").click(function() {
-						$('#inscription').hide()
 						$('#inscription_entreprise').hide();
 						$('#formulaire_entreprise').hide();
-						$('#formulaire_freelance').show();
-						$('.entete').hide();
-						$('#login').hide();
-						$('.entreprise').hide();
+                        $('#formulaire_freelance').show();
+                        $('.entete').hide();
+                        $('#login').hide();
+                        $('.entreprise').hide();
 						$('.depot_mission').hide();
 						$('.proposition_profil').show();
 						$('#dernieres_offres').hide();
 						$('.nos_missions').show();
 						$('.nos_offres').show();
-						$('#nos_offres').hide();
-						$('#proposition_profil').hide();
-						$('#proposition_mission').hide();
 						$('#offre').show();
 					})
 					$("#deconnexion").click(function() {
@@ -622,7 +630,7 @@
 						$("#deconnexion").hide();
 						$('#formulaire_moncompte').hide();
 					})
-
+					
 					$("#listFreelance").click(function() {
 						listFreelance();
 					})
@@ -630,13 +638,13 @@
 						listAllMission();
 					})
 
-					$('#proposition_mission').click(function() {
+					$('#proposition_mission').click(function(){
 						$('#proposition_mission').hide();
 						$('.proposition_profil').hide();
 						$('.entete').hide();
 						$('#formulaire_entreprise').show();
-						$('#formulaire_freelance').hide();
-						$('#freelance').hide();
+                        $('#formulaire_freelance').hide();
+                        $('#freelance').hide();
 						$('#inscription_entreprise').show();
 						$('.entreprise').show();
 						$('#dernieres_offres').hide();
@@ -646,25 +654,25 @@
 						$('#formulaire_freelance').hide();
 					})
 
-					$('#proposition_profil').click(function() {
+					$('#proposition_profil').click(function(){
 						$('#proposition_profil').hide();
 						$('#inscription_entreprise').hide();
 						$('#formulaire_entreprise').hide();
-						$('#formulaire_freelance').show();
-						$('.entete').hide();
-						$('#login').hide();
-						$('.entreprise').hide();
+                        $('#formulaire_freelance').show();
+                        $('.entete').hide();
+                        $('#login').hide();
+                        $('.entreprise').hide();
 						$('.depot_mission').hide();
 						$('.proposition_profil').show();
 						$('#dernieres_offres').hide();
 						$('.nos_missions').show();
 						$('.nos_offres').show();
 						$('#offre').show();
-					});
-
+						
 					$("#modif_perso").click(function() {
 						enregistrer();
 					})
+				});
 				});
 	</script>
 </body>

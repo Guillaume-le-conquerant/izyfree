@@ -102,7 +102,7 @@ nav img{
 .texte_mission {
     text-align:  center;
     color : white;
-    margin: 20px;    
+    margin: 20px;
 }
 
 #libre {
@@ -121,9 +121,7 @@ nav img{
 }
 
 #simplificateur h1{
-	color:white; 
-    background-color:#66CDAA; 
-    text-align:center;
+	color:white; background-color:#66CDAA; text-align:center;
 }
 #simplificateur p{
 	margin:1px;
@@ -231,99 +229,6 @@ nav img{
 	border-top: 1px solid black;
 }
 
-#inscription{
-    width: 500px;
-    margin: 10px auto;
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 8px black;
-}
-
-.contact {
-    background-color: #F5F5DC;
-}
-
-#login {
-    width: 500px;
-    margin: 10px auto;
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 8px black;
-}
-
-#liste {
+.navbar-nav {
     display: flex;
-    justify-content: space-around;
-}
-
-#liste li{
-    display: inline;
-}
-
-.entete {
-    background: url("resources/accueil.png") no-repeat center;
-    height:555px;
-    border-bottom: 3px solid black;
-    display: flex;
-    justify-content: space-around;
-}
-
-#isfreelance {
-    background-color: yellow;
-    border: 5px solid orange;
-    border-radius: 100px;
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    vertical-align:middle;
-    margin-top: 200px;
-}
-
-#isfreelance h3{
-    text-align: center;
-    margin: auto auto;
-    margin-top: 50px;
-}
-
-#isentreprise h3{
-    text-align: center;
-    margin: auto auto;
-    margin-top: 50px;
-}
-
-#isentreprise {
-    background-color: #4169E1;
-    border: 5px solid blue;
-    border-radius: 100px;
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    vertical-align:middle;
-    margin-top: 200px;
-}
-
-#isentreprise:hover {
-    background-color: blue;
-    border: 5px solid #4169E1;
-    border-radius: 100px;
-    width: 200px;
-    color: white;
-    height: 200px;
-    text-align: center;
-    vertical-align:middle;
-    margin-top: 200px;
-}
-
-#isfreelance:hover {
-    background-color: orange;
-    border: 5px solid yellow;
-    border-radius: 100px;
-    width: 200px;
-    color: white;
-    height: 200px;
-    text-align: center;
-    vertical-align:middle;
-    margin-top: 200px;
 }
