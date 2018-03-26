@@ -169,9 +169,22 @@ nav img{
 }
 
 #proposition_profil{
-	margin: auto;
 	width: 150px;
+	border : 2px solid orange;
+	text-align: center;
+	color: orange;
+	margin: 10px auto;
 }
 
+#proposition_mission{
+	width: 150px;
+	border : 2px solid #4169E1;
+	text-align: center;
+	color: #4169E1;
+	margin: 10px auto;
+}
+#kesako {
+	border-top: 1px solid black;
+}
 
 
