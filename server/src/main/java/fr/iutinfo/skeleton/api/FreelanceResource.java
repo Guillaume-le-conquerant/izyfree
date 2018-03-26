@@ -76,12 +76,14 @@ public class FreelanceResource {
 	@PUT
 	@Path("id/{id}")
 	public FreelanceDto modifyOffre(@PathParam("id") int id, FreelanceDto freelanceDto) {
-		FreelanceDto freeDto = dao.findById(freelanceDto.getId()).convertToDto();
-		if (!(freeDto.getId() == freelanceDto.getId())) {
+		System.out.println(freelanceDto);
+		FreelanceDto freeDto = dao.findById(id).convertToDto();
+		if (!(freeDto.getId() == id)) {
 			throw new WebApplicationException(404);
 		} else {
 			Freelance free = new Freelance();
-			free.initFromDto(freelanceDto);
+			freelanceDto.setId(id);
+			free.initFromDto(freelanceDto);;
 			dao.update(free);
 			return freelanceDto;
 		}
