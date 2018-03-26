@@ -430,6 +430,8 @@
 		$(document).ready(
 				function() {
 
+					$('.derniers_profils').after(listFreelance);
+
 					$('#freelance').click(function() {
 						$('#inscription_entreprise').hide()
 						$('#inscription_freelance').show()
@@ -527,9 +529,7 @@
 										.val())
 							}, console.log("Ok pour le post"));
 
-					$("#list").click(function() {
-						listFreelance()
-					});
+					
 
 					$("#btn_login").click(function() {
 						login();
