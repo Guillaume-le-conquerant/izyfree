@@ -94,25 +94,34 @@ function postUserGeneric(name, alias, email, pwd, url) {
 }
 
 function postFreelance(name, firstname, email, pwd) {
-	console.log("postUserGeneric " + 'v1/freelance')
-	$.ajax({
-		type : 'POST',
-		contentType : 'application/json',
-		url : 'v1/freelance/',
-		dataType : "json",
-		data : JSON.stringify({
-			"name" : name,
-			"firstname" : firstname,
-			"email" : email,
-			"password" : pwd
-		}),
-		success : function(data, textStatus, jqXHR) {
-			afficheUser(data);
-			$('#inscription').hide();
-		},
-		error : function(jqXHR, textStatus, errorThrown) {
-			console.log('postUser error: ' + textStatus);
+	$.getJSON("/v1/freelance", function(data) {
+		for(index=0; index < data.length ; ++index){
+			if(data[index].email == email){
+				alert("EMAIL DEJA UTILISÉ");
+				return;
+			}
 		}
+
+		console.log("postUserGeneric " + 'v1/freelance')
+		$.ajax({
+			type : 'POST',
+			contentType : 'application/json',
+			url : 'v1/freelance/',
+			dataType : "json",
+			data : JSON.stringify({
+				"name" : name,
+				"firstname" : firstname,
+				"email" : email,
+				"password" : pwd
+			}),
+			success : function(data, textStatus, jqXHR) {
+				afficheUser(data);
+				$('#inscription').hide();
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				console.log('postUser error: ' + textStatus);
+			}
+		});
 	});
 }
 
