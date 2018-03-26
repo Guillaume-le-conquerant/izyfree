@@ -14,8 +14,26 @@ public class OffreDto {
     private String dateFin;
     private String listeMots;
     private int idEntreprise;
+    private String nomEntreprise;
+    private String champLibre;
 
-    public int getId() {
+    public String getChampLibre() {
+		return champLibre;
+	}
+
+	public void setChampLibre(String champLibre) {
+		this.champLibre = champLibre;
+	}
+
+	public String getNomEntreprise() {
+		return nomEntreprise;
+	}
+
+	public void setNomEntreprise(String nomEntreprise) {
+		this.nomEntreprise = nomEntreprise;
+	}
+
+	public int getId() {
         return id;
     }
 
@@ -66,7 +84,7 @@ public class OffreDto {
 	@Override
 	public String toString() {
 		return "OffreDto [id=" + id + ", intitule=" + intitule + ", dateDeb=" + dateDeb + ", dateFin=" + dateFin
-				+ ", listeMots=" + listeMots + ", idEntreprise=" + idEntreprise + "]";
+				+ ", listeMots=" + listeMots + ", Nom de la societe=" + nomEntreprise + "]";
 	}
 	
 

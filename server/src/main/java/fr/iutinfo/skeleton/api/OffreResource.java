@@ -35,7 +35,7 @@ public class OffreResource {
 		if (!tableExist("offres")) {
 			logger.debug("Create table offres");
 			dao.createOffreTable();
-			dao.insert(new Offre(0, "Margaret Thatcher", "2018-03-21", "2018-06-21", "", new Entreprise().getId()));
+			dao.insert(new Offre(0, "Margaret Thatcher", "2018-03-21", "2018-06-21", "", new Entreprise().getId(), new Entreprise(2, "CGI").getName(), "Salut je m'appele Jean"));
 		}
 	}
 

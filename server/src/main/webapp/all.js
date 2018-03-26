@@ -146,7 +146,32 @@ function postFreelanceForm(name, firstname, email, job, mots, localisation, phon
 	});
 }
 
-function postEntreprise(name, firstname, email, pwd) {
+function postOffre(intitule, dateDeb, dateFin, listeMots, idEntreprise, nomEntreprise){
+	$.ajax({
+		type : 'POST',
+		contentType : 'application/json',
+		url : 'v1/offre/',
+		dataType : "json",
+		data : JSON.stringify({
+			"intitule":intitule,
+			"dateDeb": dateDeb,
+			"dateFin": dateFin,
+			"listeMots": listeMots,
+			"idEntreprise": idEntreprise,
+			"nomEntreprise": nomEntreprise,
+			"champLibre": champLibre
+		}),
+		success : function(data, textStatus, jqXHR) {
+			afficherUser(data);
+		},
+		error : function(jqXHR, textStatus, errorThrown){
+			console.log('postOffre error: ' + textStatus);
+		}
+		
+	})
+}
+
+function postEntreprise(name, nomContact, prenomContact, tel, email, fonctionsContact, profilRecherche, ville, champLibre) {
 	console.log("postUserGeneric " + 'v1/entreprise')
 	$.ajax({
 		type : 'POST',
@@ -155,13 +180,18 @@ function postEntreprise(name, firstname, email, pwd) {
 		dataType : "json",
 		data : JSON.stringify({
 			"name" : name,
-			"firstname" : firstname,
+			"nomContact" : nomContact,
+			"prenomContact" : prenomContact,
+			"tel": tel,
 			"email" : email,
-			"password" : pwd
+			"fonctionsContact": fonctionsContact,
+			"profilRecherche": profilRecherche,
+			"ville": ville,
+			"champLibre": champLibre
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
-			$('#inscription').hide();
+			alert("Offre Enregistré");
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			console.log('postUser error: ' + textStatus);

@@ -1,8 +1,5 @@
 package fr.iutinfo.skeleton.api;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,19 +13,24 @@ public class Offre {
 	private String dateFin;
 	private String listeMots;
 	private int idEntreprise;
+	private String nomEntreprise;
+	private String champLibre;
+
 
 	public Offre(int id, String intitule) {
 		this.id = id;
 		this.intitule = intitule;
 	}
 
-	public Offre(int id, String intitule, String dateDeb, String dateFin, String listeMots, int idEntreprise) {
+	public Offre(int id, String intitule, String dateDeb, String dateFin, String listeMots, int idEntreprise, String nomEntreprise, String champLibre) {
 		this.id = id;
 		this.intitule = intitule;
 		this.dateDeb = dateDeb;
 		this.dateFin = dateFin;
 		this.listeMots = listeMots;
 		this.idEntreprise = idEntreprise;
+		this.nomEntreprise = nomEntreprise;
+		this.champLibre = champLibre;
 	}
 
 	public Offre() {
@@ -40,6 +42,15 @@ public class Offre {
 
 	public void setIdEntreprise(int idEntrepise) {
 		this.idEntreprise = idEntrepise;
+	}
+	
+
+	public String getChampLibre() {
+		return champLibre;
+	}
+
+	public void setChampLibre(String champLibre) {
+		this.champLibre = champLibre;
 	}
 
 	public int getId() {
@@ -105,6 +116,8 @@ public class Offre {
 		this.setDateFin(dto.getDateFin());
 		this.setListeMots(dto.getListeMots());
 		this.setIdEntreprise(dto.getIdEntreprise());
+		this.setNomEntreprise(dto.getNomEntreprise());
+		this.setChampLibre(dto.getChampLibre());
 	}
 
 	public OffreDto convertToDto() {
@@ -115,7 +128,17 @@ public class Offre {
 		dto.setDateFin(this.getDateFin());
 		dto.setListeMots(this.getListeMots());
 		dto.setIdEntreprise(this.getIdEntreprise());
+		dto.setNomEntreprise(this.getNomEntreprise());
+		dto.setChampLibre(this.getChampLibre());
 		return dto;
+	}
+
+	public String getNomEntreprise() {
+		return nomEntreprise;
+	}
+
+	public void setNomEntreprise(String nomEntreprise) {
+		this.nomEntreprise = nomEntreprise;
 	}
 
 }
