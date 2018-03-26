@@ -85,14 +85,15 @@ public class OffreResource {
 	}
 
 	@PUT
-	@Path("id/{id}")
+	@Path("/id/{id}")
 	public OffreDto modifyOffre(@PathParam("id") int id, OffreDto offreD) {
-		OffreDto offre = dao.findById(offreD.getId()).convertToDto();
-		if (!(offre.getId() == offreD.getId())) {
+		OffreDto offre = dao.findById(id).convertToDto();
+		if (!(offre.getId() == id)) {
 			throw new WebApplicationException(404);
 		} else {
 			Offre off = new Offre();
-			off.initFromDto(offreD);
+			offreD.setId(id);
+			off.initFromDto(offreD);;
 			dao.update(off);
 			return offreD;
 		}
