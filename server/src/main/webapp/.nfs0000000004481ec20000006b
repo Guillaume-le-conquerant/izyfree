@@ -88,11 +88,20 @@
 	<div id="dernieres_offres">
 		<div class="derniers_profils">
 			<h1>Derniers profils publiés</h1>
+			
 		</div>
 
 		<div class="dernieres_missions">
 			<h1>Dernieres missions publiées</h1>
-			
+			<div>
+				<h3>Recherche dev front-end</h3>
+			</div>
+			<div>
+				<h3>Recherche dev front-end</h3>
+			</div>
+			<div>
+				<h3>Recherche dev front-end</h3>
+			</div>
 		</div>
 	</div>
 
@@ -360,13 +369,14 @@
 		<div class="form_moncompte">
 			<div class="form_gauche">
 				<input type="text" name="nom2" id="nom2" placeholder="NOM*" required>
-				<input type="text" name="prenom2" id="prenom2" placeholder="PRENOM*" required>
-				<input type="email" name="mail2" id="mail2" placeholder="EMAIL*" required> 
-				<input type="text" name="metier2" id="metier2"placeholder="VOTRE METIER*" required> 
-				<input type="text" name="skills2" id="skills2" placeholder="COMPETENCES*" required>
-				<input type="text" name="ville2" id="ville2" placeholder="VILLE*" required> 
-				<input type="tel" name="tel2" id="tel2" placeholder="TELEPHONE*" required> 
-				<input type="text" name="ref2" id="ref2" placeholder="REFERENCE ANNONCE*" required>
+				<input type="email" name="mail2" id="mail2" placeholder="EMAIL*"
+					required> <input type="text" name="metier2" id="metier2"
+					placeholder="VOTRE METIER*" required> <input type="text"
+					name="skills2" id="skills2" placeholder="COMPETENCES*" required>
+				<input type="text" name="ville2" id="ville2" placeholder="VILLE*"
+					required> <input type="tel" name="tel2" id="tel2"
+					placeholder="TELEPHONE*" required> <input type="text"
+					name="ref2" id="ref2" placeholder="REFERENCE ANNONCE*" required>
 
 				<p>* CHAMPS OBLIGATOIRES</p>
 			</div>
@@ -379,7 +389,7 @@
 		<div class="derniere_mission"></div>
 	</div>
 	
-	<div id="contact">
+	<div class="contact">
 		<h1>NOUS SOMMES LA POUR VOUS</h1>
 		<div class="d-flex align-content-start flex-wrap 5">
 			<div> 
@@ -412,9 +422,8 @@
 		$(document).ready(
 				function() {
 
-					$('.derniers_profils').after(listFreelance);
+					$('.derniers_profils h1').after(listFreelance());
 
-					$('.dernieres_missions').after(listMissions);
 
 					$('#freelance').click(function() {
 						$('#inscription_entreprise').hide()
@@ -552,6 +561,7 @@
 						$('.nos_offres').show();
 						$('#offre').show();
 					})
+					
 					$("#deconnexion").click(function() {
 						$('#inscrire').show();
 						$('#connexion').show();
