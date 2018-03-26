@@ -138,3 +138,8 @@ nav img{
 #envoyer_freelance {
     background-color: yellow;
 }
+
+#dernieres_offres {
+    display: flex;
+    justify-content: space-around;
+}
