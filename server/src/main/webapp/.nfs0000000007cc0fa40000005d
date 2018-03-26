@@ -49,10 +49,8 @@
 		</div>
 	</nav>
 
-	<input type="button" id="listFreelance" value="LISTER LES FREELANCE">
-	<input type="button" id="listMission" value="LISTER LES MISSIONS">
+	<input type="button" id="list" value="LISTER LES FREELANCE">
 	<div id="reponse"></div>
-	<div id="reponsemission"></div>
 
 	<div id="inscription">
 		<div>
@@ -90,10 +88,20 @@
 	<div id="dernieres_offres">
 		<div class="derniers_profils">
 			<h1>Derniers profils publiés</h1>
+			
 		</div>
 
 		<div class="dernieres_missions">
 			<h1>Dernieres missions publiées</h1>
+			<div>
+				<h3>Recherche dev front-end</h3>
+			</div>
+			<div>
+				<h3>Recherche dev front-end</h3>
+			</div>
+			<div>
+				<h3>Recherche dev front-end</h3>
+			</div>
 		</div>
 	</div>
 
@@ -414,7 +422,6 @@
 				function() {
 
 					list3lastFreelance();
-					listMissions();
 
 					$('#freelance').click(function() {
 						$('#inscription_entreprise').hide()
@@ -566,12 +573,8 @@
 						$("#deconnexion").hide();
 						$('#formulaire_moncompte').hide();
 					})
-					
-					$("#listFreelance").click(function() {
+					$("#list").click(function() {
 						listFreelance();
-					})
-					$("#listMission").click(function() {
-						listAllMission();
 					})
 				});
 	</script>
