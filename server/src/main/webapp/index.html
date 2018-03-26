@@ -472,7 +472,6 @@
 		$('#login').hide();
 		$('#inscription').hide();
 		$('#formulaire_entreprise').hide();
-		$('#offre').hide();
 		$('#deconnexion').hide();
 		$('#formulaire_moncompte').hide();
 
@@ -547,7 +546,7 @@
 						$('#login').show()
 					});
 
-					$("#envoyer_freelance").click(
+					$(".envoyer_freelance").click(
 							function() {
 								postFreelanceForm($('#nom_freelance').val(), $(
 										'#prenom_freelance').val(), $(
