@@ -24,8 +24,13 @@ public class Staff implements Principal {
     private String salt;
     private String search;
 
-    public Staff(String name) {
+    public Staff(int id, String name) {
+    	this.id=id;
         this.name = name;
+    }
+    
+    public Staff(String name) {
+    	this.name=name;
     }
     
     public Staff() {

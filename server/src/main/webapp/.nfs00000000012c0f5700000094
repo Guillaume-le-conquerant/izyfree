@@ -82,13 +82,24 @@
 	</div>
 
 	<div class="entete">
-
+		<div id="div_entete">
 			<div id="isfreelance">
 				<h3>JE SUIS FREELANCE</h3>
 			</div>
 			<div id="isentreprise">
 				<h3>JE SUIS UNE ENTREPRISE</h3>
 			</div>
+		</div>
+	</div>
+
+	<div id="dernieres_offres">
+		<div class="derniers_profils">
+			<h1>Derniers profils publiés</h1>
+		</div>
+
+		<div class="dernieres_missions">
+			<h1>Dernieres missions publiées</h1>
+		</div>
 	</div>
 
 	<div id="formulaire_entreprise" style="background-color: lightblue;">
@@ -114,19 +125,15 @@
 
 			<div class="form_droite">
 				<input type="text" name="prenom" id="prenom" placeholder="PRENOM*"
-					required> <input type="text" name="intitule" id="intitule"
-					placeholder="INTITULE MISSION*" required> <input
-					type="date" name="datede" id="datedeb" placeholder="DATE DEBUT*"
-					required> <input type="date" name="datefn" id="datefin"
-					placeholder="DATE FIN*" required> <input type="textarea"
-					name="champ_libre" id="libre"
+					required> <input type="textarea" name="champ_libre"
+					id="libre"
 					placeholder="D'AUTRES INDICES POUR FAIRE APPARAITRE LE GENIE ?">
 				<div class="boutons_missions">
 					<div class="descriptif_mission">
 						<p>JE JOINS MON DESCRIPTIF DE MISSION</p>
 					</div>
 
-					<div id="envoyer_offre">
+					<div class="envoyer">
 						<p>ENVOYER</p>
 					</div>
 				</div>
@@ -170,7 +177,7 @@
 						<p>JE JOINS MON CV</p>
 					</div>
 
-					<div id="envoyer_freelance">
+					<div class="envoyer_freelance">
 						<p>ENVOYER</p>
 					</div>
 				</div>
@@ -255,22 +262,12 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
+	</div>
 	<div id="proposition_mission">
 		<h5>JE PROPOSE UNE MISSION</h5>
 	</div>
 	</div>
-	</div>
-
-	<div id="dernieres_offres">
-		<div class="derniers_profils">
-			<h1>Derniers profils publiés</h1>
-		</div>
-
-		<div class="dernieres_missions">
-			<h1>Dernieres missions publiées</h1>
-		</div>
 	</div>
 
 	<div id="kesako">
@@ -483,6 +480,7 @@
 		$('#login').hide();
 		$('#inscription').hide();
 		$('#formulaire_entreprise').hide();
+		$('#offre').hide();
 		$('#deconnexion').hide();
 		$('#formulaire_moncompte').hide();
 
@@ -509,12 +507,9 @@
 						$('#nos_offres').show()
 						$('.entreprise').show()
 						$('#notre_motivation').show()
-						$('#formulaire_freelance').show()
+						$('#formulaire_freelance').hide()
 						$('#formulaire_entreprise').hide()
 						$('#inscription').hide()
-						$('#proposition_mission').show()
-						$('#proposition_profil').show()
-
 					});
 
 					$('#proposition').click(function() {
@@ -557,16 +552,6 @@
 						$('#login').show()
 					});
 
-					$("#envoyer_offre").click(
-							function() {
-								postOffre($('#intitule').val(), $('#datedeb')
-										.val(), $('#datefin').val(), $(
-										'#societe').val(), $('#libre').val())
-								postEntreprise($('#societe').val(), $('#nom')
-										.val(), $('#prenom').val(), $('#tel')
-										.val(), $('#mail').val(), $('#fonction').val(), $('#profil').val(), $('#ville').val(), $('#libre').val())
-							});
-
 					$("#envoyer_freelance").click(
 							function() {
 								postFreelanceForm($('#nom_freelance').val(), $(
@@ -591,7 +576,7 @@
 					$("#get").click(function() {
 						getUser($('#user').val(), $('#alias').val())
 
-					});
+					});					
 
 					$("#btn_login").click(function() {
 						login();
@@ -686,8 +671,8 @@
 					});
 
 					$("#modif_perso").click(function() {
-						enregistrer()
-					});
+						enregistrer();
+					})
 				});
 	</script>
 </body>

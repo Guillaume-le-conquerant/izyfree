@@ -231,19 +231,6 @@ nav img{
 	border-top: 1px solid black;
 }
 
-
-#dernieres_offres h1{
-	background-color:lightgrey;
-}
-
-.derniers_profils{
-	text-align:center;
-	
-}
-.dernieres_missions{
-	text-align:center;
-}
-
 #inscription{
     width: 500px;
     margin: 10px auto;
@@ -280,72 +267,32 @@ nav img{
     height:555px;
     border-bottom: 3px solid black;
     display: flex;
+}
+
+#div_entete {
+    display: flex;
     justify-content: space-around;
 }
 
-
-#isfreelance h3{
-    text-align: center;
-    margin: auto auto;
-    margin-top: 50px;
-}
-
-#isentreprise h3{
-    text-align: center;
-    margin: auto auto;
-    margin-top: 50px;
-}
-
-
 #isfreelance {
-    background-color: #333333;
+    background-color: yellow;
     border: 5px solid orange;
     border-radius: 100px;
     width: 200px;
     height: 200px;
     text-align: center;
-    vertical-align:middle;
-    margin-top: 200px;
-    color: white;
+}
+
+#isfreelance h3{
+    text-align: center;
+    justify-content: middle;
 }
 
 #isentreprise {
-    background-color: #333333;
-    border: 5px solid #4169E1;
-    border-radius: 100px;
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    vertical-align:middle;
-    margin-top: 200px;
-    color: white;
-}
-
-#isentreprise:hover {
     background-color: #4169E1;
-    border: 5px solid #333333;
+    border: 5px solid blue;
     border-radius: 100px;
     width: 200px;
-    color: white;
     height: 200px;
     text-align: center;
-    vertical-align:middle;
-    margin-top: 200px;
 }
-
-#isfreelance:hover {
-    background-color: orange;
-    border: 5px solid #333333;
-    border-radius: 100px;
-    width: 200px;
-    color: white;
-    height: 200px;
-    text-align: center;
-    vertical-align:middle;
-    margin-top: 200px;
-}
-
-#btn_login{
-	background-color: #0E86E2;
-	color: white ;
-} 

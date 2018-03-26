@@ -15,7 +15,7 @@ function login() {
 	});*/
 	$.getJSON("/v1/freelance", function(data) {
 		for(index=0; index < data.length ; ++index){
-			if(data[index].email == $("#userlogin").val() && data[index].isGoodPassword($("#passwdlogin"))){
+			if(data[index].email == $("#userlogin").val()){
 				alert("connecté");
 				$('#login').hide();
 				$('#inscription').hide();
@@ -115,7 +115,7 @@ function postFreelance(name, firstname, email, pwd) {
 				"password" : pwd
 			}),
 			success : function(data, textStatus, jqXHR) {
-				alert("Tu es inscris");
+				afficheUser(data);
 				$('#inscription').hide();
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
@@ -155,30 +155,7 @@ function postFreelanceForm(name, firstname, email, job, mots, localisation, phon
 	});
 }
 
-function postOffre(intitule, dateDeb, dateFin, nomEntreprise, champLibre){
-	$.ajax({
-		type : 'POST',
-		contentType : 'application/json',
-		url : 'v1/offre/',
-		dataType : "json",
-		data : JSON.stringify({
-			"intitule":intitule,
-			"dateDeb": dateDeb,
-			"dateFin": dateFin,
-			"nomEntreprise": nomEntreprise,
-			"champLibre": champLibre
-		}),
-		success : function(data, textStatus, jqXHR) {
-			afficherUser(data);
-		},
-		error : function(jqXHR, textStatus, errorThrown){
-			console.log('postOffre error: ' + textStatus);
-		}
-		
-	})
-}
-
-function postEntreprise(name, nomContact, prenomContact, tel, email, fonctionsContact, profilRecherche, ville, champLibre) {
+function postEntreprise(name, firstname, email, pwd) {
 	console.log("postUserGeneric " + 'v1/entreprise')
 	$.ajax({
 		type : 'POST',
@@ -187,18 +164,13 @@ function postEntreprise(name, nomContact, prenomContact, tel, email, fonctionsCo
 		dataType : "json",
 		data : JSON.stringify({
 			"name" : name,
-			"nomContact" : nomContact,
-			"prenomContact" : prenomContact,
-			"tel": tel,
+			"firstname" : firstname,
 			"email" : email,
-			"fonctionsContact": fonctionsContact,
-			"profilRecherche": profilRecherche,
-			"ville": ville,
-			"champLibre": champLibre
+			"password" : pwd
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
-			alert("Offre Enregistré");
+			$('#inscription').hide();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			console.log('postUser error: ' + textStatus);
