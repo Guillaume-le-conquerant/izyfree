@@ -15,7 +15,7 @@ function login() {
 	});*/
 	$.getJSON("/v1/freelance", function(data) {
 		for(index=0; index < data.length ; ++index){
-			if(data[index].email == $("#userlogin").val() && data[index].isGoodPassword($("#passwdlogin"))){
+			if(data[index].email == $("#userlogin").val()){
 				alert("connecté");
 				$('#login').hide();
 				$('#inscription').hide();
@@ -31,6 +31,14 @@ function login() {
 				document.getElementById("nom2").value=data[index].name;
 				document.getElementById("prenom2").value=data[index].firstname;
 				document.getElementById("mail2").value=data[index].email;
+				console.log(data[index].job);
+				if(data[index].job != null){ document.getElementById("metier2").value=data[index].job; } else{document.getElementById("metier2").value=""; }
+				if(data[index].mots != null){ document.getElementById("skills2").value=data[index].mots; } else{document.getElementById("skills2").value=""; }
+				if(data[index].localisation != null){ document.getElementById("ville2").value=data[index].localisation; } else{document.getElementById("ville2").value=""; }
+				if(data[index].phone != null){ document.getElementById("tel2").value=data[index].phone; } else{document.getElementById("tel2").value=""; }
+				if(data[index].champLibre != null){ document.getElementById("champlibre2").value=data[index].champLibre; } else{document.getElementById("champlibre2").value=""; }
+				if(data[index].conditions != null){ document.getElementById("conditions2").value=data[index].conditions; } else{document.getElementById("conditions2").value=""; }
+				if(data[index].tarif != null){ document.getElementById("prix2").value=data[index].tarif; } else{document.getElementById("prix2").value=""; }
 				$('#formulaire_moncompte').show();
 				return;
 			}	
