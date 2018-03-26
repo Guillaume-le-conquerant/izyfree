@@ -1,6 +1,7 @@
 package fr.iutinfo.skeleton.api;
 
 import fr.iutinfo.skeleton.common.dto.EntrepriseDTO;
+import fr.iutinfo.skeleton.common.dto.FreelanceDto;
 import fr.iutinfo.skeleton.common.dto.UserDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,6 +60,22 @@ public class EntrepriseRessource {
         }
         return entreprise.stream().map(Entreprise::convertToDto).collect(Collectors.toList());
     }
+    
+    @PUT
+	@Path("/id/{id}")
+	public EntrepriseDTO modifyCorporation(@PathParam("id") int id, EntrepriseDTO entrepriseDto) {
+		System.out.println(entrepriseDto);
+		EntrepriseDTO entDto = dao.findById(id).convertToDto();
+		if (!(entDto.getId() == id)) {
+			throw new WebApplicationException(404);
+		} else {
+			Entreprise ent = new Entreprise();
+			entrepriseDto.setId(id);
+			ent.initFromDto(entrepriseDto);;
+			dao.update(ent);
+			return entrepriseDto;
+		}
+	}
 
     @DELETE
     @Path("{id}")
