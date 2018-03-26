@@ -316,6 +316,9 @@ nav img{
     width: 200px;
     height: 200px;
     text-align: center;
+    vertical-align:middle;
+    margin-top: 200px;
+    color: white;
 }
 
 #isentreprise:hover {
