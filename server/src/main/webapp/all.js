@@ -115,7 +115,7 @@ function postFreelance(name, firstname, email, pwd) {
 				"password" : pwd
 			}),
 			success : function(data, textStatus, jqXHR) {
-				afficheUser(data);
+				alert("Tu es inscris");
 				$('#inscription').hide();
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
