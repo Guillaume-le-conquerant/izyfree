@@ -231,6 +231,19 @@ nav img{
 	border-top: 1px solid black;
 }
 
+
+#dernieres_offres h1{
+	background-color:lightgrey;
+}
+
+.derniers_profils{
+	text-align:center;
+	
+}
+.dernieres_missions{
+	text-align:center;
+}
+
 #inscription{
     width: 500px;
     margin: 10px auto;
@@ -303,6 +316,10 @@ nav img{
     width: 200px;
     height: 200px;
     text-align: center;
+<<<<<<< HEAD
+}
+
+=======
     vertical-align:middle;
     margin-top: 200px;
     color: white;
@@ -331,3 +348,4 @@ nav img{
     vertical-align:middle;
     margin-top: 200px;
 }
+>>>>>>> bb0e83cfa9b5b3cb2957bfa203b311568637ad94
