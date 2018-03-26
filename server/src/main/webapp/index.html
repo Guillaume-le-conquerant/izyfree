@@ -536,9 +536,9 @@
                     $("#envoyer_freelance").click(
 							function() {
 								postFreelanceForm(
-									$('#name_freelance').val(), 
-									$('#firstname_freelance').val(), 
-                                    $('#email_freelance').val(), 
+									$('#nom_freelance').val(), 
+									$('#prenom_freelance').val(), 
+                                    $('#mail_freelance').val(), 
                                     $('#metier_freelance').val(), 
                                     $('#skills_freelance').val(), 
                                     $('#ville_freelance').val(), 
@@ -625,6 +625,38 @@
 					})
 					$("#listMission").click(function() {
 						listAllMission();
+					})
+
+					$('#proposition_mission').click(function(){
+						$('#proposition_mission').hide();
+						$('.proposition_profil').hide();
+						$('.entete').hide();
+						$('#formulaire_entreprise').show();
+                        $('#formulaire_freelance').hide();
+                        $('#freelance').hide();
+						$('#inscription_entreprise').show();
+						$('.entreprise').show();
+						$('#dernieres_offres').hide();
+						$('.depot_mission').show();
+						$('.nos_offres').show();
+						$('#offre').show();
+						$('#formulaire_freelance').hide();
+					})
+
+					$('#proposition_profil').click(function(){
+						$('#proposition_profil').hide();
+						$('#inscription_entreprise').hide();
+						$('#formulaire_entreprise').hide();
+                        $('#formulaire_freelance').show();
+                        $('.entete').hide();
+                        $('#login').hide();
+                        $('.entreprise').hide();
+						$('.depot_mission').hide();
+						$('.proposition_profil').show();
+						$('#dernieres_offres').hide();
+						$('.nos_missions').show();
+						$('.nos_offres').show();
+						$('#offre').show();
 					})
 				});
 	</script>
