@@ -19,16 +19,16 @@ function login() {
 				alert("connecté");
 				$('#login').hide();
 				$('#inscription').hide();
-		        $('#formulaire_entreprise').hide();
-		        $('#inscrire').hide();
-		        $('#connexion').hide();
-		        $('#isfreelance').hide();
-		        $('#isentreprise').hide();
-		        $('#simplificateur').hide();
-		        $('#formulaire_freelance').hide();
-		        $('#dernieres_offres').hide();
-		        $('#deconnexion').show();
-		        $('#formulaire_moncompte').show();
+				$('#formulaire_entreprise').hide();
+				$('#inscrire').hide();
+				$('#connexion').hide();
+				$('#isfreelance').hide();
+				$('#isentreprise').hide();
+				$('#simplificateur').hide();
+				$('#formulaire_freelance').hide();
+				$('#dernieres_offres').hide();
+				$('#deconnexion').show();
+				$('#formulaire_moncompte').show();
 				return;
 			}	
 		}
@@ -40,7 +40,7 @@ function profile() {
 	getWithAuthorizationHeader("v1/profile", function (data) {afficheUser(data);});
 }
 
- /*function getWithAuthorizationHeader(url, callback) {
+/*function getWithAuthorizationHeader(url, callback) {
  if($("#userlogin").val() != "") {
      $.ajax
      ({
@@ -98,8 +98,8 @@ function postFreelance(name, firstname, email, pwd) {
 		url : 'v1/freelance/',
 		dataType : "json",
 		data : JSON.stringify({
-            "name" : name,
-            "firstname" : firstname,
+			"name" : name,
+			"firstname" : firstname,
 			"email" : email,
 			"password" : pwd
 		}),
@@ -121,17 +121,17 @@ function postFreelanceForm(name, firstname, email, job, mots, localisation, phon
 		url : 'v1/freelance/',
 		dataType : "json",
 		data : JSON.stringify({
-            "name" : name,
-            "firstname" : firstname,
+			"name" : name,
+			"firstname" : firstname,
 			"email" : email,
-            "job" : job,
-            "mots" : mots,
-            "localisation" : localisation,
-            "phone" : phone,
-            "ref" : ref,
-            "champLibre" : champLibre,
-            "conditions" : conditions,
-            "prix": prix
+			"job" : job,
+			"mots" : mots,
+			"localisation" : localisation,
+			"phone" : phone,
+			"ref" : ref,
+			"champLibre" : champLibre,
+			"conditions" : conditions,
+			"prix": prix
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
@@ -190,7 +190,7 @@ function postStaff(name, alias, email, pwd, url) {
 }
 
 function listUsers() {
-    listUsersGeneric("v1/user/");
+	listUsersGeneric("v1/user/");
 }
 
 function listUsersGeneric(url) {
@@ -209,8 +209,8 @@ function afficheListUsers(data) {
 	ul.className = "list-group";
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
-	    var li = document.createElement('li');
-	    li.className = "list-group-item";
+		var li = document.createElement('li');
+		li.className = "list-group-item";
 		li.innerHTML = userStringify(data[index]);
 		ul.appendChild(li);
 	}
@@ -218,11 +218,11 @@ function afficheListUsers(data) {
 }
 
 function userStringify(user) {
-    return user.id + ". " + user.name + " &lt;" + user.email + "&gt;" + " (" + user.alias + ")";
+	return user.id + ". " + user.name + " &lt;" + user.email + "&gt;" + " (" + user.alias + ")";
 }
 
 function listFreelance() {
-    listFreelanceGeneric("v1/freelance/");
+	listFreelanceGeneric("v1/freelance/");
 }
 
 function listFreelanceGeneric(url) {
@@ -234,16 +234,19 @@ function listFreelanceGeneric(url) {
 function afficheListFreelance(data) {
 	var ul = document.createElement('ul');
 	ul.className = "list-group";
-	var index = 0;
-	for (index = 0; index < data.length; ++index) {
-	    var li = document.createElement('li');
-	    li.className = "list-group-item";
-		li.innerHTML = freelanceStringify(data[index]);
-		ul.appendChild(li);
+	
+	var index=0;
+	if(data.length > 3){
+		for(index = data.length-3; index<data.length; ++index){
+			var li = document.createElement('li');
+			li.className = "list-group-item";
+			li.innerHTML = freelanceStringify(data[index]);
+			ul.appendChild(li);
+		}		
 	}
 	$("#reponse").html(ul);
 }
 
 function freelanceStringify(freelance) {
-    return freelance.id + ". " + freelance.name + " &lt;" + freelance.email + "&gt;" + " (" + freelance.alias + ")";
+	return freelance.id + ". " + freelance.name + " &lt;" + freelance.email + "&gt;" + " (" + freelance.alias + ")";
 }
