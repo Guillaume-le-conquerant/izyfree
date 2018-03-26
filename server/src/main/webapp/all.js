@@ -155,7 +155,7 @@ function postFreelanceForm(name, firstname, email, job, mots, localisation, phon
 	});
 }
 
-function postOffre(intitule, dateDeb, dateFin, listeMots, idEntreprise, nomEntreprise){
+function postOffre(intitule, dateDeb, dateFin, nomEntreprise, champLibre){
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -165,8 +165,6 @@ function postOffre(intitule, dateDeb, dateFin, listeMots, idEntreprise, nomEntre
 			"intitule":intitule,
 			"dateDeb": dateDeb,
 			"dateFin": dateFin,
-			"listeMots": listeMots,
-			"idEntreprise": idEntreprise,
 			"nomEntreprise": nomEntreprise,
 			"champLibre": champLibre
 		}),

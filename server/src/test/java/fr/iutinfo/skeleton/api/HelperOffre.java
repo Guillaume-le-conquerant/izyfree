@@ -36,17 +36,7 @@ public class HelperOffre {
         return createOffre(offre);
     }
     
-    public static Offre createOffreWithListeMots(String name, String listeMots) {
-        Offre offre= new Offre(0, name);
-        offre.setListeMots(listeMots);
-        return createOffre(offre);
-    }
-    
-    public static Offre createOffreWithIdEntreprise(String name, Entreprise entreprise) {
-        Offre offre= new Offre(0, name);
-        offre.setIdEntreprise(entreprise.getId());
-        return createOffre(offre);
-    }
+
 
     private static Offre createOffre(Offre offre) {
         int id = dao.insert(offre);
@@ -54,30 +44,29 @@ public class HelperOffre {
         return offre;
     }
 
-    private static Offre createFullOffre(String intitule, String dateDeb, String dateFin, String listeMots,Entreprise entreprise) {
+    private static Offre createFullOffre(String intitule, String dateDeb, String dateFin,Entreprise entreprise) {
         Offre offre = new Offre(0, intitule);
         offre.setDateDeb(dateDeb);
         offre.setDateFin(dateFin);
-        offre.setListeMots(listeMots);
-        offre.setIdEntreprise(entreprise.getId());
+        offre.setNomEntreprise(entreprise.getNomContact());
         int id = dao.insert(offre);
         offre.setId(id);
         return offre;
     }
 
     static Offre createOffre1() {
-        return createFullOffre("Offre_1", "2018-03-22", "2018-10-22", "Mot1?Mot2", new Entreprise());
+        return createFullOffre("Offre_1", "2018-03-22", "2018-10-22", new Entreprise(1, "CGI"));
     }
 
     static void createOffre2() {
-        createFullOffre("Offre_2", "2018-04-22", "2018-11-22", "Mot1?Mot2", new Entreprise());
+        createFullOffre("Offre_2", "2018-04-22", "2018-11-22", new Entreprise(1, "CGI"));
     }
 
     static void createOffre3() {
-         createFullOffre("Offre_3","2018-05-22", "2018-9-22", "Mot1?Mot2", new Entreprise());
+         createFullOffre("Offre_3","2018-05-22", "2018-9-22", new Entreprise(1, "CGI"));
     }
 
     static void createOffre4() {
-        createFullOffre("Offre_4", "2018-06-22", "2018-12-22", "Mot1?Mot2", new Entreprise());
+        createFullOffre("Offre_4", "2018-06-22", "2018-12-22", new Entreprise(1, "CGI"));
     }
 }

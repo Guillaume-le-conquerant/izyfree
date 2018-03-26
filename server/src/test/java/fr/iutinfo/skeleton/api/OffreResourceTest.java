@@ -66,28 +66,12 @@ public class OffreResourceTest extends JerseyTest {
     }
     
     @Test
-    public void read_offre_should_return_good_listeMots() {
-        createOffre3();
-        OffreDto offre = target(PATH + "/intitule/Offre_3").request().get(OffreDto.class);
-        String[] mots = offre.getListeMots().split("\\?");
-        assertEquals("Mot1", mots[0]);
-        assertEquals("Mot2", mots[1]);
-    }
-    
-    @Test
-    public void read_offre_should_return_good_idEntreprise() {
-        createOffre4();
-        OffreDto offre = target(PATH + "/intitule/Offre_4").request().get(OffreDto.class);
-        assertEquals(new Entreprise().getId(), offre.getIdEntreprise());
-    }
-
-    @Test
     public void create_should_return_the_offre_with_valid_id() {
         OffreDto offre = new OffreDto();
         offre.setIntitule("thomas");
         Entity<OffreDto> offreEntity = Entity.entity(offre, MediaType.APPLICATION_JSON);
         String json = target(PATH).request().post(offreEntity).readEntity(String.class);
-        assertEquals("{\"id\":1,\"idEntreprise\":0,\"intitule\":\"thomas\"}", json.substring(0, json.length()));
+        assertEquals("{\"id\":1,\"intitule\":\"thomas\"}", json.substring(0, json.length()));
     }
 
     @Test
@@ -123,7 +107,7 @@ public class OffreResourceTest extends JerseyTest {
         offrePut.setIntitule("clavier");
         Entity<OffreDto> offreEntityPut = Entity.entity(offrePut, MediaType.APPLICATION_JSON);
         String jsonPut = target(PATH+"/id/1").request().put(offreEntityPut).readEntity(String.class);
-        assertEquals("{\"id\":1,\"idEntreprise\":0,\"intitule\":\"clavier\"}", jsonPut.substring(0, jsonPut.length()));
+        assertEquals("{\"id\":1,\"intitule\":\"clavier\"}", jsonPut.substring(0, jsonPut.length()));
     }
 
     @Test

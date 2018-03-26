@@ -13,7 +13,6 @@ public class OffreDto {
     private String dateDeb;
     private String dateFin;
     private String listeMots;
-    private int idEntreprise;
     private String nomEntreprise;
     private String champLibre;
 
@@ -72,14 +71,6 @@ public class OffreDto {
     public void setListeMots(String mots) {
        this.listeMots = mots;
     }
-
-	public int getIdEntreprise() {
-		return idEntreprise;
-	}
-
-	public void setIdEntreprise(int idEntreprise) {
-		this.idEntreprise = idEntreprise;
-	}
 
 	@Override
 	public String toString() {

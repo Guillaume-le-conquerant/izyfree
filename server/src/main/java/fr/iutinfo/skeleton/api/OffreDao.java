@@ -7,10 +7,10 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 import java.util.List;
 
 public interface OffreDao {
-    @SqlUpdate("create table offres (id integer primary key autoincrement, intitule varchar(100),dateDeb varchar(15), dateFin varchar(15), listeMots varchar(100), idEntreprise integer, foreign key (idEntreprise) references entreprise(id))")
+    @SqlUpdate("create table offres (id integer primary key autoincrement, intitule varchar(100),dateDeb varchar(15), dateFin varchar(15), nomEntreprise varchar(50) , champLibre varchar(100))")
     void createOffreTable();
 
-    @SqlUpdate("insert into offres (intitule, dateDeb, dateFin, listeMots, idEntreprise) values (:intitule, :dateDeb, :dateFin, :listeMots, :idEntreprise)")
+    @SqlUpdate("insert into offres (intitule, dateDeb, dateFin, nomEntreprise, champLibre) values (:intitule, :dateDeb, :dateFin, :nomEntreprise, :champLibre)")
     @GetGeneratedKeys
     int insert(@BindBean() Offre offre);
 
@@ -36,7 +36,7 @@ public interface OffreDao {
     @RegisterMapperFactory(BeanMapperFactory.class)
     Offre findById(@Bind("id") int id);
     
-    @SqlUpdate("update offres set intitule = :intitule, dateDeb = :dateDeb, dateFin = :dateFin, listeMots = :listeMots where id = :id and idEntreprise = :idEntreprise")
+    @SqlUpdate("update offres set intitule = :intitule, dateDeb = :dateDeb, dateFin = :dateFin, nomEntreprise = :nomEntreprise, champLibre = :champLibre where id = :id")
     @GetGeneratedKeys
     int update(@BindBean() Offre offre);
     

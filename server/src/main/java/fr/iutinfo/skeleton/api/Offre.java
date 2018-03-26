@@ -11,8 +11,6 @@ public class Offre {
 	private String intitule;
 	private String dateDeb;
 	private String dateFin;
-	private String listeMots;
-	private int idEntreprise;
 	private String nomEntreprise;
 	private String champLibre;
 
@@ -22,13 +20,11 @@ public class Offre {
 		this.intitule = intitule;
 	}
 
-	public Offre(int id, String intitule, String dateDeb, String dateFin, String listeMots, int idEntreprise, String nomEntreprise, String champLibre) {
+	public Offre(int id, String intitule, String dateDeb, String dateFin, String nomEntreprise, String champLibre) {
 		this.id = id;
 		this.intitule = intitule;
 		this.dateDeb = dateDeb;
 		this.dateFin = dateFin;
-		this.listeMots = listeMots;
-		this.idEntreprise = idEntreprise;
 		this.nomEntreprise = nomEntreprise;
 		this.champLibre = champLibre;
 	}
@@ -36,13 +32,6 @@ public class Offre {
 	public Offre() {
 	}
 
-	public int getIdEntreprise() {
-		return idEntreprise;
-	}
-
-	public void setIdEntreprise(int idEntrepise) {
-		this.idEntreprise = idEntrepise;
-	}
 	
 
 	public String getChampLibre() {
@@ -86,26 +75,20 @@ public class Offre {
 	}
 
 
-	public void setListeMots(String listeMots) {
-		this.listeMots = listeMots;
-	}
 
-	public String getListeMots() {
-		return listeMots;
-	}
 
 	@Override
 	public boolean equals(Object arg) {
 		if (getClass() != arg.getClass())
 			return false;
 		Offre offre = (Offre) arg;
-		return intitule.equals(offre.intitule) && dateDeb.equals(offre.dateDeb) && dateFin.equals(offre.dateFin)
-				&& listeMots.equals(offre.listeMots) && idEntreprise == offre.idEntreprise;
+		return intitule.equals(offre.intitule) && dateDeb.equals(offre.dateDeb) && dateFin.equals(offre.dateFin);
+				
 	}
 
 	@Override
 	public String toString() {
-		String res = id + ": " + intitule + ", " + dateDeb + ", " + dateFin + ", " + listeMots + ", " + idEntreprise;
+		String res = id + ": " + intitule + ", " + dateDeb + ", " + dateFin + ", " + nomEntreprise;
 		return res;
 	}
 
@@ -114,8 +97,6 @@ public class Offre {
 		this.setDateDeb(dto.getDateDeb());
 		this.setId(dto.getId());
 		this.setDateFin(dto.getDateFin());
-		this.setListeMots(dto.getListeMots());
-		this.setIdEntreprise(dto.getIdEntreprise());
 		this.setNomEntreprise(dto.getNomEntreprise());
 		this.setChampLibre(dto.getChampLibre());
 	}
@@ -126,8 +107,6 @@ public class Offre {
 		dto.setDateDeb(this.getDateDeb());
 		dto.setId(this.getId());
 		dto.setDateFin(this.getDateFin());
-		dto.setListeMots(this.getListeMots());
-		dto.setIdEntreprise(this.getIdEntreprise());
 		dto.setNomEntreprise(this.getNomEntreprise());
 		dto.setChampLibre(this.getChampLibre());
 		return dto;
