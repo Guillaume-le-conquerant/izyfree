@@ -344,3 +344,8 @@ nav img{
     vertical-align:middle;
     margin-top: 200px;
 }
+
+#btn_login{
+	background-color: #0E86E2;
+	color: white ;
+} 
