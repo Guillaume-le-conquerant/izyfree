@@ -122,11 +122,29 @@ nav img{
 }
 .contact h1{
 	color:#4169E1; 
-	text-align:center;
 }
+
+.contact{
+	text-align:center;
+	line-height:10px;
+	margin : 30px 0;
+	border-top: 1px solid black;
+}
+
+.contact h5 {
+	color: #4169E1;
+}
+
+.contact h6 {
+	color : #DAA520;
+}
+
 .texte_entrerprise {
 	text-align:center;
-	background-color: lightblue;
+	background-color: #4682B4;
+	color: white;
+	line-height:20px;
+	
 }
 
 .depot_mission{
@@ -186,5 +204,6 @@ nav img{
 #kesako {
 	border-top: 1px solid black;
 }
+
 
 
