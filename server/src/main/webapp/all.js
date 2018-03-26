@@ -347,7 +347,7 @@ function enregistrer(){
 	$.ajax({
 		type : 'PUT',
 		contentType : 'application/json',
-		url : 'v1/freelance/id/1',
+		url : 'v1/freelance/id/2',
 		dataType : 'json',
 		data : JSON.stringify({
 			"name" : $("#nom2").val(),

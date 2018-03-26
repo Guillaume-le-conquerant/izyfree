@@ -74,7 +74,7 @@ public class FreelanceResource {
     }
     
 	@PUT
-	@Path("id/{id}")
+	@Path("/id/{id}")
 	public FreelanceDto modifyOffre(@PathParam("id") int id, FreelanceDto freelanceDto) {
 		System.out.println(freelanceDto);
 		FreelanceDto freeDto = dao.findById(id).convertToDto();
