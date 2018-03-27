@@ -439,10 +439,13 @@ function afficheMissionsSelonRecherche(data, recherche){
 		li.className = "list-group-item";
 		
 		var list = data[index].champLibre;
+		var nom = data[index].intitule;
+		console.log("INTITULE : "+ nom);
 		console.log("LIST : " + list);
 		if(list===undefined){
 		}
-		else if(list.includes(recherche)){
+		else if(nom===undefined){}
+		else if(list.includes(recherche) || nom.includes(recherche)){
 			li.innerHTML = missionsStringify(data[index]);
 			ul.appendChild(li);
 		}
