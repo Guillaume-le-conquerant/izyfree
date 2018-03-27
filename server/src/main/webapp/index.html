@@ -18,39 +18,30 @@
 <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<nav id="navigation"
-		class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<div id="accueil_logo" style="height: 100%; width: 20%;">
+	<nav id="navigation" class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<div id="accueil_logo">
 			<img src="resources/IZYFREE%20RVB%20HORIZONTAL.png"
 				alt="Logo IZYFREE" />
 		</div>
 		<div id="liste">
-			<ul class="navbar-nav">
-				<li id="offre" class="nav-item"><a class="nav-link"
-					href="#nos_offres">NOS OFFRES</a></li>
-				<li class="nav-item"><a class="nav-link" href="#kesako">KESAKO</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="#notre_motivation">NOTRE MOTIVATION</a></li>
-				<li id="btn_contact" class="nav-item"><a class="nav-link"
-					href="#zone_contact">CONTACT</a></li>
-			</ul>
+				<h5 id="offre" style="color:white;"><a 
+					href="#nos_offres">NOS OFFRES</a></h5>
+				<h5 style="color:white;"><a  href="#kesako">KESAKO</a></h5>
+				<h5 style="color:white;"><a 
+					href="#notre_motivation">NOTRE MOTIVATION</a></h5>
+				<h5 style="color:white;" id="btn_contact" ><a 
+					href="#zone_contact">CONTACT</a></h5>
 		</div>
-		<div style="margin-left: 50%">
-			<ul class="navbar-nav">
-				<li class="nav-item" style="margin-right: 10px;"><a href="#"
-					id="inscrire" style="color: white">Inscription</a></li>
-				<li class="nav-item" style="margin-right: 15px;"><a href="#"
-					id="connexion" style="color: white">Connexion</a></li>
-			</ul>
-			<ul class="navbar-nav">
-				<li class="nav-item"><input type="button" name="deconnexion"
-					id="deconnexion" value="DECONNEXION"></li>
-			</ul>
+		<div id="action">
+				<h6 style="color:white;"><a href="#"
+					id="inscrire" >Inscription</a></h6>
+				<h6  style="color:white;"><a href="#"
+					id="connexion" >Connexion</a></h6>
+				<h6 style="color:white;"><input type="button" name="deconnexion"
+					id="deconnexion" value="DECONNEXION"></h6>
 		</div>
 	</nav>
 
-	<input type="button" id="listFreelance" value="LISTER LES FREELANCE">
-	<input type="button" id="listMission" value="LISTER LES MISSIONS">
 	<div id="reponse"></div>
 	<div id="reponsemission"></div>
 
@@ -101,11 +92,15 @@
 			<div class="form_gauche">
 				<input type="text" name="nom" id="nom" placeholder="NOM*" required>
 				<input type="email" name="mail" id="mail" placeholder="EMAIL*"
-					required> <input type="text" name="societe" id="societe"
-					placeholder="SOCIETE*" required> <input type="text"
+					required> 
+					<input type="text" name="societe" id="societe"
+					placeholder="SOCIETE*" required> 
+					<input type="text"
 					name="fonction" id="fonction" placeholder="VOTRE FONCTION*"
-					required> <input type="text" name="profil" id="profil"
-					placeholder="PROFIL RECHERCHE*" required> <input
+					required> 
+					<input type="text" name="profil" id="profil"
+					placeholder="PROFIL RECHERCHE*" required> 
+					<input
 					type="text" name="ville" id="ville" placeholder="VILLE*" required>
 				<input type="tel" name="tel" id="tel" placeholder="TELEPHONE*"
 					required>
@@ -115,11 +110,15 @@
 
 			<div class="form_droite">
 				<input type="text" name="prenom" id="prenom" placeholder="PRENOM*"
-					required> <input type="text" name="intitule" id="intitule"
-					placeholder="INTITULE MISSION*" required> <input
+					required> 
+					<input type="text" name="intitule" id="intitule"
+					placeholder="INTITULE MISSION*" required> 
+					<input
 					type="date" name="datede" id="datedeb" placeholder="DATE DEBUT*"
-					required> <input type="date" name="datefn" id="datefin"
-					placeholder="DATE FIN*" required> <input type="textarea"
+					required> 
+					<input type="date" name="datefn" id="datefin"
+					placeholder="DATE FIN*" required> 
+					<input type="textarea"
 					name="champ_libre" id="libre"
 					placeholder="D'AUTRES INDICES POUR FAIRE APPARAITRE LE GENIE ?">
 				<div class="boutons_missions">
@@ -143,15 +142,21 @@
 		<div class="form_mission">
 			<div class="form_gauche">
 				<input type="text" name="nom" id="nom_freelance" placeholder="NOM*"
-					required> <input type="email" name="mail"
-					id="mail_freelance" placeholder="EMAIL*" required> <input
+					required> 
+					<input type="email" name="mail"
+					id="mail_freelance" placeholder="EMAIL*" required> 
+					<input
 					type="text" name="metier" id="metier_freelance"
-					placeholder="VOTRE METIER*" required> <input type="text"
+					placeholder="VOTRE METIER*" required> 
+					<input type="text"
 					name="skills" id="skills_freelance" placeholder="COMPETENCES*"
-					required> <input type="text" name="ville"
-					id="ville_freelance" placeholder="VILLE*" required> <input
+					required> 
+					<input type="text" name="ville"
+					id="ville_freelance" placeholder="VILLE*" required> 
+					<input
 					type="tel" name="tel" id="tel_freelance" placeholder="TELEPHONE*"
-					required> <input type="text" name="ref" id="ref_freelance"
+					required> 
+					<input type="text" name="ref" id="ref_freelance"
 					placeholder="REFERENCE ANNONCE*" required>
 				<p>* CHAMPS OBLIGATOIRES</p>
 			</div>
@@ -159,10 +164,13 @@
 
 			<div class="form_droite">
 				<input type="text" name="prenom" id="prenom_freelance"
-					placeholder="PRENOM*" required> <input type="text"
+					placeholder="PRENOM*" required> 
+					<input type="text"
 					name="condition" id="condition_freelance" placeholder="CONDITION*"
-					required> <input type="number" name="prix"
-					id="prix_freelance" placeholder="PRIX*" required> <input
+					required> 
+					<input type="number" name="prix"
+					id="prix_freelance" placeholder="PRIX*" required> 
+					<input
 					type="textarea" name="champ_libre" id="libre_freelance"
 					placeholder="D'AUTRES INDICES POUR FAIRE APPARAITRE LE GENIE ?">
 
@@ -432,19 +440,24 @@
 			<div class="form_gauche">
 				<input type="text" name="nom2" id="nom2" placeholder="NOM*" required>
 				<input type="text" name="prenom2" id="prenom2" placeholder="PRENOM*"
-					required> <input type="email" name="mail2" id="mail2"
-					placeholder="EMAIL*" required> <input type="text"
+					required> 
+					<input type="email" name="mail2" id="mail2"
+					placeholder="EMAIL*" required> 
+					<input type="text"
 					name="metier2" id="metier2" placeholder="VOTRE METIER*" required>
-				<input type="text" name="skills2" id="skills2"
-					placeholder="COMPETENCES*" required> <input type="text"
-					name="ville2" id="ville2" placeholder="VILLE*" required> <input
+					<input type="text" name="skills2" id="skills2"
+					placeholder="COMPETENCES*" required> 
+					<input type="text"
+					name="ville2" id="ville2" placeholder="VILLE*" required> 
+					<input
 					type="tel" name="tel2" id="tel2" placeholder="TELEPHONE*" required>
-				<input type="text" name="champlibre2" id="champlibre2"
-					placeholder="CHAMP LIBRE"> <input type="text"
+					<input type="text" name="champlibre2" id="champlibre2"
+					placeholder="CHAMP LIBRE"> 
+					<input type="text"
 					name="conditions2" id="conditions2" placeholder="CONDITIONS*"
-					required> <input type="text" name="prix2" id="prix2"
+					required> 
+					<input type="text" name="prix2" id="prix2"
 					placeholder="TARIF*" required>
-				<p>* CHAMPS OBLIGATOIRES</p>
 			</div>
 			<input type="button" name="modif_perso" id="modif_perso"
 				value="ENREGISTRER">
@@ -596,6 +609,7 @@
 
 					$("#btn_login").click(function() {
 						login();
+						$('#proposition_mission').hide();
 					});
 
 					$("#btn_admin").click(function() {
