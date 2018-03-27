@@ -337,11 +337,9 @@ function afficheListMissions(data) {
 	var ul = document.createElement('ul');
 	ul.className = "list-group";
 	var index = data.length;
-	console.log(data.length)
 
 	if(data.length < 3){
 		for(index = data.length-1; index>=0; --index){
-			console.log(data[index]);
 			var li = document.createElement('li');
 			li.className = "list-group-item";
 			li.innerHTML = missionsStringify(data[index]);
@@ -349,7 +347,6 @@ function afficheListMissions(data) {
 		}
 	} else {
 		for(index = data.length-1; index>data.length-3; --index){
-			console.log(data[index]);
 			var li = document.createElement('li');
 			li.className = "list-group-item";
 			li.innerHTML = missionsStringify(data[index]);
@@ -360,7 +357,7 @@ function afficheListMissions(data) {
 }
 
 function listAllMission() {
-	listFreelanceGeneric("v1/offre/");
+	listAllMissionGeneric("v1/offre/");
 }
 
 function listAllMissionGeneric(url) {
@@ -375,17 +372,16 @@ function afficheAllMission(data) {
 
 	var index=0;
 	for(index = 0; index<data.length; ++index){
-		console.log(data.length);
 		var li = document.createElement('li');
 		li.className = "list-group-item";
-		li.innerHTML = freelanceStringify(data[index]);
+		li.innerHTML = missionsStringify(data[index]);
 		ul.appendChild(li);
 	}
 	$("#reponsemission").html(ul);
 }
 
 function missionsStringify(mission) {
-	return mission.intitule + ". " + mission.idEntreprise + " &lt;" + " (" + mission.id + ")";
+	return mission.intitule + ". " + mission.nomEntreprise + " (" + mission.id + ")";
 }
 
 function enregistrer(){
