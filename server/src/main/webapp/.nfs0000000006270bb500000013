@@ -18,41 +18,30 @@
 <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<div id="accueil_logo" style="height: 100%; width: 20%;">
+	<nav id="navigation" class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<div id="accueil_logo">
 			<img src="resources/IZYFREE%20RVB%20HORIZONTAL.png"
 				alt="Logo IZYFREE" />
 		</div>
-		<div>
-			<ul class="navbar-nav">
-				<li id="offre" class="nav-item"><a class="nav-link"
-					href="#nos_offres">NOS OFFRES</a></li>
-				<li class="nav-item"><a class="nav-link" href="#kesako">KESAKO</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="#notre_motivation">NOTRE MOTIVATION</a></li>
-				<li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
-			</ul>
+		<div id="liste">
+				<h5 id="offre" style="color:white;"><a 
+					href="#nos_offres">NOS OFFRES</a></h5>
+				<h5 style="color:white;"><a  href="#kesako">KESAKO</a></h5>
+				<h5 style="color:white;"><a 
+					href="#notre_motivation">NOTRE MOTIVATION</a></h5>
+				<h5 style="color:white;" id="btn_contact" ><a 
+					href="#zone_contact">CONTACT</a></h5>
 		</div>
-		<div style="margin-left: 50%">
-			<ul class="navbar-nav">
-				<li class="nav-item" style="margin-right: 10px;"><a href="#"
-					id="inscrire" style="color: white">Inscription</a></li>
-				<li class="nav-item" style="margin-right: 15px;"><a href="#"
-					id="connexion" style="color: white">Connexion</a></li>
-			</ul>
-			<ul class="navbar-nav">
-				<li class="nav-item"><input type="button" name="isfreelance"
-					id="isfreelance" value="FREELANCE"></li>
-				<li class="nav-item"><input type="button" name="isentreprise"
-					id="isentreprise" value="ENTREPRISE"></li>
-				<li class="nav-item"><input type="button" name="deconnexion"
-					id="deconnexion" value="DECONNEXION"></li>
-			</ul>
+		<div id="action">
+				<h6 style="color:white;"><a href="#"
+					id="inscrire" >Inscription</a></h6>
+				<h6  style="color:white;"><a href="#"
+					id="connexion" >Connexion</a></h6>
+				<h6 style="color:white;"><input type="button" name="deconnexion"
+					id="deconnexion" value="DECONNEXION"></h6>
 		</div>
 	</nav>
 
-	<input type="button" id="listFreelance" value="LISTER LES FREELANCE">
-	<input type="button" id="listMission" value="LISTER LES MISSIONS">
 	<div id="reponse"></div>
 	<div id="reponsemission"></div>
 
@@ -77,26 +66,21 @@
 		<div id="login_form">
 			<input type="text" name="user" id="userlogin" placeholder="Login"
 				class="form-control" /> <input type="password" name="password"
-				id="passwdlogin" placeholder="Password" class="form-control" /> <br/>
+				id="passwdlogin" placeholder="Password" class="form-control" /> <br />
 			<button id="btn_login" class="btn btn-default">Login</button>
+			<button id="btn_admin" class="btn btn-default">Admin</button>
 			<br />
 		</div>
-		<button id="profile" class="btn btn-default">Profile</button>
 	</div>
 
 	<div class="entete">
-		<img src="resources/accueil.png" alt="en tete" width="100%"
-			height="750px" />
-	</div>
 
-	<div id="dernieres_offres">
-		<div class="derniers_profils">
-			<h1>Derniers profils publiés</h1>
-		</div>
-
-		<div class="dernieres_missions">
-			<h1>Dernieres missions publiées</h1>
-		</div>
+			<div id="isfreelance">
+				<h3>JE SUIS FREELANCE</h3>
+			</div>
+			<div id="isentreprise">
+				<h3>JE SUIS UNE ENTREPRISE</h3>
+			</div>
 	</div>
 
 	<div id="formulaire_entreprise" style="background-color: lightblue;">
@@ -108,11 +92,15 @@
 			<div class="form_gauche">
 				<input type="text" name="nom" id="nom" placeholder="NOM*" required>
 				<input type="email" name="mail" id="mail" placeholder="EMAIL*"
-					required> <input type="text" name="societe" id="societe"
-					placeholder="SOCIETE*" required> <input type="text"
+					required> 
+					<input type="text" name="societe" id="societe"
+					placeholder="SOCIETE*" required> 
+					<input type="text"
 					name="fonction" id="fonction" placeholder="VOTRE FONCTION*"
-					required> <input type="text" name="profil" id="profil"
-					placeholder="PROFIL RECHERCHE*" required> <input
+					required> 
+					<input type="text" name="profil" id="profil"
+					placeholder="PROFIL RECHERCHE*" required> 
+					<input
 					type="text" name="ville" id="ville" placeholder="VILLE*" required>
 				<input type="tel" name="tel" id="tel" placeholder="TELEPHONE*"
 					required>
@@ -122,15 +110,23 @@
 
 			<div class="form_droite">
 				<input type="text" name="prenom" id="prenom" placeholder="PRENOM*"
-					required> <input type="textarea" name="champ_libre"
-					id="libre"
+					required> 
+					<input type="text" name="intitule" id="intitule"
+					placeholder="INTITULE MISSION*" required> 
+					<input
+					type="date" name="datede" id="datedeb" placeholder="DATE DEBUT*"
+					required> 
+					<input type="date" name="datefn" id="datefin"
+					placeholder="DATE FIN*" required> 
+					<input type="textarea"
+					name="champ_libre" id="libre"
 					placeholder="D'AUTRES INDICES POUR FAIRE APPARAITRE LE GENIE ?">
 				<div class="boutons_missions">
 					<div class="descriptif_mission">
 						<p>JE JOINS MON DESCRIPTIF DE MISSION</p>
 					</div>
 
-					<div class="envoyer">
+					<div id="envoyer_offre">
 						<p>ENVOYER</p>
 					</div>
 				</div>
@@ -146,15 +142,21 @@
 		<div class="form_mission">
 			<div class="form_gauche">
 				<input type="text" name="nom" id="nom_freelance" placeholder="NOM*"
-					required> <input type="email" name="mail"
-					id="mail_freelance" placeholder="EMAIL*" required> <input
+					required> 
+					<input type="email" name="mail"
+					id="mail_freelance" placeholder="EMAIL*" required> 
+					<input
 					type="text" name="metier" id="metier_freelance"
-					placeholder="VOTRE METIER*" required> <input type="text"
+					placeholder="VOTRE METIER*" required> 
+					<input type="text"
 					name="skills" id="skills_freelance" placeholder="COMPETENCES*"
-					required> <input type="text" name="ville"
-					id="ville_freelance" placeholder="VILLE*" required> <input
+					required> 
+					<input type="text" name="ville"
+					id="ville_freelance" placeholder="VILLE*" required> 
+					<input
 					type="tel" name="tel" id="tel_freelance" placeholder="TELEPHONE*"
-					required> <input type="text" name="ref" id="ref_freelance"
+					required> 
+					<input type="text" name="ref" id="ref_freelance"
 					placeholder="REFERENCE ANNONCE*" required>
 				<p>* CHAMPS OBLIGATOIRES</p>
 			</div>
@@ -162,10 +164,13 @@
 
 			<div class="form_droite">
 				<input type="text" name="prenom" id="prenom_freelance"
-					placeholder="PRENOM*" required> <input type="text"
+					placeholder="PRENOM*" required> 
+					<input type="text"
 					name="condition" id="condition_freelance" placeholder="CONDITION*"
-					required> <input type="number" name="prix"
-					id="prix_freelance" placeholder="PRIX*" required> <input
+					required> 
+					<input type="number" name="prix"
+					id="prix_freelance" placeholder="PRIX*" required> 
+					<input
 					type="textarea" name="champ_libre" id="libre_freelance"
 					placeholder="D'AUTRES INDICES POUR FAIRE APPARAITRE LE GENIE ?">
 
@@ -174,7 +179,7 @@
 						<p>JE JOINS MON CV</p>
 					</div>
 
-					<div class="envoyer_freelance">
+					<div id="envoyer_freelance">
 						<p>ENVOYER</p>
 					</div>
 				</div>
@@ -220,7 +225,7 @@
 	</div>
 
 	<div class="entreprise">
-		<div class="texte_entrerprise">
+		<div class="texte_entreprise">
 			<h1>ENTREPRISES</h1>
 			<p>Dans un marché pénurique, IZYFREE prend en charge le sourcing
 			</p>
@@ -259,12 +264,22 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
+
 	<div id="proposition_mission">
 		<h5>JE PROPOSE UNE MISSION</h5>
 	</div>
 	</div>
+	</div>
+
+	<div id="dernieres_offres">
+		<div class="derniers_profils">
+			<h1>Derniers profils publiés</h1>
+		</div>
+
+		<div class="dernieres_missions">
+			<h1>Dernieres missions publiées</h1>
+		</div>
 	</div>
 
 	<div id="kesako">
@@ -425,24 +440,31 @@
 			<div class="form_gauche">
 				<input type="text" name="nom2" id="nom2" placeholder="NOM*" required>
 				<input type="text" name="prenom2" id="prenom2" placeholder="PRENOM*"
-					required> <input type="email" name="mail2" id="mail2"
-					placeholder="EMAIL*" required> <input type="text"
+					required> 
+					<input type="email" name="mail2" id="mail2"
+					placeholder="EMAIL*" required> 
+					<input type="text"
 					name="metier2" id="metier2" placeholder="VOTRE METIER*" required>
-				<input type="text" name="skills2" id="skills2"
-					placeholder="COMPETENCES*" required> <input type="text"
-					name="ville2" id="ville2" placeholder="VILLE*" required> <input
+					<input type="text" name="skills2" id="skills2"
+					placeholder="COMPETENCES*" required> 
+					<input type="text"
+					name="ville2" id="ville2" placeholder="VILLE*" required> 
+					<input
 					type="tel" name="tel2" id="tel2" placeholder="TELEPHONE*" required>
-				<input type="text" name="champlibre2" id="champlibre2"
-					placeholder="CHAMP LIBRE"> <input type="text"
+					<input type="text" name="champlibre2" id="champlibre2"
+					placeholder="CHAMP LIBRE"> 
+					<input type="text"
 					name="conditions2" id="conditions2" placeholder="CONDITIONS*"
-					required> <input type="text" name="prix2" id="prix2"
+					required> 
+					<input type="text" name="prix2" id="prix2"
 					placeholder="TARIF*" required>
-				<p>* CHAMPS OBLIGATOIRES</p>
 			</div>
 			<input type="button" name="modif_perso" id="modif_perso"
 				value="ENREGISTRER">
 		</div>
 	</div>
+
+	<div id="zone_contact"></div>
 
 	<div class="contact">
 		<h1>NOUS SOMMES LA POUR VOUS</h1>
@@ -475,9 +497,8 @@
 		$('#login').hide();
 		$('#inscription').hide();
 		$('#formulaire_entreprise').hide();
-		$('#offre').hide();
 		$('#deconnexion').hide();
-		$('#formulaire_moncompte').hide(); 
+		$('#formulaire_moncompte').hide();
 
 		$(document).ready(
 				function() {
@@ -502,8 +523,12 @@
 						$('#nos_offres').show()
 						$('.entreprise').show()
 						$('#notre_motivation').show()
-						$('#formulaire_entreprise').show()
+						$('#formulaire_freelance').show()
+						$('#formulaire_entreprise').hide()
 						$('#inscription').hide()
+						$('#proposition_mission').show()
+						$('#proposition_profil').show()
+
 					});
 
 					$('#proposition').click(function() {
@@ -530,6 +555,8 @@
 						$('#notre_motivation').hide()
 						$('#formulaire_entreprise').hide()
 						$('#inscription').show()
+						$('#proposition_profil').hide()
+						$('#proposition_mission').hide()
 					});
 
 					$("#connexion").click(function() {
@@ -543,23 +570,32 @@
 						$('#formulaire_entreprise').hide()
 						$('#login').show()
 					});
-                    
-                    $("#envoyer_freelance").click(
+
+					$("#envoyer_offre").click(
 							function() {
-								postFreelanceForm(
-									$('#nom_freelance').val(), 
-									$('#prenom_freelance').val(), 
-                                    $('#mail_freelance').val(), 
-                                    $('#metier_freelance').val(), 
-                                    $('#skills_freelance').val(), 
-                                    $('#ville_freelance').val(), 
-                                    $('#tel_freelance').val(),
-                                    $('#libre_freelance').val(),
-                                    $('#condition_freelance').val(),
-                                    $('#prix_freelance').val())
-								});
-                    
-                    $("#post").click(
+								postOffre($('#intitule').val(), $('#datedeb')
+										.val(), $('#datefin').val(), $(
+										'#societe').val(), $('#libre').val())
+								postEntreprise($('#societe').val(), $('#nom')
+										.val(), $('#prenom').val(), $('#tel')
+										.val(), $('#mail').val(), $('#fonction').val(), $('#profil').val(), $('#ville').val(), $('#libre').val())
+							});
+
+					$("#envoyer_freelance").click(
+							function() {
+								postFreelanceForm($('#nom_freelance').val(), $(
+										'#prenom_freelance').val(), $(
+										'#mail_freelance').val(), $(
+										'#metier_freelance').val(), $(
+										'#skills_freelance').val(), $(
+										'#ville_freelance').val(), $(
+										'#tel_freelance').val(), $(
+										'#libre_freelance').val(), $(
+										'#condition_freelance').val(), $(
+										'#prix_freelance').val())
+							});
+
+					$("#post").click(
 							function() {
 								postFreelance($('#name').val(), $('#firstname')
 										.val(), $('#email').val(), $('#passwd')
@@ -568,31 +604,25 @@
 
 					$("#get").click(function() {
 						getUser($('#user').val(), $('#alias').val())
+
 					});
-
-					$("#post").click(
-							function() {
-								postFreelance($('#name').val(), $('#firstname')
-										.val(), $('#email').val(), $('#passwd')
-										.val())
-							}, console.log("Ok pour le post"));
-
-					
 
 					$("#btn_login").click(function() {
 						login();
+						$('#proposition_mission').hide();
 					});
 
-					$("#profile").click(function() {
-						profile()
+					$("#btn_admin").click(function() {
+						loginAdmin();
 					});
 
 					$("#isentreprise").click(function() {
+						$('#inscription').hide()
 						$('.proposition_profil').hide();
 						$('.entete').hide();
 						$('#formulaire_entreprise').show();
-                        $('#formulaire_freelance').hide();
-                        $('#freelance').hide();
+						$('#formulaire_freelance').hide();
+						$('#freelance').hide();
 						$('#inscription_entreprise').show();
 						$('.entreprise').show();
 						$('#dernieres_offres').hide();
@@ -603,17 +633,21 @@
 					});
 
 					$("#isfreelance").click(function() {
+						$('#inscription').hide()
 						$('#inscription_entreprise').hide();
 						$('#formulaire_entreprise').hide();
-                        $('#formulaire_freelance').show();
-                        $('.entete').hide();
-                        $('#login').hide();
-                        $('.entreprise').hide();
+						$('#formulaire_freelance').show();
+						$('.entete').hide();
+						$('#login').hide();
+						$('.entreprise').hide();
 						$('.depot_mission').hide();
 						$('.proposition_profil').show();
 						$('#dernieres_offres').hide();
 						$('.nos_missions').show();
 						$('.nos_offres').show();
+						$('#nos_offres').hide();
+						$('#proposition_profil').hide();
+						$('#proposition_mission').hide();
 						$('#offre').show();
 					})
 					$("#deconnexion").click(function() {
@@ -630,7 +664,7 @@
 						$("#deconnexion").hide();
 						$('#formulaire_moncompte').hide();
 					})
-					
+
 					$("#listFreelance").click(function() {
 						listFreelance();
 					})
@@ -638,13 +672,13 @@
 						listAllMission();
 					})
 
-					$('#proposition_mission').click(function(){
+					$('#proposition_mission').click(function() {
 						$('#proposition_mission').hide();
 						$('.proposition_profil').hide();
 						$('.entete').hide();
 						$('#formulaire_entreprise').show();
-                        $('#formulaire_freelance').hide();
-                        $('#freelance').hide();
+						$('#formulaire_freelance').hide();
+						$('#freelance').hide();
 						$('#inscription_entreprise').show();
 						$('.entreprise').show();
 						$('#dernieres_offres').hide();
@@ -654,25 +688,25 @@
 						$('#formulaire_freelance').hide();
 					})
 
-					$('#proposition_profil').click(function(){
+					$('#proposition_profil').click(function() {
 						$('#proposition_profil').hide();
 						$('#inscription_entreprise').hide();
 						$('#formulaire_entreprise').hide();
-                        $('#formulaire_freelance').show();
-                        $('.entete').hide();
-                        $('#login').hide();
-                        $('.entreprise').hide();
+						$('#formulaire_freelance').show();
+						$('.entete').hide();
+						$('#login').hide();
+						$('.entreprise').hide();
 						$('.depot_mission').hide();
 						$('.proposition_profil').show();
 						$('#dernieres_offres').hide();
 						$('.nos_missions').show();
 						$('.nos_offres').show();
 						$('#offre').show();
-						
+					});
+
 					$("#modif_perso").click(function() {
-						enregistrer();
-					})
-				});
+						enregistrer()
+					});
 				});
 	</script>
 </body>

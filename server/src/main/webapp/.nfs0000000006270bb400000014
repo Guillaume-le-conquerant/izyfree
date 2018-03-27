@@ -31,6 +31,45 @@ function login() {
 				document.getElementById("nom2").value=data[index].name;
 				document.getElementById("prenom2").value=data[index].firstname;
 				document.getElementById("mail2").value=data[index].email;
+				console.log(data[index].job);
+				if(data[index].job != null){ document.getElementById("metier2").value=data[index].job; } else{document.getElementById("metier2").value=""; }
+				if(data[index].mots != null){ document.getElementById("skills2").value=data[index].mots; } else{document.getElementById("skills2").value=""; }
+				if(data[index].localisation != null){ document.getElementById("ville2").value=data[index].localisation; } else{document.getElementById("ville2").value=""; }
+				if(data[index].phone != null){ document.getElementById("tel2").value=data[index].phone; } else{document.getElementById("tel2").value=""; }
+				if(data[index].champLibre != null){ document.getElementById("champlibre2").value=data[index].champLibre; } else{document.getElementById("champlibre2").value=""; }
+				if(data[index].conditions != null){ document.getElementById("conditions2").value=data[index].conditions; } else{document.getElementById("conditions2").value=""; }
+				if(data[index].tarif != null){ document.getElementById("prix2").value=data[index].tarif; } else{document.getElementById("prix2").value=""; }
+				$('#formulaire_moncompte').show();
+				return;
+			}	
+		}
+		alert("identifiant ou mot de passe incorrect");
+	});
+}
+
+function loginAdmin() {
+	/*getWithAuthorizationHeader("v1/login", function(data){
+	    $("#connexion").hide();
+	    afficheUser(data);
+	});*/
+	$.getJSON("/v1/staff", function(data) {
+		for(index=0; index < data.length ; ++index){
+			if(data[index].email == $("#userlogin").val() && data[index].isGoodPassword($("#passwdlogin"))){
+				alert("connecté en tant qu'administrateur");
+				$('#login').hide();
+				$('#inscription').hide();
+				$('#formulaire_entreprise').hide();
+				$('#inscrire').hide();
+				$('#connexion').hide();
+				$('#isfreelance').hide();
+				$('#isentreprise').hide();
+				$('#simplificateur').hide();
+				$('#formulaire_freelance').hide();
+				$('#dernieres_offres').hide();
+				$('#deconnexion').show();
+				document.getElementById("nom2").value=data[index].name;
+				document.getElementById("prenom2").value=data[index].firstname;
+				document.getElementById("mail2").value=data[index].email;
 				$('#formulaire_moncompte').show();
 				return;
 			}	
@@ -115,7 +154,7 @@ function postFreelance(name, firstname, email, pwd) {
 				"password" : pwd
 			}),
 			success : function(data, textStatus, jqXHR) {
-				afficheUser(data);
+				alert("Tu es inscris");
 				$('#inscription').hide();
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
@@ -155,7 +194,30 @@ function postFreelanceForm(name, firstname, email, job, mots, localisation, phon
 	});
 }
 
-function postEntreprise(name, firstname, email, pwd) {
+function postOffre(intitule, dateDeb, dateFin, nomEntreprise, champLibre){
+	$.ajax({
+		type : 'POST',
+		contentType : 'application/json',
+		url : 'v1/offre/',
+		dataType : "json",
+		data : JSON.stringify({
+			"intitule":intitule,
+			"dateDeb": dateDeb,
+			"dateFin": dateFin,
+			"nomEntreprise": nomEntreprise,
+			"champLibre": champLibre
+		}),
+		success : function(data, textStatus, jqXHR) {
+			afficherUser(data);
+		},
+		error : function(jqXHR, textStatus, errorThrown){
+			console.log('postOffre error: ' + textStatus);
+		}
+		
+	})
+}
+
+function postEntreprise(name, nomContact, prenomContact, tel, email, fonctionsContact, profilRecherche, ville, champLibre) {
 	console.log("postUserGeneric " + 'v1/entreprise')
 	$.ajax({
 		type : 'POST',
@@ -164,13 +226,18 @@ function postEntreprise(name, firstname, email, pwd) {
 		dataType : "json",
 		data : JSON.stringify({
 			"name" : name,
-			"firstname" : firstname,
+			"nomContact" : nomContact,
+			"prenomContact" : prenomContact,
+			"tel": tel,
 			"email" : email,
-			"password" : pwd
+			"fonctionsContact": fonctionsContact,
+			"profilRecherche": profilRecherche,
+			"ville": ville,
+			"champLibre": champLibre
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
-			$('#inscription').hide();
+			alert("Offre Enregistré");
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			console.log('postUser error: ' + textStatus);
