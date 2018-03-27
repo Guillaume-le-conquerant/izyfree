@@ -361,3 +361,9 @@ body {
 #formulaire_moncompte {
     padding:10px;
 }
+
+#envoyer_offre {
+    background-color: orange;
+    text-align: center;
+    color: white;
+}
