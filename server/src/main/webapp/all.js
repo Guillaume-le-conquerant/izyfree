@@ -151,7 +151,7 @@ function postFreelanceForm(name, firstname, email, job, mots, localisation, phon
 			"ref" : ref,
 			"champLibre" : champLibre,
 			"conditions" : conditions,
-			"prix": prix
+			"tarif": prix
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
