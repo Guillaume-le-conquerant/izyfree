@@ -346,6 +346,13 @@ function affiche3LastFreelance(data) {
 			li.innerHTML = freelanceStringify(data[index]);
 			ul.appendChild(li);
 		}		
+	} else {
+		for(index = 0; index<=data.length-1; ++index){
+			var li = document.createElement('li');
+			li.className = "list-group-item";
+			li.innerHTML = freelanceStringify(data[index]);
+			ul.appendChild(li);
+		}		
 	}
 	$(".derniers_profils").append(ul);
 }
