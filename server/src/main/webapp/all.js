@@ -384,8 +384,41 @@ function afficheAllMission(data) {
 	$("#reponsemission").html(ul);
 }
 
+function listMissionsSelonRecherche(recherche) {
+	listMissionGenericSelonRecherche("v1/offre/", recherche);
+}
+
+function listMissionGenericSelonRecherche(url, recherche) {
+	$.getJSON(url, function(data) {
+		afficheMissionsSelonRecherche(data, recherche);
+	});
+}
+
+function afficheMissionsSelonRecherche(data, recherche){
+	var ul = document.createElement('ul');
+	ul.className = "list-group";
+
+	var index=0;
+	for(index = 0; index<data.length; ++index){
+		console.log(data.length);
+		var li = document.createElement('li');
+		li.className = "list-group-item";
+		
+		var list = data[index].champLibre;
+		console.log("LIST : " + list);
+		if(list===undefined){
+		}
+		else if(list.includes(recherche)){
+			li.innerHTML = missionsStringify(data[index]);
+			ul.appendChild(li);
+		}
+	}
+	$("#reponsemission").html(ul);
+}
+
+
 function missionsStringify(mission) {
-	return mission.intitule + ". " + mission.idEntreprise + " &lt;" + " (" + mission.id + ")";
+	return mission.intitule + ". " + mission.nomEntreprise + " &lt;" + " (" + mission.id + ")" + "[" + mission.champLibre +"]";
 }
 
 function enregistrer(){
