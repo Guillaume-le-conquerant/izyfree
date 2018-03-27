@@ -187,6 +187,7 @@ function postFreelanceForm(name, firstname, email, job, mots, localisation, phon
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
 			$('#formulaire_freelance').hide();
+			alert("Tu es inscrit");
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			console.log('postUser error: ' + textStatus);
@@ -208,7 +209,7 @@ function postOffre(intitule, dateDeb, dateFin, nomEntreprise, champLibre){
 			"champLibre": champLibre
 		}),
 		success : function(data, textStatus, jqXHR) {
-			afficherUser(data);
+			$("#formulaire_entreprise").hide();
 		},
 		error : function(jqXHR, textStatus, errorThrown){
 			console.log('postOffre error: ' + textStatus);
@@ -236,7 +237,6 @@ function postEntreprise(name, nomContact, prenomContact, tel, email, fonctionsCo
 			"champLibre": champLibre
 		}),
 		success : function(data, textStatus, jqXHR) {
-			afficheUser(data);
 			alert("Offre Enregistré");
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
