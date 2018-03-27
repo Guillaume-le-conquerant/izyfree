@@ -55,7 +55,7 @@ body {
 
 .descriptif_mission {
     
-    background-color: #DAA520;
+    background-color: orange;
 }
 
 .envoyer_freelance{
@@ -363,7 +363,6 @@ body {
 }
 
 #envoyer_offre {
-    background-color: orange;
+    background-color: yellow;
     text-align: center;
-    color: white;
 }
