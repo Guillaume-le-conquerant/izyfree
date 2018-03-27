@@ -1,0 +1,4 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Mar 26 17:09:13 CEST 2018
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1522076953687
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.apache.maven.plugins\:maven-resources-plugin\:pom\:2.6 from/to central (https\://repo.maven.apache.org/maven2)\: Connect to repo.maven.apache.org\:443 [repo.maven.apache.org/151.101.120.215] failed\: Connexion termin\u00E9e par expiration du d\u00E9lai d'attente
