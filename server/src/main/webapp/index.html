@@ -655,22 +655,23 @@
 
 					$('#proposition_mission').click(function() {
 						$('#proposition_mission').hide();
-						$('.proposition_profil').hide();
+						$('#proposition_profil').hide();
 						$('.entete').hide();
 						$('#formulaire_entreprise').show();
 						$('#formulaire_freelance').hide();
 						$('#freelance').hide();
 						$('#inscription_entreprise').show();
-						$('.entreprise').show();
+						$('.entreprise').hide();
 						$('#dernieres_offres').hide();
 						$('.depot_mission').show();
-						$('.nos_offres').show();
+						$('#nos_offres').hide();
 						$('#offre').show();
 						$('#formulaire_freelance').hide();
 					})
 
 					$('#proposition_profil').click(function() {
 						$('#proposition_profil').hide();
+						$('#proposition_mission').hide();
 						$('#inscription_entreprise').hide();
 						$('#formulaire_entreprise').hide();
 						$('#formulaire_freelance').show();
@@ -682,6 +683,7 @@
 						$('#dernieres_offres').hide();
 						$('.nos_missions').show();
 						$('.nos_offres').show();
+						$('#nos_offres').hide();
 						$('#offre').show();
 					});
 
