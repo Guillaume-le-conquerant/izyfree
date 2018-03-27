@@ -48,9 +48,9 @@ public class EntrepriseResourceTest extends JerseyTest {
 
     @Test
     public void read_entreprise_should_return_good_email() {
-        createIut();
-        EntrepriseDTO entreprise = target(PATH + "/IUT").request().get(EntrepriseDTO.class);
-        assertEquals("titi@iut.com", entreprise.getEmail());
+        createCGI();
+        EntrepriseDTO entreprise = target(PATH + "/CGI").request().get(EntrepriseDTO.class);
+        assertEquals("toto@cgi.com", entreprise.getEmail());
     }
 
 
