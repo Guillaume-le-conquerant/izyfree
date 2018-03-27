@@ -462,6 +462,10 @@
 			<input type="button" name="modif_perso" id="modif_perso"
 				value="ENREGISTRER">
 		</div>
+			<div class="recherche">
+			<input id="search" name="q" type="text" placeholder="Rechercher" />
+			<input id="search-btn" type="button" value="Rechercher" />
+		</div>
 	</div>
 
 	<div id="zone_contact"></div>
@@ -707,6 +711,12 @@
 					$("#modif_perso").click(function() {
 						enregistrer()
 					});
+
+					$('#search-btn').click(function(){
+										var recherche = document.getElementById('search').value;
+										console.log("recherche " + recherche);
+										listMissionsSelonRecherche(recherche);
+									})
 				});
 	</script>
 </body>

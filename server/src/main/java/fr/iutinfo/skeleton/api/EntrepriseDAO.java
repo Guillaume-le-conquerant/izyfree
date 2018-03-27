@@ -35,6 +35,10 @@ public interface EntrepriseDAO {
     @SqlQuery("select * from entreprise where id = :id")
     @RegisterMapperFactory(BeanMapperFactory.class)
     Entreprise findById(@Bind("id") int id);
+    
+    @SqlUpdate("update entreprise set name = :name, nomContact = :nomContact, prenomContact= :prenomContact, tel = :tel, email = :email, fonctionsContact = :fonctionsContact, profilRecherche = :profilRecherche, ville = :ville, champLibre = :champLibre, search = :search where id = :id")
+    @GetGeneratedKeys
+    int update(@BindBean() Entreprise entreprise);
 
     void close();
 }

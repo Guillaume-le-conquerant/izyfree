@@ -368,11 +368,9 @@ function afficheListMissions(data) {
 	var ul = document.createElement('ul');
 	ul.className = "list-group";
 	var index = data.length;
-	console.log(data.length)
 
 	if(data.length < 3){
 		for(index = data.length-1; index>=0; --index){
-			console.log(data[index]);
 			var li = document.createElement('li');
 			li.className = "list-group-item";
 			li.innerHTML = missionsStringify(data[index]);
@@ -380,7 +378,6 @@ function afficheListMissions(data) {
 		}
 	} else {
 		for(index = data.length-1; index>data.length-3; --index){
-			console.log(data[index]);
 			var li = document.createElement('li');
 			li.className = "list-group-item";
 			li.innerHTML = missionsStringify(data[index]);
@@ -391,7 +388,7 @@ function afficheListMissions(data) {
 }
 
 function listAllMission() {
-	listFreelanceGeneric("v1/offre/");
+	listAllMissionGeneric("v1/offre/");
 }
 
 function listAllMissionGeneric(url) {
@@ -406,17 +403,51 @@ function afficheAllMission(data) {
 
 	var index=0;
 	for(index = 0; index<data.length; ++index){
-		console.log(data.length);
 		var li = document.createElement('li');
 		li.className = "list-group-item";
-		li.innerHTML = freelanceStringify(data[index]);
+		li.innerHTML = missionsStringify(data[index]);
 		ul.appendChild(li);
 	}
 	$("#reponsemission").html(ul);
 }
 
+function listMissionsSelonRecherche(recherche) {
+	listMissionGenericSelonRecherche("v1/offre/", recherche);
+}
+
+function listMissionGenericSelonRecherche(url, recherche) {
+	$.getJSON(url, function(data) {
+		afficheMissionsSelonRecherche(data, recherche);
+	});
+}
+
+function afficheMissionsSelonRecherche(data, recherche){
+	var ul = document.createElement('ul');
+	ul.className = "list-group";
+
+	var index=0;
+	for(index = 0; index<data.length; ++index){
+		console.log(data.length);
+		var li = document.createElement('li');
+		li.className = "list-group-item";
+		
+		var list = data[index].champLibre;
+		console.log("LIST : " + list);
+		if(list===undefined){
+		}
+		else if(list.includes(recherche)){
+			li.innerHTML = missionsStringify(data[index]);
+			ul.appendChild(li);
+		}
+	}
+	$("#reponsemission").html(ul);
+}
+
+
 function missionsStringify(mission) {
-	return mission.intitule + ". " + mission.idEntreprise + " &lt;" + " (" + mission.id + ")";
+
+	return mission.intitule + ". " + mission.nomEntreprise + " (" + mission.id + ")" + "[" + mission.champLibre +"]";
+
 }
 
 function enregistrer(){
